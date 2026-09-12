@@ -1,0 +1,242 @@
+[
+  {
+    "crop": "玉米",
+    "year": 2015,
+    "yield_t_ha": 5.8929,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2016,
+    "yield_t_ha": 5.9671,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2017,
+    "yield_t_ha": 6.1103,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2018,
+    "yield_t_ha": 6.1043,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2019,
+    "yield_t_ha": 6.3173003,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2020,
+    "yield_t_ha": 6.3177004,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2021,
+    "yield_t_ha": 6.2910004,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2022,
+    "yield_t_ha": 6.4361005,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2023,
+    "yield_t_ha": 6.5321,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "玉米",
+    "year": 2024,
+    "yield_t_ha": 6.5918,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Maize yield"
+  },
+  {
+    "crop": "水稻",
+    "year": 2015,
+    "yield_t_ha": 6.8913,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2016,
+    "yield_t_ha": 6.8657007,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2017,
+    "yield_t_ha": 6.9169,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2018,
+    "yield_t_ha": 7.0266004,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2019,
+    "yield_t_ha": 7.0601006,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2020,
+    "yield_t_ha": 7.0432005,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2021,
+    "yield_t_ha": 7.1135,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2022,
+    "yield_t_ha": 7.0796003,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2023,
+    "yield_t_ha": 7.1368003,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "水稻",
+    "year": 2024,
+    "yield_t_ha": 7.1545005,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Rice - Yield (tonnes per hectare)"
+  },
+  {
+    "crop": "小麦",
+    "year": 2015,
+    "yield_t_ha": 5.3927007,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2016,
+    "yield_t_ha": 5.3965,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2017,
+    "yield_t_ha": 5.4841003,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2018,
+    "yield_t_ha": 5.4166,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2019,
+    "yield_t_ha": 5.6298,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2020,
+    "yield_t_ha": 5.7421002,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2021,
+    "yield_t_ha": 5.8106003,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2022,
+    "yield_t_ha": 5.8554,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2023,
+    "yield_t_ha": 5.7811003,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  },
+  {
+    "crop": "小麦",
+    "year": 2024,
+    "yield_t_ha": 5.9396005,
+    "scope": "CHN",
+    "source": "OWID/FAO",
+    "series": "Wheat yield"
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2023,
+    "value": 6418.1,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2022,
+    "value": 6381.3,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2021,
+    "value": 6317.5,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2020,
+    "value": 6296.1,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2019,
+    "value": 6265.1,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2018,
+    "value": 6122.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2017,
+    "value": 6110.8,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2016,
+    "value": 6018.6,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_yield_kg_ha",
+    "code": "AG.YLD.CREL.KG",
+    "year": 2015,
+    "value": 5985.2,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2023,
+    "value": 641731705.88,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2022,
+    "value": 633134294.88,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2021,
+    "value": 632772813.74,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2020,
+    "value": 616632008.31,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2019,
+    "value": 613438323.23,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2018,
+    "value": 609946694.21,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2017,
+    "value": 614070169.03,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2016,
+    "value": 614697468.76,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_production_t",
+    "code": "AG.PRD.CREL.MT",
+    "year": 2015,
+    "value": 618165313.27,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2023,
+    "value": 99987255.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2022,
+    "value": 99216912.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2021,
+    "value": 100162416.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2020,
+    "value": 97939476.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2019,
+    "value": 97913147.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2018,
+    "value": 99631500.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2017,
+    "value": 100489465.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2016,
+    "value": 102133381.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  },
+  {
+    "indicator": "cereal_area_ha",
+    "code": "AG.LND.CREL.HA",
+    "year": 2015,
+    "value": 103281871.0,
+    "scope": "CHN",
+    "source": "World Bank WDI"
+  }
+]

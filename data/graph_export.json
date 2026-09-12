@@ -1,0 +1,5902 @@
+{
+  "nodes": [
+    {
+      "id": "country:CHN",
+      "kind": "country",
+      "name": "中国",
+      "attrs": "{\"iso3\": \"CHN\"}"
+    },
+    {
+      "id": "crop:小麦",
+      "kind": "crop",
+      "name": "小麦",
+      "attrs": "{}"
+    },
+    {
+      "id": "crop:水稻",
+      "kind": "crop",
+      "name": "水稻",
+      "attrs": "{}"
+    },
+    {
+      "id": "crop:玉米",
+      "kind": "crop",
+      "name": "玉米",
+      "attrs": "{}"
+    },
+    {
+      "id": "layout:maize.dongbei.spring",
+      "kind": "layout",
+      "name": "玉米/东北春玉米",
+      "attrs": "{\"crop\": \"玉米\", \"area_kha\": 6500}"
+    },
+    {
+      "id": "layout:maize.huabei.summer",
+      "kind": "layout",
+      "name": "玉米/黄淮海夏玉米",
+      "attrs": "{\"crop\": \"玉米\", \"area_kha\": 5800}"
+    },
+    {
+      "id": "layout:rice.changjiang.single",
+      "kind": "layout",
+      "name": "水稻/长江中下游一季稻",
+      "attrs": "{\"crop\": \"水稻\", \"area_kha\": 5400}"
+    },
+    {
+      "id": "layout:rice.huanan.early",
+      "kind": "layout",
+      "name": "水稻/华南早稻",
+      "attrs": "{\"crop\": \"水稻\", \"area_kha\": 2100}"
+    },
+    {
+      "id": "layout:wheat.huabei.winter",
+      "kind": "layout",
+      "name": "小麦/华北冬小麦",
+      "attrs": "{\"crop\": \"小麦\", \"area_kha\": 7200}"
+    },
+    {
+      "id": "region:changjiang",
+      "kind": "region",
+      "name": "长江中下游稻区",
+      "attrs": "{\"lat\": 30.59, \"lon\": 114.31, \"anchor\": \"武汉\"}"
+    },
+    {
+      "id": "region:dongbei",
+      "kind": "region",
+      "name": "东北春玉米带",
+      "attrs": "{\"lat\": 45.75, \"lon\": 126.65, \"anchor\": \"哈尔滨\"}"
+    },
+    {
+      "id": "region:huabei",
+      "kind": "region",
+      "name": "华北小麦玉米带",
+      "attrs": "{\"lat\": 38.04, \"lon\": 114.51, \"anchor\": \"石家庄\"}"
+    },
+    {
+      "id": "region:huanan",
+      "kind": "region",
+      "name": "华南双季稻区",
+      "attrs": "{\"lat\": 23.13, \"lon\": 113.26, \"anchor\": \"广州\"}"
+    },
+    {
+      "id": "sales:DCE:c:2024-07-15",
+      "kind": "sales",
+      "name": "玉米 2024-07-15 成交",
+      "attrs": "{\"volume\": 510000.0, \"settle\": 2386.0, \"contract\": \"c2409\"}"
+    },
+    {
+      "id": "sales:DCE:c:2024-07-16",
+      "kind": "sales",
+      "name": "玉米 2024-07-16 成交",
+      "attrs": "{\"volume\": 388000.0, \"settle\": 2400.0, \"contract\": \"c2409\"}"
+    },
+    {
+      "id": "sales:DCE:cs:2024-07-15",
+      "kind": "sales",
+      "name": "玉米淀粉 2024-07-15 成交",
+      "attrs": "{\"volume\": 54000.0, \"settle\": 2868.0, \"contract\": \"cs2409\"}"
+    },
+    {
+      "id": "sales:DCE:rr:2024-07-15",
+      "kind": "sales",
+      "name": "粳米 2024-07-15 成交",
+      "attrs": "{\"volume\": 1800.0, \"settle\": 3930.0, \"contract\": \"rr2409\"}"
+    },
+    {
+      "id": "sales:DCE:rr:2024-07-16",
+      "kind": "sales",
+      "name": "粳米 2024-07-16 成交",
+      "attrs": "{\"volume\": 1600.0, \"settle\": 3938.0, \"contract\": \"rr2409\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-01",
+      "kind": "weather",
+      "name": "changjiang 2022-01",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 1, \"tmean\": 5.4, \"tmax\": 8.8, \"tmin\": 2.3, \"precip_mm\": 88.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-02",
+      "kind": "weather",
+      "name": "changjiang 2022-02",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 2, \"tmean\": 5.28, \"tmax\": 8.69, \"tmin\": 1.95, \"precip_mm\": 39.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-03",
+      "kind": "weather",
+      "name": "changjiang 2022-03",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 3, \"tmean\": 14.58, \"tmax\": 19.2, \"tmin\": 10.3, \"precip_mm\": 213.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-04",
+      "kind": "weather",
+      "name": "changjiang 2022-04",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 4, \"tmean\": 18.58, \"tmax\": 23.33, \"tmin\": 14.38, \"precip_mm\": 183.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-05",
+      "kind": "weather",
+      "name": "changjiang 2022-05",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 5, \"tmean\": 21.65, \"tmax\": 25.95, \"tmin\": 17.72, \"precip_mm\": 78.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-06",
+      "kind": "weather",
+      "name": "changjiang 2022-06",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 6, \"tmean\": 27.67, \"tmax\": 31.3, \"tmin\": 24.39, \"precip_mm\": 189.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-07",
+      "kind": "weather",
+      "name": "changjiang 2022-07",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 7, \"tmean\": 29.69, \"tmax\": 33.05, \"tmin\": 26.72, \"precip_mm\": 213.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-08",
+      "kind": "weather",
+      "name": "changjiang 2022-08",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 8, \"tmean\": 31.36, \"tmax\": 35.35, \"tmin\": 27.97, \"precip_mm\": 26.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-09",
+      "kind": "weather",
+      "name": "changjiang 2022-09",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 9, \"tmean\": 25.61, \"tmax\": 30.3, \"tmin\": 21.37, \"precip_mm\": 2.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-10",
+      "kind": "weather",
+      "name": "changjiang 2022-10",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 10, \"tmean\": 18.53, \"tmax\": 22.95, \"tmin\": 14.62, \"precip_mm\": 52.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-11",
+      "kind": "weather",
+      "name": "changjiang 2022-11",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 11, \"tmean\": 15.16, \"tmax\": 19.14, \"tmin\": 11.55, \"precip_mm\": 83.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2022-12",
+      "kind": "weather",
+      "name": "changjiang 2022-12",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2022, \"month\": 12, \"tmean\": 5.09, \"tmax\": 9.5, \"tmin\": 1.05, \"precip_mm\": 6.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-01",
+      "kind": "weather",
+      "name": "changjiang 2023-01",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 1, \"tmean\": 6.19, \"tmax\": 11.72, \"tmin\": 1.57, \"precip_mm\": 22.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-02",
+      "kind": "weather",
+      "name": "changjiang 2023-02",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 2, \"tmean\": 7.94, \"tmax\": 11.8, \"tmin\": 4.36, \"precip_mm\": 44.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-03",
+      "kind": "weather",
+      "name": "changjiang 2023-03",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 3, \"tmean\": 14.08, \"tmax\": 18.74, \"tmin\": 9.92, \"precip_mm\": 58.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-04",
+      "kind": "weather",
+      "name": "changjiang 2023-04",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 4, \"tmean\": 18.68, \"tmax\": 23.26, \"tmin\": 14.44, \"precip_mm\": 220.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-05",
+      "kind": "weather",
+      "name": "changjiang 2023-05",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 5, \"tmean\": 22.59, \"tmax\": 26.91, \"tmin\": 18.58, \"precip_mm\": 267.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-06",
+      "kind": "weather",
+      "name": "changjiang 2023-06",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 6, \"tmean\": 26.41, \"tmax\": 30.17, \"tmin\": 23.21, \"precip_mm\": 187.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-07",
+      "kind": "weather",
+      "name": "changjiang 2023-07",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 7, \"tmean\": 29.09, \"tmax\": 32.28, \"tmin\": 26.39, \"precip_mm\": 251.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-08",
+      "kind": "weather",
+      "name": "changjiang 2023-08",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 8, \"tmean\": 28.95, \"tmax\": 32.57, \"tmin\": 25.49, \"precip_mm\": 114.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-09",
+      "kind": "weather",
+      "name": "changjiang 2023-09",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 9, \"tmean\": 25.45, \"tmax\": 29.01, \"tmin\": 22.42, \"precip_mm\": 92.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-10",
+      "kind": "weather",
+      "name": "changjiang 2023-10",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 10, \"tmean\": 19.93, \"tmax\": 24.15, \"tmin\": 16.42, \"precip_mm\": 24.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-11",
+      "kind": "weather",
+      "name": "changjiang 2023-11",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 11, \"tmean\": 13.33, \"tmax\": 17.99, \"tmin\": 9.32, \"precip_mm\": 55.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2023-12",
+      "kind": "weather",
+      "name": "changjiang 2023-12",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2023, \"month\": 12, \"tmean\": 6.36, \"tmax\": 10.85, \"tmin\": 2.55, \"precip_mm\": 58.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-01",
+      "kind": "weather",
+      "name": "changjiang 2024-01",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 1, \"tmean\": 5.66, \"tmax\": 10.19, \"tmin\": 1.91, \"precip_mm\": 60.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-02",
+      "kind": "weather",
+      "name": "changjiang 2024-02",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 2, \"tmean\": 4.84, \"tmax\": 9.17, \"tmin\": 1.07, \"precip_mm\": 158.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-03",
+      "kind": "weather",
+      "name": "changjiang 2024-03",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 3, \"tmean\": 13.61, \"tmax\": 18.55, \"tmin\": 9.09, \"precip_mm\": 88.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-04",
+      "kind": "weather",
+      "name": "changjiang 2024-04",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 4, \"tmean\": 19.68, \"tmax\": 23.64, \"tmin\": 16.04, \"precip_mm\": 154.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-05",
+      "kind": "weather",
+      "name": "changjiang 2024-05",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 5, \"tmean\": 23.09, \"tmax\": 27.41, \"tmin\": 19.31, \"precip_mm\": 106.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-06",
+      "kind": "weather",
+      "name": "changjiang 2024-06",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 6, \"tmean\": 25.86, \"tmax\": 29.26, \"tmin\": 22.82, \"precip_mm\": 396.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-07",
+      "kind": "weather",
+      "name": "changjiang 2024-07",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 7, \"tmean\": 30.2, \"tmax\": 33.51, \"tmin\": 27.55, \"precip_mm\": 205.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-08",
+      "kind": "weather",
+      "name": "changjiang 2024-08",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 8, \"tmean\": 31.31, \"tmax\": 35.55, \"tmin\": 27.56, \"precip_mm\": 40.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-09",
+      "kind": "weather",
+      "name": "changjiang 2024-09",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 9, \"tmean\": 28.11, \"tmax\": 32.38, \"tmin\": 24.19, \"precip_mm\": 34.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-10",
+      "kind": "weather",
+      "name": "changjiang 2024-10",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 10, \"tmean\": 19.24, \"tmax\": 23.44, \"tmin\": 15.54, \"precip_mm\": 58.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-11",
+      "kind": "weather",
+      "name": "changjiang 2024-11",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 11, \"tmean\": 14.69, \"tmax\": 18.84, \"tmin\": 11.28, \"precip_mm\": 17.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:changjiang:2024-12",
+      "kind": "weather",
+      "name": "changjiang 2024-12",
+      "attrs": "{\"region_id\": \"changjiang\", \"year\": 2024, \"month\": 12, \"tmean\": 6.72, \"tmax\": 10.86, \"tmin\": 3.23, \"precip_mm\": 12.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-01",
+      "kind": "weather",
+      "name": "dongbei 2022-01",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 1, \"tmean\": -16.49, \"tmax\": -11.85, \"tmin\": -19.96, \"precip_mm\": 5.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-02",
+      "kind": "weather",
+      "name": "dongbei 2022-02",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 2, \"tmean\": -12.34, \"tmax\": -6.94, \"tmin\": -16.37, \"precip_mm\": 6.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-03",
+      "kind": "weather",
+      "name": "dongbei 2022-03",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 3, \"tmean\": -1.08, \"tmax\": 4.29, \"tmin\": -6.12, \"precip_mm\": 21.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-04",
+      "kind": "weather",
+      "name": "dongbei 2022-04",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 4, \"tmean\": 8.62, \"tmax\": 15.25, \"tmin\": 1.74, \"precip_mm\": 48.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-05",
+      "kind": "weather",
+      "name": "dongbei 2022-05",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 5, \"tmean\": 14.37, \"tmax\": 20.23, \"tmin\": 8.31, \"precip_mm\": 114.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-06",
+      "kind": "weather",
+      "name": "dongbei 2022-06",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 6, \"tmean\": 20.07, \"tmax\": 25.09, \"tmin\": 15.19, \"precip_mm\": 107.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-07",
+      "kind": "weather",
+      "name": "dongbei 2022-07",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 7, \"tmean\": 23.85, \"tmax\": 28.15, \"tmin\": 19.8, \"precip_mm\": 110.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-08",
+      "kind": "weather",
+      "name": "dongbei 2022-08",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 8, \"tmean\": 20.55, \"tmax\": 25.05, \"tmin\": 16.35, \"precip_mm\": 143.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-09",
+      "kind": "weather",
+      "name": "dongbei 2022-09",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 9, \"tmean\": 16.8, \"tmax\": 22.0, \"tmin\": 11.91, \"precip_mm\": 25.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-10",
+      "kind": "weather",
+      "name": "dongbei 2022-10",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 10, \"tmean\": 6.49, \"tmax\": 11.38, \"tmin\": 1.7, \"precip_mm\": 43.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-11",
+      "kind": "weather",
+      "name": "dongbei 2022-11",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 11, \"tmean\": -2.62, \"tmax\": 1.53, \"tmin\": -5.93, \"precip_mm\": 16.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2022-12",
+      "kind": "weather",
+      "name": "dongbei 2022-12",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2022, \"month\": 12, \"tmean\": -14.18, \"tmax\": -10.7, \"tmin\": -17.17, \"precip_mm\": 9.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-01",
+      "kind": "weather",
+      "name": "dongbei 2023-01",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 1, \"tmean\": -16.82, \"tmax\": -11.66, \"tmin\": -21.26, \"precip_mm\": 3.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-02",
+      "kind": "weather",
+      "name": "dongbei 2023-02",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 2, \"tmean\": -9.95, \"tmax\": -4.12, \"tmin\": -15.21, \"precip_mm\": 4.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-03",
+      "kind": "weather",
+      "name": "dongbei 2023-03",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 3, \"tmean\": 1.34, \"tmax\": 7.61, \"tmin\": -4.03, \"precip_mm\": 9.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-04",
+      "kind": "weather",
+      "name": "dongbei 2023-04",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 4, \"tmean\": 7.5, \"tmax\": 13.6, \"tmin\": 1.22, \"precip_mm\": 24.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-05",
+      "kind": "weather",
+      "name": "dongbei 2023-05",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 5, \"tmean\": 15.62, \"tmax\": 21.67, \"tmin\": 9.19, \"precip_mm\": 54.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-06",
+      "kind": "weather",
+      "name": "dongbei 2023-06",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 6, \"tmean\": 21.82, \"tmax\": 27.05, \"tmin\": 16.43, \"precip_mm\": 46.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-07",
+      "kind": "weather",
+      "name": "dongbei 2023-07",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 7, \"tmean\": 22.89, \"tmax\": 26.92, \"tmin\": 19.23, \"precip_mm\": 226.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-08",
+      "kind": "weather",
+      "name": "dongbei 2023-08",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 8, \"tmean\": 21.69, \"tmax\": 25.54, \"tmin\": 18.34, \"precip_mm\": 139.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-09",
+      "kind": "weather",
+      "name": "dongbei 2023-09",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 9, \"tmean\": 17.46, \"tmax\": 22.6, \"tmin\": 12.63, \"precip_mm\": 52.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-10",
+      "kind": "weather",
+      "name": "dongbei 2023-10",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 10, \"tmean\": 8.71, \"tmax\": 14.45, \"tmin\": 3.41, \"precip_mm\": 18.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-11",
+      "kind": "weather",
+      "name": "dongbei 2023-11",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 11, \"tmean\": -9.23, \"tmax\": -5.18, \"tmin\": -13.4, \"precip_mm\": 49.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2023-12",
+      "kind": "weather",
+      "name": "dongbei 2023-12",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2023, \"month\": 12, \"tmean\": -16.27, \"tmax\": -12.19, \"tmin\": -20.41, \"precip_mm\": 9.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-01",
+      "kind": "weather",
+      "name": "dongbei 2024-01",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 1, \"tmean\": -17.16, \"tmax\": -12.46, \"tmin\": -22.48, \"precip_mm\": 5.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-02",
+      "kind": "weather",
+      "name": "dongbei 2024-02",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 2, \"tmean\": -11.6, \"tmax\": -5.63, \"tmin\": -17.55, \"precip_mm\": 6.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-03",
+      "kind": "weather",
+      "name": "dongbei 2024-03",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 3, \"tmean\": -1.96, \"tmax\": 4.09, \"tmin\": -7.35, \"precip_mm\": 11.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-04",
+      "kind": "weather",
+      "name": "dongbei 2024-04",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 4, \"tmean\": 9.84, \"tmax\": 16.27, \"tmin\": 3.79, \"precip_mm\": 18.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-05",
+      "kind": "weather",
+      "name": "dongbei 2024-05",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 5, \"tmean\": 15.15, \"tmax\": 20.41, \"tmin\": 9.32, \"precip_mm\": 93.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-06",
+      "kind": "weather",
+      "name": "dongbei 2024-06",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 6, \"tmean\": 19.3, \"tmax\": 23.91, \"tmin\": 15.0, \"precip_mm\": 230.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-07",
+      "kind": "weather",
+      "name": "dongbei 2024-07",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 7, \"tmean\": 23.69, \"tmax\": 27.76, \"tmin\": 19.61, \"precip_mm\": 231.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-08",
+      "kind": "weather",
+      "name": "dongbei 2024-08",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 8, \"tmean\": 23.06, \"tmax\": 26.9, \"tmin\": 19.5, \"precip_mm\": 194.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-09",
+      "kind": "weather",
+      "name": "dongbei 2024-09",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 9, \"tmean\": 16.35, \"tmax\": 21.74, \"tmin\": 11.5, \"precip_mm\": 29.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-10",
+      "kind": "weather",
+      "name": "dongbei 2024-10",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 10, \"tmean\": 8.0, \"tmax\": 13.06, \"tmin\": 3.29, \"precip_mm\": 27.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-11",
+      "kind": "weather",
+      "name": "dongbei 2024-11",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 11, \"tmean\": -1.51, \"tmax\": 2.2, \"tmin\": -5.3, \"precip_mm\": 21.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:dongbei:2024-12",
+      "kind": "weather",
+      "name": "dongbei 2024-12",
+      "attrs": "{\"region_id\": \"dongbei\", \"year\": 2024, \"month\": 12, \"tmean\": -14.87, \"tmax\": -11.24, \"tmin\": -18.53, \"precip_mm\": 3.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-01",
+      "kind": "weather",
+      "name": "huabei 2022-01",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 1, \"tmean\": -1.63, \"tmax\": 3.89, \"tmin\": -5.42, \"precip_mm\": 2.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-02",
+      "kind": "weather",
+      "name": "huabei 2022-02",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 2, \"tmean\": 0.11, \"tmax\": 6.56, \"tmin\": -4.64, \"precip_mm\": 6.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-03",
+      "kind": "weather",
+      "name": "huabei 2022-03",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 3, \"tmean\": 8.87, \"tmax\": 15.55, \"tmin\": 2.48, \"precip_mm\": 8.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-04",
+      "kind": "weather",
+      "name": "huabei 2022-04",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 4, \"tmean\": 16.04, \"tmax\": 23.0, \"tmin\": 9.05, \"precip_mm\": 7.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-05",
+      "kind": "weather",
+      "name": "huabei 2022-05",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 5, \"tmean\": 21.18, \"tmax\": 27.89, \"tmin\": 14.57, \"precip_mm\": 23.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-06",
+      "kind": "weather",
+      "name": "huabei 2022-06",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 6, \"tmean\": 27.25, \"tmax\": 33.96, \"tmin\": 21.01, \"precip_mm\": 79.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-07",
+      "kind": "weather",
+      "name": "huabei 2022-07",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 7, \"tmean\": 26.61, \"tmax\": 31.41, \"tmin\": 22.09, \"precip_mm\": 193.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-08",
+      "kind": "weather",
+      "name": "huabei 2022-08",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 8, \"tmean\": 25.2, \"tmax\": 29.65, \"tmin\": 21.18, \"precip_mm\": 132.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-09",
+      "kind": "weather",
+      "name": "huabei 2022-09",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 9, \"tmean\": 22.1, \"tmax\": 28.36, \"tmin\": 16.62, \"precip_mm\": 17.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-10",
+      "kind": "weather",
+      "name": "huabei 2022-10",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 10, \"tmean\": 13.48, \"tmax\": 18.87, \"tmin\": 8.73, \"precip_mm\": 65.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-11",
+      "kind": "weather",
+      "name": "huabei 2022-11",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 11, \"tmean\": 7.46, \"tmax\": 12.81, \"tmin\": 2.86, \"precip_mm\": 26.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2022-12",
+      "kind": "weather",
+      "name": "huabei 2022-12",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2022, \"month\": 12, \"tmean\": -2.07, \"tmax\": 3.87, \"tmin\": -6.14, \"precip_mm\": 0.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-01",
+      "kind": "weather",
+      "name": "huabei 2023-01",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 1, \"tmean\": -1.07, \"tmax\": 5.12, \"tmin\": -5.64, \"precip_mm\": 7.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-02",
+      "kind": "weather",
+      "name": "huabei 2023-02",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 2, \"tmean\": 2.17, \"tmax\": 8.62, \"tmin\": -3.01, \"precip_mm\": 22.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-03",
+      "kind": "weather",
+      "name": "huabei 2023-03",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 3, \"tmean\": 11.26, \"tmax\": 18.89, \"tmin\": 4.03, \"precip_mm\": 0.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-04",
+      "kind": "weather",
+      "name": "huabei 2023-04",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 4, \"tmean\": 14.27, \"tmax\": 20.03, \"tmin\": 8.39, \"precip_mm\": 69.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-05",
+      "kind": "weather",
+      "name": "huabei 2023-05",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 5, \"tmean\": 20.52, \"tmax\": 26.11, \"tmin\": 14.91, \"precip_mm\": 31.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-06",
+      "kind": "weather",
+      "name": "huabei 2023-06",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 6, \"tmean\": 27.55, \"tmax\": 34.57, \"tmin\": 20.66, \"precip_mm\": 27.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-07",
+      "kind": "weather",
+      "name": "huabei 2023-07",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 7, \"tmean\": 29.37, \"tmax\": 34.91, \"tmin\": 24.08, \"precip_mm\": 222.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-08",
+      "kind": "weather",
+      "name": "huabei 2023-08",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 8, \"tmean\": 26.16, \"tmax\": 30.81, \"tmin\": 22.14, \"precip_mm\": 103.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-09",
+      "kind": "weather",
+      "name": "huabei 2023-09",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 9, \"tmean\": 22.04, \"tmax\": 27.11, \"tmin\": 17.24, \"precip_mm\": 33.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-10",
+      "kind": "weather",
+      "name": "huabei 2023-10",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 10, \"tmean\": 15.93, \"tmax\": 23.3, \"tmin\": 9.57, \"precip_mm\": 6.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-11",
+      "kind": "weather",
+      "name": "huabei 2023-11",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 11, \"tmean\": 5.09, \"tmax\": 11.21, \"tmin\": -0.21, \"precip_mm\": 10.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2023-12",
+      "kind": "weather",
+      "name": "huabei 2023-12",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2023, \"month\": 12, \"tmean\": -2.03, \"tmax\": 3.86, \"tmin\": -6.53, \"precip_mm\": 22.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-01",
+      "kind": "weather",
+      "name": "huabei 2024-01",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 1, \"tmean\": -2.0, \"tmax\": 4.26, \"tmin\": -6.0, \"precip_mm\": 1.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-02",
+      "kind": "weather",
+      "name": "huabei 2024-02",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 2, \"tmean\": 0.59, \"tmax\": 6.87, \"tmin\": -4.42, \"precip_mm\": 16.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-03",
+      "kind": "weather",
+      "name": "huabei 2024-03",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 3, \"tmean\": 9.2, \"tmax\": 16.63, \"tmin\": 1.76, \"precip_mm\": 9.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-04",
+      "kind": "weather",
+      "name": "huabei 2024-04",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 4, \"tmean\": 16.48, \"tmax\": 23.23, \"tmin\": 9.83, \"precip_mm\": 14.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-05",
+      "kind": "weather",
+      "name": "huabei 2024-05",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 5, \"tmean\": 21.74, \"tmax\": 28.63, \"tmin\": 14.71, \"precip_mm\": 26.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-06",
+      "kind": "weather",
+      "name": "huabei 2024-06",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 6, \"tmean\": 28.3, \"tmax\": 34.98, \"tmin\": 21.14, \"precip_mm\": 1.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-07",
+      "kind": "weather",
+      "name": "huabei 2024-07",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 7, \"tmean\": 28.02, \"tmax\": 32.98, \"tmin\": 23.5, \"precip_mm\": 78.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-08",
+      "kind": "weather",
+      "name": "huabei 2024-08",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 8, \"tmean\": 26.67, \"tmax\": 31.2, \"tmin\": 22.71, \"precip_mm\": 153.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-09",
+      "kind": "weather",
+      "name": "huabei 2024-09",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 9, \"tmean\": 21.85, \"tmax\": 26.93, \"tmin\": 17.34, \"precip_mm\": 71.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-10",
+      "kind": "weather",
+      "name": "huabei 2024-10",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 10, \"tmean\": 14.07, \"tmax\": 19.81, \"tmin\": 8.94, \"precip_mm\": 27.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-11",
+      "kind": "weather",
+      "name": "huabei 2024-11",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 11, \"tmean\": 8.9, \"tmax\": 13.89, \"tmin\": 4.58, \"precip_mm\": 11.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huabei:2024-12",
+      "kind": "weather",
+      "name": "huabei 2024-12",
+      "attrs": "{\"region_id\": \"huabei\", \"year\": 2024, \"month\": 12, \"tmean\": 1.76, \"tmax\": 6.33, \"tmin\": -1.84, \"precip_mm\": 0.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-01",
+      "kind": "weather",
+      "name": "huanan 2022-01",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 1, \"tmean\": 15.74, \"tmax\": 20.19, \"tmin\": 12.23, \"precip_mm\": 23.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-02",
+      "kind": "weather",
+      "name": "huanan 2022-02",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 2, \"tmean\": 12.41, \"tmax\": 16.26, \"tmin\": 9.47, \"precip_mm\": 207.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-03",
+      "kind": "weather",
+      "name": "huanan 2022-03",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 3, \"tmean\": 20.85, \"tmax\": 25.33, \"tmin\": 16.92, \"precip_mm\": 132.3, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-04",
+      "kind": "weather",
+      "name": "huanan 2022-04",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 4, \"tmean\": 22.46, \"tmax\": 27.1, \"tmin\": 18.58, \"precip_mm\": 68.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-05",
+      "kind": "weather",
+      "name": "huanan 2022-05",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 5, \"tmean\": 24.2, \"tmax\": 28.05, \"tmin\": 21.1, \"precip_mm\": 413.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-06",
+      "kind": "weather",
+      "name": "huanan 2022-06",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 6, \"tmean\": 27.39, \"tmax\": 30.79, \"tmin\": 25.07, \"precip_mm\": 521.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-07",
+      "kind": "weather",
+      "name": "huanan 2022-07",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 7, \"tmean\": 29.52, \"tmax\": 33.27, \"tmin\": 26.42, \"precip_mm\": 261.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-08",
+      "kind": "weather",
+      "name": "huanan 2022-08",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 8, \"tmean\": 28.13, \"tmax\": 31.57, \"tmin\": 25.52, \"precip_mm\": 362.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-09",
+      "kind": "weather",
+      "name": "huanan 2022-09",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 9, \"tmean\": 28.39, \"tmax\": 32.81, \"tmin\": 24.98, \"precip_mm\": 117.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-10",
+      "kind": "weather",
+      "name": "huanan 2022-10",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 10, \"tmean\": 25.15, \"tmax\": 30.11, \"tmin\": 21.02, \"precip_mm\": 25.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-11",
+      "kind": "weather",
+      "name": "huanan 2022-11",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 11, \"tmean\": 22.39, \"tmax\": 25.81, \"tmin\": 19.89, \"precip_mm\": 181.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2022-12",
+      "kind": "weather",
+      "name": "huanan 2022-12",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2022, \"month\": 12, \"tmean\": 13.2, \"tmax\": 17.31, \"tmin\": 9.84, \"precip_mm\": 10.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-01",
+      "kind": "weather",
+      "name": "huanan 2023-01",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 1, \"tmean\": 14.52, \"tmax\": 18.7, \"tmin\": 11.13, \"precip_mm\": 50.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-02",
+      "kind": "weather",
+      "name": "huanan 2023-02",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 2, \"tmean\": 18.08, \"tmax\": 22.95, \"tmin\": 14.24, \"precip_mm\": 42.6, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-03",
+      "kind": "weather",
+      "name": "huanan 2023-03",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 3, \"tmean\": 20.77, \"tmax\": 25.31, \"tmin\": 17.03, \"precip_mm\": 176.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-04",
+      "kind": "weather",
+      "name": "huanan 2023-04",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 4, \"tmean\": 23.0, \"tmax\": 26.75, \"tmin\": 20.01, \"precip_mm\": 172.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-05",
+      "kind": "weather",
+      "name": "huanan 2023-05",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 5, \"tmean\": 25.98, \"tmax\": 29.79, \"tmin\": 22.88, \"precip_mm\": 196.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-06",
+      "kind": "weather",
+      "name": "huanan 2023-06",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 6, \"tmean\": 28.0, \"tmax\": 31.69, \"tmin\": 25.36, \"precip_mm\": 317.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-07",
+      "kind": "weather",
+      "name": "huanan 2023-07",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 7, \"tmean\": 29.44, \"tmax\": 33.25, \"tmin\": 26.33, \"precip_mm\": 213.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-08",
+      "kind": "weather",
+      "name": "huanan 2023-08",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 8, \"tmean\": 28.48, \"tmax\": 31.99, \"tmin\": 25.87, \"precip_mm\": 318.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-09",
+      "kind": "weather",
+      "name": "huanan 2023-09",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 9, \"tmean\": 27.29, \"tmax\": 30.43, \"tmin\": 24.94, \"precip_mm\": 587.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-10",
+      "kind": "weather",
+      "name": "huanan 2023-10",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 10, \"tmean\": 24.48, \"tmax\": 27.97, \"tmin\": 21.65, \"precip_mm\": 194.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-11",
+      "kind": "weather",
+      "name": "huanan 2023-11",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 11, \"tmean\": 21.1, \"tmax\": 25.5, \"tmin\": 17.42, \"precip_mm\": 18.0, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2023-12",
+      "kind": "weather",
+      "name": "huanan 2023-12",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2023, \"month\": 12, \"tmean\": 16.1, \"tmax\": 20.82, \"tmin\": 12.36, \"precip_mm\": 24.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-01",
+      "kind": "weather",
+      "name": "huanan 2024-01",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 1, \"tmean\": 15.9, \"tmax\": 20.74, \"tmin\": 11.89, \"precip_mm\": 16.1, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-02",
+      "kind": "weather",
+      "name": "huanan 2024-02",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 2, \"tmean\": 16.58, \"tmax\": 21.14, \"tmin\": 13.06, \"precip_mm\": 39.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-03",
+      "kind": "weather",
+      "name": "huanan 2024-03",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 3, \"tmean\": 19.81, \"tmax\": 24.03, \"tmin\": 16.58, \"precip_mm\": 125.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-04",
+      "kind": "weather",
+      "name": "huanan 2024-04",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 4, \"tmean\": 25.01, \"tmax\": 29.17, \"tmin\": 22.19, \"precip_mm\": 704.5, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-05",
+      "kind": "weather",
+      "name": "huanan 2024-05",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 5, \"tmean\": 25.28, \"tmax\": 28.86, \"tmin\": 22.77, \"precip_mm\": 316.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-06",
+      "kind": "weather",
+      "name": "huanan 2024-06",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 6, \"tmean\": 27.79, \"tmax\": 30.97, \"tmin\": 25.4, \"precip_mm\": 457.9, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-07",
+      "kind": "weather",
+      "name": "huanan 2024-07",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 7, \"tmean\": 29.05, \"tmax\": 32.47, \"tmin\": 26.43, \"precip_mm\": 280.7, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-08",
+      "kind": "weather",
+      "name": "huanan 2024-08",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 8, \"tmean\": 28.65, \"tmax\": 32.17, \"tmin\": 26.07, \"precip_mm\": 363.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-09",
+      "kind": "weather",
+      "name": "huanan 2024-09",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 9, \"tmean\": 27.74, \"tmax\": 31.54, \"tmin\": 25.07, \"precip_mm\": 304.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-10",
+      "kind": "weather",
+      "name": "huanan 2024-10",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 10, \"tmean\": 25.23, \"tmax\": 29.31, \"tmin\": 21.79, \"precip_mm\": 14.4, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-11",
+      "kind": "weather",
+      "name": "huanan 2024-11",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 11, \"tmean\": 21.63, \"tmax\": 25.54, \"tmin\": 18.53, \"precip_mm\": 47.8, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "weather:huanan:2024-12",
+      "kind": "weather",
+      "name": "huanan 2024-12",
+      "attrs": "{\"region_id\": \"huanan\", \"year\": 2024, \"month\": 12, \"tmean\": 16.36, \"tmax\": 21.25, \"tmin\": 12.07, \"precip_mm\": 0.2, \"source\": \"Open-Meteo ERA5\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2015",
+      "kind": "yield",
+      "name": "小麦 2015 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2015, \"yield_t_ha\": 5.3927007, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2016",
+      "kind": "yield",
+      "name": "小麦 2016 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2016, \"yield_t_ha\": 5.3965, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2017",
+      "kind": "yield",
+      "name": "小麦 2017 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2017, \"yield_t_ha\": 5.4841003, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2018",
+      "kind": "yield",
+      "name": "小麦 2018 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2018, \"yield_t_ha\": 5.4166, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2019",
+      "kind": "yield",
+      "name": "小麦 2019 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2019, \"yield_t_ha\": 5.6298, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2020",
+      "kind": "yield",
+      "name": "小麦 2020 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2020, \"yield_t_ha\": 5.7421002, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2021",
+      "kind": "yield",
+      "name": "小麦 2021 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2021, \"yield_t_ha\": 5.8106003, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2022",
+      "kind": "yield",
+      "name": "小麦 2022 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2022, \"yield_t_ha\": 5.8554, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2023",
+      "kind": "yield",
+      "name": "小麦 2023 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2023, \"yield_t_ha\": 5.7811003, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:小麦:2024",
+      "kind": "yield",
+      "name": "小麦 2024 单产",
+      "attrs": "{\"crop\": \"小麦\", \"year\": 2024, \"yield_t_ha\": 5.9396005, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Wheat yield\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2015",
+      "kind": "yield",
+      "name": "水稻 2015 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2015, \"yield_t_ha\": 6.8913, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2016",
+      "kind": "yield",
+      "name": "水稻 2016 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2016, \"yield_t_ha\": 6.8657007, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2017",
+      "kind": "yield",
+      "name": "水稻 2017 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2017, \"yield_t_ha\": 6.9169, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2018",
+      "kind": "yield",
+      "name": "水稻 2018 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2018, \"yield_t_ha\": 7.0266004, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2019",
+      "kind": "yield",
+      "name": "水稻 2019 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2019, \"yield_t_ha\": 7.0601006, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2020",
+      "kind": "yield",
+      "name": "水稻 2020 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2020, \"yield_t_ha\": 7.0432005, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2021",
+      "kind": "yield",
+      "name": "水稻 2021 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2021, \"yield_t_ha\": 7.1135, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2022",
+      "kind": "yield",
+      "name": "水稻 2022 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2022, \"yield_t_ha\": 7.0796003, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2023",
+      "kind": "yield",
+      "name": "水稻 2023 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2023, \"yield_t_ha\": 7.1368003, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:水稻:2024",
+      "kind": "yield",
+      "name": "水稻 2024 单产",
+      "attrs": "{\"crop\": \"水稻\", \"year\": 2024, \"yield_t_ha\": 7.1545005, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Rice - Yield (tonnes per hectare)\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2015",
+      "kind": "yield",
+      "name": "玉米 2015 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2015, \"yield_t_ha\": 5.8929, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2016",
+      "kind": "yield",
+      "name": "玉米 2016 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2016, \"yield_t_ha\": 5.9671, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2017",
+      "kind": "yield",
+      "name": "玉米 2017 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2017, \"yield_t_ha\": 6.1103, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2018",
+      "kind": "yield",
+      "name": "玉米 2018 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2018, \"yield_t_ha\": 6.1043, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2019",
+      "kind": "yield",
+      "name": "玉米 2019 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2019, \"yield_t_ha\": 6.3173003, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2020",
+      "kind": "yield",
+      "name": "玉米 2020 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2020, \"yield_t_ha\": 6.3177004, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2021",
+      "kind": "yield",
+      "name": "玉米 2021 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2021, \"yield_t_ha\": 6.2910004, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2022",
+      "kind": "yield",
+      "name": "玉米 2022 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2022, \"yield_t_ha\": 6.4361005, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2023",
+      "kind": "yield",
+      "name": "玉米 2023 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2023, \"yield_t_ha\": 6.5321, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:玉米:2024",
+      "kind": "yield",
+      "name": "玉米 2024 单产",
+      "attrs": "{\"crop\": \"玉米\", \"year\": 2024, \"yield_t_ha\": 6.5918, \"scope\": \"CHN\", \"source\": \"OWID/FAO\", \"series\": \"Maize yield\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2015",
+      "kind": "yield",
+      "name": "谷物 2015 单产",
+      "attrs": "{\"yield_t_ha\": 5.9852, \"production_t\": 618165313.27, \"source\": \"World Bank WDI\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2016",
+      "kind": "yield",
+      "name": "谷物 2016 单产",
+      "attrs": "{\"yield_t_ha\": 6.0186, \"production_t\": 614697468.76, \"source\": \"World Bank WDI\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2017",
+      "kind": "yield",
+      "name": "谷物 2017 单产",
+      "attrs": "{\"yield_t_ha\": 6.1108, \"production_t\": 614070169.03, \"source\": \"World Bank WDI\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2018",
+      "kind": "yield",
+      "name": "谷物 2018 单产",
+      "attrs": "{\"yield_t_ha\": 6.122, \"production_t\": 609946694.21, \"source\": \"World Bank WDI\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2019",
+      "kind": "yield",
+      "name": "谷物 2019 单产",
+      "attrs": "{\"yield_t_ha\": 6.2651, \"production_t\": 613438323.23, \"source\": \"World Bank WDI\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2020",
+      "kind": "yield",
+      "name": "谷物 2020 单产",
+      "attrs": "{\"yield_t_ha\": 6.2961, \"production_t\": 616632008.31, \"source\": \"World Bank WDI\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2021",
+      "kind": "yield",
+      "name": "谷物 2021 单产",
+      "attrs": "{\"yield_t_ha\": 6.3175, \"production_t\": 632772813.74, \"source\": \"World Bank WDI\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2022",
+      "kind": "yield",
+      "name": "谷物 2022 单产",
+      "attrs": "{\"yield_t_ha\": 6.3813, \"production_t\": 633134294.88, \"source\": \"World Bank WDI\"}"
+    },
+    {
+      "id": "yield:CHN:谷物:2023",
+      "kind": "yield",
+      "name": "谷物 2023 单产",
+      "attrs": "{\"yield_t_ha\": 6.418100000000001, \"production_t\": 641731705.88, \"source\": \"World Bank WDI\"}"
+    }
+  ],
+  "edges": [
+    {
+      "src": "weather:changjiang:2022-01",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-02",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-03",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-04",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-05",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-06",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-07",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-08",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-09",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-10",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-11",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2022-12",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-01",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-02",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-03",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-04",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-05",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-06",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-07",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-08",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-09",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-10",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-11",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2023-12",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-01",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-02",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-03",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-04",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-05",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-06",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-07",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-08",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-09",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-10",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-11",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:changjiang:2024-12",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-01",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-02",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-03",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-04",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-05",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-06",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-07",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-08",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-09",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-10",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-11",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2022-12",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-01",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-02",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-03",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-04",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-05",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-06",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-07",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-08",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-09",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-10",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-11",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2023-12",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-01",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-02",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-03",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-04",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-05",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-06",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-07",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-08",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-09",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-10",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-11",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:dongbei:2024-12",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-01",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-01",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-02",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-02",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-03",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-03",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-04",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-04",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-05",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-05",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-06",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-06",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-07",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-07",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-08",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-08",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-09",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-09",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-10",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-10",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-11",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-11",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-12",
+      "dst": "yield:CHN:玉米:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2022-12",
+      "dst": "yield:CHN:小麦:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-01",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-01",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-02",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-02",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-03",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-03",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-04",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-04",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-05",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-05",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-06",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-06",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-07",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-07",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-08",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-08",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-09",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-09",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-10",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-10",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-11",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-11",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-12",
+      "dst": "yield:CHN:玉米:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2023-12",
+      "dst": "yield:CHN:小麦:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-01",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-01",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-02",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-02",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-03",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-03",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-04",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-04",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-05",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-05",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-06",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-06",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-07",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-07",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-08",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-08",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-09",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-09",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-10",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-10",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-11",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-11",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-12",
+      "dst": "yield:CHN:玉米:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huabei:2024-12",
+      "dst": "yield:CHN:小麦:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-01",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-02",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-03",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-04",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-05",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-06",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-07",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-08",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-09",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-10",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-11",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2022-12",
+      "dst": "yield:CHN:水稻:2022",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-01",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-02",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-03",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-04",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-05",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-06",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-07",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-08",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-09",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-10",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-11",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2023-12",
+      "dst": "yield:CHN:水稻:2023",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-01",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-02",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-03",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-04",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-05",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-06",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-07",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-08",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-09",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-10",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-11",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "weather:huanan:2024-12",
+      "dst": "yield:CHN:水稻:2024",
+      "type": "affects",
+      "weight": 0.4
+    },
+    {
+      "src": "crop:小麦",
+      "dst": "region:huabei",
+      "type": "grown_in",
+      "weight": 1.0
+    },
+    {
+      "src": "crop:水稻",
+      "dst": "region:changjiang",
+      "type": "grown_in",
+      "weight": 1.0
+    },
+    {
+      "src": "crop:水稻",
+      "dst": "region:huanan",
+      "type": "grown_in",
+      "weight": 1.0
+    },
+    {
+      "src": "crop:玉米",
+      "dst": "region:dongbei",
+      "type": "grown_in",
+      "weight": 1.0
+    },
+    {
+      "src": "crop:玉米",
+      "dst": "region:huabei",
+      "type": "grown_in",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2022-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2023-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "weather:changjiang:2024-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2022-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2023-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "weather:dongbei:2024-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2022-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2023-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "weather:huabei:2024-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2022-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2023-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-01",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-02",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-03",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-04",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-05",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-06",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-07",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-08",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-09",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-10",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-11",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "weather:huanan:2024-12",
+      "type": "has_weather",
+      "weight": 1.0
+    },
+    {
+      "src": "region:changjiang",
+      "dst": "country:CHN",
+      "type": "in_country",
+      "weight": 1.0
+    },
+    {
+      "src": "region:dongbei",
+      "dst": "country:CHN",
+      "type": "in_country",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huabei",
+      "dst": "country:CHN",
+      "type": "in_country",
+      "weight": 1.0
+    },
+    {
+      "src": "region:huanan",
+      "dst": "country:CHN",
+      "type": "in_country",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:c:2024-07-15",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:c:2024-07-16",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:cs:2024-07-15",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:rr:2024-07-15",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:rr:2024-07-16",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2015",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2016",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2017",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2018",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2019",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2020",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2021",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2022",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2023",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2024",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2015",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2016",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2017",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2018",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2019",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2020",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2021",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2022",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2023",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2024",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2015",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2016",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2017",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2018",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2019",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2020",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2021",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2022",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2023",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2024",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2015",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2016",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2017",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2018",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2019",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2020",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2021",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2022",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:谷物:2023",
+      "dst": "country:CHN",
+      "type": "in_scope",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:maize.dongbei.spring",
+      "dst": "region:dongbei",
+      "type": "located_in",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:maize.huabei.summer",
+      "dst": "region:huabei",
+      "type": "located_in",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:rice.changjiang.single",
+      "dst": "region:changjiang",
+      "type": "located_in",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:rice.huanan.early",
+      "dst": "region:huanan",
+      "type": "located_in",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:wheat.huabei.winter",
+      "dst": "region:huabei",
+      "type": "located_in",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2015",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2016",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2017",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2018",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2019",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2020",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2021",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2022",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2023",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:小麦:2024",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2015",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2015",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2016",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2016",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2017",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2017",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2018",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2018",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2019",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2019",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2020",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2020",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2021",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2021",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2022",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2022",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2023",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2023",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2024",
+      "dst": "region:changjiang",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:水稻:2024",
+      "dst": "region:huanan",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2015",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2015",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2016",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2016",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2017",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2017",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2018",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2018",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2019",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2019",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2020",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2020",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2021",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2021",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2022",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2022",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2023",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2023",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2024",
+      "dst": "region:dongbei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "yield:CHN:玉米:2024",
+      "dst": "region:huabei",
+      "type": "observed_for",
+      "weight": 0.6
+    },
+    {
+      "src": "layout:maize.dongbei.spring",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:maize.huabei.summer",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:rice.changjiang.single",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:rice.huanan.early",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "layout:wheat.huabei.winter",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:c:2024-07-15",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:c:2024-07-16",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:cs:2024-07-15",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:rr:2024-07-15",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:rr:2024-07-16",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2015",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2016",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2017",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2018",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2019",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2020",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2021",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2022",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2023",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:小麦:2024",
+      "dst": "crop:小麦",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2015",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2016",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2017",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2018",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2019",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2020",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2021",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2022",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2023",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:水稻:2024",
+      "dst": "crop:水稻",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2015",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2016",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2017",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2018",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2019",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2020",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2021",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2022",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2023",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "yield:CHN:玉米:2024",
+      "dst": "crop:玉米",
+      "type": "of_crop",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:c:2024-07-15",
+      "dst": "layout:maize.dongbei.spring",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:c:2024-07-15",
+      "dst": "layout:maize.huabei.summer",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:c:2024-07-16",
+      "dst": "layout:maize.dongbei.spring",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:c:2024-07-16",
+      "dst": "layout:maize.huabei.summer",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:cs:2024-07-15",
+      "dst": "layout:maize.dongbei.spring",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:cs:2024-07-15",
+      "dst": "layout:maize.huabei.summer",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:rr:2024-07-15",
+      "dst": "layout:rice.changjiang.single",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:rr:2024-07-15",
+      "dst": "layout:rice.huanan.early",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:rr:2024-07-16",
+      "dst": "layout:rice.changjiang.single",
+      "type": "prices",
+      "weight": 1.0
+    },
+    {
+      "src": "sales:DCE:rr:2024-07-16",
+      "dst": "layout:rice.huanan.early",
+      "type": "prices",
+      "weight": 1.0
+    }
+  ],
+  "weather": [
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 1,
+      "tmean": 5.4,
+      "tmax": 8.8,
+      "tmin": 2.3,
+      "precip_mm": 88.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 2,
+      "tmean": 5.28,
+      "tmax": 8.69,
+      "tmin": 1.95,
+      "precip_mm": 39.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 3,
+      "tmean": 14.58,
+      "tmax": 19.2,
+      "tmin": 10.3,
+      "precip_mm": 213.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 4,
+      "tmean": 18.58,
+      "tmax": 23.33,
+      "tmin": 14.38,
+      "precip_mm": 183.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 5,
+      "tmean": 21.65,
+      "tmax": 25.95,
+      "tmin": 17.72,
+      "precip_mm": 78.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 6,
+      "tmean": 27.67,
+      "tmax": 31.3,
+      "tmin": 24.39,
+      "precip_mm": 189.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 7,
+      "tmean": 29.69,
+      "tmax": 33.05,
+      "tmin": 26.72,
+      "precip_mm": 213.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 8,
+      "tmean": 31.36,
+      "tmax": 35.35,
+      "tmin": 27.97,
+      "precip_mm": 26.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 9,
+      "tmean": 25.61,
+      "tmax": 30.3,
+      "tmin": 21.37,
+      "precip_mm": 2.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 10,
+      "tmean": 18.53,
+      "tmax": 22.95,
+      "tmin": 14.62,
+      "precip_mm": 52.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 11,
+      "tmean": 15.16,
+      "tmax": 19.14,
+      "tmin": 11.55,
+      "precip_mm": 83.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2022,
+      "month": 12,
+      "tmean": 5.09,
+      "tmax": 9.5,
+      "tmin": 1.05,
+      "precip_mm": 6.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 1,
+      "tmean": 6.19,
+      "tmax": 11.72,
+      "tmin": 1.57,
+      "precip_mm": 22.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 2,
+      "tmean": 7.94,
+      "tmax": 11.8,
+      "tmin": 4.36,
+      "precip_mm": 44.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 3,
+      "tmean": 14.08,
+      "tmax": 18.74,
+      "tmin": 9.92,
+      "precip_mm": 58.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 4,
+      "tmean": 18.68,
+      "tmax": 23.26,
+      "tmin": 14.44,
+      "precip_mm": 220.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 5,
+      "tmean": 22.59,
+      "tmax": 26.91,
+      "tmin": 18.58,
+      "precip_mm": 267.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 6,
+      "tmean": 26.41,
+      "tmax": 30.17,
+      "tmin": 23.21,
+      "precip_mm": 187.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 7,
+      "tmean": 29.09,
+      "tmax": 32.28,
+      "tmin": 26.39,
+      "precip_mm": 251.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 8,
+      "tmean": 28.95,
+      "tmax": 32.57,
+      "tmin": 25.49,
+      "precip_mm": 114.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 9,
+      "tmean": 25.45,
+      "tmax": 29.01,
+      "tmin": 22.42,
+      "precip_mm": 92.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 10,
+      "tmean": 19.93,
+      "tmax": 24.15,
+      "tmin": 16.42,
+      "precip_mm": 24.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 11,
+      "tmean": 13.33,
+      "tmax": 17.99,
+      "tmin": 9.32,
+      "precip_mm": 55.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2023,
+      "month": 12,
+      "tmean": 6.36,
+      "tmax": 10.85,
+      "tmin": 2.55,
+      "precip_mm": 58.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 1,
+      "tmean": 5.66,
+      "tmax": 10.19,
+      "tmin": 1.91,
+      "precip_mm": 60.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 2,
+      "tmean": 4.84,
+      "tmax": 9.17,
+      "tmin": 1.07,
+      "precip_mm": 158.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 3,
+      "tmean": 13.61,
+      "tmax": 18.55,
+      "tmin": 9.09,
+      "precip_mm": 88.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 4,
+      "tmean": 19.68,
+      "tmax": 23.64,
+      "tmin": 16.04,
+      "precip_mm": 154.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 5,
+      "tmean": 23.09,
+      "tmax": 27.41,
+      "tmin": 19.31,
+      "precip_mm": 106.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 6,
+      "tmean": 25.86,
+      "tmax": 29.26,
+      "tmin": 22.82,
+      "precip_mm": 396.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 7,
+      "tmean": 30.2,
+      "tmax": 33.51,
+      "tmin": 27.55,
+      "precip_mm": 205.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 8,
+      "tmean": 31.31,
+      "tmax": 35.55,
+      "tmin": 27.56,
+      "precip_mm": 40.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 9,
+      "tmean": 28.11,
+      "tmax": 32.38,
+      "tmin": 24.19,
+      "precip_mm": 34.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 10,
+      "tmean": 19.24,
+      "tmax": 23.44,
+      "tmin": 15.54,
+      "precip_mm": 58.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 11,
+      "tmean": 14.69,
+      "tmax": 18.84,
+      "tmin": 11.28,
+      "precip_mm": 17.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "changjiang",
+      "year": 2024,
+      "month": 12,
+      "tmean": 6.72,
+      "tmax": 10.86,
+      "tmin": 3.23,
+      "precip_mm": 12.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 1,
+      "tmean": -16.49,
+      "tmax": -11.85,
+      "tmin": -19.96,
+      "precip_mm": 5.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 2,
+      "tmean": -12.34,
+      "tmax": -6.94,
+      "tmin": -16.37,
+      "precip_mm": 6.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 3,
+      "tmean": -1.08,
+      "tmax": 4.29,
+      "tmin": -6.12,
+      "precip_mm": 21.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 4,
+      "tmean": 8.62,
+      "tmax": 15.25,
+      "tmin": 1.74,
+      "precip_mm": 48.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 5,
+      "tmean": 14.37,
+      "tmax": 20.23,
+      "tmin": 8.31,
+      "precip_mm": 114.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 6,
+      "tmean": 20.07,
+      "tmax": 25.09,
+      "tmin": 15.19,
+      "precip_mm": 107.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 7,
+      "tmean": 23.85,
+      "tmax": 28.15,
+      "tmin": 19.8,
+      "precip_mm": 110.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 8,
+      "tmean": 20.55,
+      "tmax": 25.05,
+      "tmin": 16.35,
+      "precip_mm": 143.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 9,
+      "tmean": 16.8,
+      "tmax": 22.0,
+      "tmin": 11.91,
+      "precip_mm": 25.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 10,
+      "tmean": 6.49,
+      "tmax": 11.38,
+      "tmin": 1.7,
+      "precip_mm": 43.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 11,
+      "tmean": -2.62,
+      "tmax": 1.53,
+      "tmin": -5.93,
+      "precip_mm": 16.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2022,
+      "month": 12,
+      "tmean": -14.18,
+      "tmax": -10.7,
+      "tmin": -17.17,
+      "precip_mm": 9.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 1,
+      "tmean": -16.82,
+      "tmax": -11.66,
+      "tmin": -21.26,
+      "precip_mm": 3.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 2,
+      "tmean": -9.95,
+      "tmax": -4.12,
+      "tmin": -15.21,
+      "precip_mm": 4.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 3,
+      "tmean": 1.34,
+      "tmax": 7.61,
+      "tmin": -4.03,
+      "precip_mm": 9.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 4,
+      "tmean": 7.5,
+      "tmax": 13.6,
+      "tmin": 1.22,
+      "precip_mm": 24.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 5,
+      "tmean": 15.62,
+      "tmax": 21.67,
+      "tmin": 9.19,
+      "precip_mm": 54.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 6,
+      "tmean": 21.82,
+      "tmax": 27.05,
+      "tmin": 16.43,
+      "precip_mm": 46.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 7,
+      "tmean": 22.89,
+      "tmax": 26.92,
+      "tmin": 19.23,
+      "precip_mm": 226.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 8,
+      "tmean": 21.69,
+      "tmax": 25.54,
+      "tmin": 18.34,
+      "precip_mm": 139.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 9,
+      "tmean": 17.46,
+      "tmax": 22.6,
+      "tmin": 12.63,
+      "precip_mm": 52.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 10,
+      "tmean": 8.71,
+      "tmax": 14.45,
+      "tmin": 3.41,
+      "precip_mm": 18.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 11,
+      "tmean": -9.23,
+      "tmax": -5.18,
+      "tmin": -13.4,
+      "precip_mm": 49.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2023,
+      "month": 12,
+      "tmean": -16.27,
+      "tmax": -12.19,
+      "tmin": -20.41,
+      "precip_mm": 9.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 1,
+      "tmean": -17.16,
+      "tmax": -12.46,
+      "tmin": -22.48,
+      "precip_mm": 5.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 2,
+      "tmean": -11.6,
+      "tmax": -5.63,
+      "tmin": -17.55,
+      "precip_mm": 6.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 3,
+      "tmean": -1.96,
+      "tmax": 4.09,
+      "tmin": -7.35,
+      "precip_mm": 11.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 4,
+      "tmean": 9.84,
+      "tmax": 16.27,
+      "tmin": 3.79,
+      "precip_mm": 18.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 5,
+      "tmean": 15.15,
+      "tmax": 20.41,
+      "tmin": 9.32,
+      "precip_mm": 93.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 6,
+      "tmean": 19.3,
+      "tmax": 23.91,
+      "tmin": 15.0,
+      "precip_mm": 230.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 7,
+      "tmean": 23.69,
+      "tmax": 27.76,
+      "tmin": 19.61,
+      "precip_mm": 231.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 8,
+      "tmean": 23.06,
+      "tmax": 26.9,
+      "tmin": 19.5,
+      "precip_mm": 194.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 9,
+      "tmean": 16.35,
+      "tmax": 21.74,
+      "tmin": 11.5,
+      "precip_mm": 29.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 10,
+      "tmean": 8.0,
+      "tmax": 13.06,
+      "tmin": 3.29,
+      "precip_mm": 27.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 11,
+      "tmean": -1.51,
+      "tmax": 2.2,
+      "tmin": -5.3,
+      "precip_mm": 21.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "dongbei",
+      "year": 2024,
+      "month": 12,
+      "tmean": -14.87,
+      "tmax": -11.24,
+      "tmin": -18.53,
+      "precip_mm": 3.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 1,
+      "tmean": -1.63,
+      "tmax": 3.89,
+      "tmin": -5.42,
+      "precip_mm": 2.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 2,
+      "tmean": 0.11,
+      "tmax": 6.56,
+      "tmin": -4.64,
+      "precip_mm": 6.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 3,
+      "tmean": 8.87,
+      "tmax": 15.55,
+      "tmin": 2.48,
+      "precip_mm": 8.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 4,
+      "tmean": 16.04,
+      "tmax": 23.0,
+      "tmin": 9.05,
+      "precip_mm": 7.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 5,
+      "tmean": 21.18,
+      "tmax": 27.89,
+      "tmin": 14.57,
+      "precip_mm": 23.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 6,
+      "tmean": 27.25,
+      "tmax": 33.96,
+      "tmin": 21.01,
+      "precip_mm": 79.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 7,
+      "tmean": 26.61,
+      "tmax": 31.41,
+      "tmin": 22.09,
+      "precip_mm": 193.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 8,
+      "tmean": 25.2,
+      "tmax": 29.65,
+      "tmin": 21.18,
+      "precip_mm": 132.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 9,
+      "tmean": 22.1,
+      "tmax": 28.36,
+      "tmin": 16.62,
+      "precip_mm": 17.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 10,
+      "tmean": 13.48,
+      "tmax": 18.87,
+      "tmin": 8.73,
+      "precip_mm": 65.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 11,
+      "tmean": 7.46,
+      "tmax": 12.81,
+      "tmin": 2.86,
+      "precip_mm": 26.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2022,
+      "month": 12,
+      "tmean": -2.07,
+      "tmax": 3.87,
+      "tmin": -6.14,
+      "precip_mm": 0.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 1,
+      "tmean": -1.07,
+      "tmax": 5.12,
+      "tmin": -5.64,
+      "precip_mm": 7.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 2,
+      "tmean": 2.17,
+      "tmax": 8.62,
+      "tmin": -3.01,
+      "precip_mm": 22.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 3,
+      "tmean": 11.26,
+      "tmax": 18.89,
+      "tmin": 4.03,
+      "precip_mm": 0.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 4,
+      "tmean": 14.27,
+      "tmax": 20.03,
+      "tmin": 8.39,
+      "precip_mm": 69.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 5,
+      "tmean": 20.52,
+      "tmax": 26.11,
+      "tmin": 14.91,
+      "precip_mm": 31.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 6,
+      "tmean": 27.55,
+      "tmax": 34.57,
+      "tmin": 20.66,
+      "precip_mm": 27.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 7,
+      "tmean": 29.37,
+      "tmax": 34.91,
+      "tmin": 24.08,
+      "precip_mm": 222.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 8,
+      "tmean": 26.16,
+      "tmax": 30.81,
+      "tmin": 22.14,
+      "precip_mm": 103.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 9,
+      "tmean": 22.04,
+      "tmax": 27.11,
+      "tmin": 17.24,
+      "precip_mm": 33.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 10,
+      "tmean": 15.93,
+      "tmax": 23.3,
+      "tmin": 9.57,
+      "precip_mm": 6.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 11,
+      "tmean": 5.09,
+      "tmax": 11.21,
+      "tmin": -0.21,
+      "precip_mm": 10.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2023,
+      "month": 12,
+      "tmean": -2.03,
+      "tmax": 3.86,
+      "tmin": -6.53,
+      "precip_mm": 22.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 1,
+      "tmean": -2.0,
+      "tmax": 4.26,
+      "tmin": -6.0,
+      "precip_mm": 1.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 2,
+      "tmean": 0.59,
+      "tmax": 6.87,
+      "tmin": -4.42,
+      "precip_mm": 16.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 3,
+      "tmean": 9.2,
+      "tmax": 16.63,
+      "tmin": 1.76,
+      "precip_mm": 9.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 4,
+      "tmean": 16.48,
+      "tmax": 23.23,
+      "tmin": 9.83,
+      "precip_mm": 14.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 5,
+      "tmean": 21.74,
+      "tmax": 28.63,
+      "tmin": 14.71,
+      "precip_mm": 26.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 6,
+      "tmean": 28.3,
+      "tmax": 34.98,
+      "tmin": 21.14,
+      "precip_mm": 1.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 7,
+      "tmean": 28.02,
+      "tmax": 32.98,
+      "tmin": 23.5,
+      "precip_mm": 78.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 8,
+      "tmean": 26.67,
+      "tmax": 31.2,
+      "tmin": 22.71,
+      "precip_mm": 153.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 9,
+      "tmean": 21.85,
+      "tmax": 26.93,
+      "tmin": 17.34,
+      "precip_mm": 71.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 10,
+      "tmean": 14.07,
+      "tmax": 19.81,
+      "tmin": 8.94,
+      "precip_mm": 27.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 11,
+      "tmean": 8.9,
+      "tmax": 13.89,
+      "tmin": 4.58,
+      "precip_mm": 11.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huabei",
+      "year": 2024,
+      "month": 12,
+      "tmean": 1.76,
+      "tmax": 6.33,
+      "tmin": -1.84,
+      "precip_mm": 0.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 1,
+      "tmean": 15.74,
+      "tmax": 20.19,
+      "tmin": 12.23,
+      "precip_mm": 23.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 2,
+      "tmean": 12.41,
+      "tmax": 16.26,
+      "tmin": 9.47,
+      "precip_mm": 207.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 3,
+      "tmean": 20.85,
+      "tmax": 25.33,
+      "tmin": 16.92,
+      "precip_mm": 132.3,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 4,
+      "tmean": 22.46,
+      "tmax": 27.1,
+      "tmin": 18.58,
+      "precip_mm": 68.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 5,
+      "tmean": 24.2,
+      "tmax": 28.05,
+      "tmin": 21.1,
+      "precip_mm": 413.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 6,
+      "tmean": 27.39,
+      "tmax": 30.79,
+      "tmin": 25.07,
+      "precip_mm": 521.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 7,
+      "tmean": 29.52,
+      "tmax": 33.27,
+      "tmin": 26.42,
+      "precip_mm": 261.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 8,
+      "tmean": 28.13,
+      "tmax": 31.57,
+      "tmin": 25.52,
+      "precip_mm": 362.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 9,
+      "tmean": 28.39,
+      "tmax": 32.81,
+      "tmin": 24.98,
+      "precip_mm": 117.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 10,
+      "tmean": 25.15,
+      "tmax": 30.11,
+      "tmin": 21.02,
+      "precip_mm": 25.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 11,
+      "tmean": 22.39,
+      "tmax": 25.81,
+      "tmin": 19.89,
+      "precip_mm": 181.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2022,
+      "month": 12,
+      "tmean": 13.2,
+      "tmax": 17.31,
+      "tmin": 9.84,
+      "precip_mm": 10.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 1,
+      "tmean": 14.52,
+      "tmax": 18.7,
+      "tmin": 11.13,
+      "precip_mm": 50.2,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 2,
+      "tmean": 18.08,
+      "tmax": 22.95,
+      "tmin": 14.24,
+      "precip_mm": 42.6,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 3,
+      "tmean": 20.77,
+      "tmax": 25.31,
+      "tmin": 17.03,
+      "precip_mm": 176.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 4,
+      "tmean": 23.0,
+      "tmax": 26.75,
+      "tmin": 20.01,
+      "precip_mm": 172.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 5,
+      "tmean": 25.98,
+      "tmax": 29.79,
+      "tmin": 22.88,
+      "precip_mm": 196.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 6,
+      "tmean": 28.0,
+      "tmax": 31.69,
+      "tmin": 25.36,
+      "precip_mm": 317.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 7,
+      "tmean": 29.44,
+      "tmax": 33.25,
+      "tmin": 26.33,
+      "precip_mm": 213.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 8,
+      "tmean": 28.48,
+      "tmax": 31.99,
+      "tmin": 25.87,
+      "precip_mm": 318.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 9,
+      "tmean": 27.29,
+      "tmax": 30.43,
+      "tmin": 24.94,
+      "precip_mm": 587.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 10,
+      "tmean": 24.48,
+      "tmax": 27.97,
+      "tmin": 21.65,
+      "precip_mm": 194.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 11,
+      "tmean": 21.1,
+      "tmax": 25.5,
+      "tmin": 17.42,
+      "precip_mm": 18.0,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2023,
+      "month": 12,
+      "tmean": 16.1,
+      "tmax": 20.82,
+      "tmin": 12.36,
+      "precip_mm": 24.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 1,
+      "tmean": 15.9,
+      "tmax": 20.74,
+      "tmin": 11.89,
+      "precip_mm": 16.1,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 2,
+      "tmean": 16.58,
+      "tmax": 21.14,
+      "tmin": 13.06,
+      "precip_mm": 39.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 3,
+      "tmean": 19.81,
+      "tmax": 24.03,
+      "tmin": 16.58,
+      "precip_mm": 125.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 4,
+      "tmean": 25.01,
+      "tmax": 29.17,
+      "tmin": 22.19,
+      "precip_mm": 704.5,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 5,
+      "tmean": 25.28,
+      "tmax": 28.86,
+      "tmin": 22.77,
+      "precip_mm": 316.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 6,
+      "tmean": 27.79,
+      "tmax": 30.97,
+      "tmin": 25.4,
+      "precip_mm": 457.9,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 7,
+      "tmean": 29.05,
+      "tmax": 32.47,
+      "tmin": 26.43,
+      "precip_mm": 280.7,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 8,
+      "tmean": 28.65,
+      "tmax": 32.17,
+      "tmin": 26.07,
+      "precip_mm": 363.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 9,
+      "tmean": 27.74,
+      "tmax": 31.54,
+      "tmin": 25.07,
+      "precip_mm": 304.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 10,
+      "tmean": 25.23,
+      "tmax": 29.31,
+      "tmin": 21.79,
+      "precip_mm": 14.4,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 11,
+      "tmean": 21.63,
+      "tmax": 25.54,
+      "tmin": 18.53,
+      "precip_mm": 47.8,
+      "source": "Open-Meteo ERA5"
+    },
+    {
+      "region_id": "huanan",
+      "year": 2024,
+      "month": 12,
+      "tmean": 16.36,
+      "tmax": 21.25,
+      "tmin": 12.07,
+      "precip_mm": 0.2,
+      "source": "Open-Meteo ERA5"
+    }
+  ],
+  "yields": [
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2015,
+      "yield_t_ha": 5.3927007,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2016,
+      "yield_t_ha": 5.3965,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2017,
+      "yield_t_ha": 5.4841003,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2018,
+      "yield_t_ha": 5.4166,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2019,
+      "yield_t_ha": 5.6298,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2020,
+      "yield_t_ha": 5.7421002,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2021,
+      "yield_t_ha": 5.8106003,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2022,
+      "yield_t_ha": 5.8554,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2023,
+      "yield_t_ha": 5.7811003,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "小麦",
+      "year": 2024,
+      "yield_t_ha": 5.9396005,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2015,
+      "yield_t_ha": 6.8913,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2016,
+      "yield_t_ha": 6.8657007,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2017,
+      "yield_t_ha": 6.9169,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2018,
+      "yield_t_ha": 7.0266004,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2019,
+      "yield_t_ha": 7.0601006,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2020,
+      "yield_t_ha": 7.0432005,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2021,
+      "yield_t_ha": 7.1135,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2022,
+      "yield_t_ha": 7.0796003,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2023,
+      "yield_t_ha": 7.1368003,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "水稻",
+      "year": 2024,
+      "yield_t_ha": 7.1545005,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2015,
+      "yield_t_ha": 5.8929,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2016,
+      "yield_t_ha": 5.9671,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2017,
+      "yield_t_ha": 6.1103,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2018,
+      "yield_t_ha": 6.1043,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2019,
+      "yield_t_ha": 6.3173003,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2020,
+      "yield_t_ha": 6.3177004,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2021,
+      "yield_t_ha": 6.2910004,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2022,
+      "yield_t_ha": 6.4361005,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2023,
+      "yield_t_ha": 6.5321,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "玉米",
+      "year": 2024,
+      "yield_t_ha": 6.5918,
+      "production_t": null,
+      "source": "OWID/FAO"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2015,
+      "yield_t_ha": 5.9852,
+      "production_t": 618165313.27,
+      "source": "World Bank WDI"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2016,
+      "yield_t_ha": 6.0186,
+      "production_t": 614697468.76,
+      "source": "World Bank WDI"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2017,
+      "yield_t_ha": 6.1108,
+      "production_t": 614070169.03,
+      "source": "World Bank WDI"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2018,
+      "yield_t_ha": 6.122,
+      "production_t": 609946694.21,
+      "source": "World Bank WDI"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2019,
+      "yield_t_ha": 6.2651,
+      "production_t": 613438323.23,
+      "source": "World Bank WDI"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2020,
+      "yield_t_ha": 6.2961,
+      "production_t": 616632008.31,
+      "source": "World Bank WDI"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2021,
+      "yield_t_ha": 6.3175,
+      "production_t": 632772813.74,
+      "source": "World Bank WDI"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2022,
+      "yield_t_ha": 6.3813,
+      "production_t": 633134294.88,
+      "source": "World Bank WDI"
+    },
+    {
+      "scope": "CHN",
+      "crop": "谷物",
+      "year": 2023,
+      "yield_t_ha": 6.418100000000001,
+      "production_t": 641731705.88,
+      "source": "World Bank WDI"
+    }
+  ],
+  "sales": [
+    {
+      "date": "2024-07-15",
+      "crop": "水稻",
+      "variety_code": "rr",
+      "volume": 1800.0,
+      "settle": 3930.0,
+      "source": "DCE sample"
+    },
+    {
+      "date": "2024-07-15",
+      "crop": "玉米",
+      "variety_code": "c",
+      "volume": 510000.0,
+      "settle": 2386.0,
+      "source": "DCE sample"
+    },
+    {
+      "date": "2024-07-15",
+      "crop": "玉米",
+      "variety_code": "cs",
+      "volume": 54000.0,
+      "settle": 2868.0,
+      "source": "DCE sample"
+    },
+    {
+      "date": "2024-07-16",
+      "crop": "水稻",
+      "variety_code": "rr",
+      "volume": 1600.0,
+      "settle": 3938.0,
+      "source": "DCE sample"
+    },
+    {
+      "date": "2024-07-16",
+      "crop": "玉米",
+      "variety_code": "c",
+      "volume": 388000.0,
+      "settle": 2400.0,
+      "source": "DCE sample"
+    }
+  ]
+}
