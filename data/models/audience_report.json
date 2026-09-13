@@ -1,0 +1,496 @@
+{
+  "task": "用户适配层：按目标函数只交付正相关的机制，并给出可被推翻的预期",
+  "mechanisms": {
+    "结构": "波动定仓 + ATR 止损带来的尾部收敛。与方向无关，可独立交付。",
+    "产量信息": "年末单产/产量估计相对照抄去年的技能分。逐年前向测试。",
+    "方向": "季内展望驱动的多空。零分布检验未过，不交付。"
+  },
+  "yield_deliverables": {
+    "method": "逐年前向：训练集只含该年之前的年份，逐年滚动，不做随机打乱",
+    "gate": "三道都要过：①全年逐年合并技能分>0 且胜率≥0.5；②只看 ≤2022 年也会被选中；③>2022 年验证段技能分仍>0",
+    "groups": {
+      "咖啡/BRA": {
+        "group": "咖啡/BRA",
+        "target": "production_kt",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 3,
+        "win_rate": 0.6,
+        "median_skill": 0.2376,
+        "mean_abs_err_model": 325.70843,
+        "mean_abs_err_persist": 362.4,
+        "skill_pooled": 0.1012,
+        "deliverable": false,
+        "gate_all_years": true,
+        "gate_selectable": true,
+        "verify_skill": -2.1386,
+        "gate_verified": false
+      },
+      "咖啡/CHN": {
+        "group": "咖啡/CHN",
+        "target": "production_kt",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 1,
+        "win_rate": 0.2,
+        "median_skill": -0.132,
+        "mean_abs_err_model": 4.9976,
+        "mean_abs_err_persist": 3.6,
+        "skill_pooled": -0.3882,
+        "deliverable": false,
+        "gate_all_years": false,
+        "gate_selectable": false,
+        "verify_skill": -0.2453,
+        "gate_verified": false
+      },
+      "大豆/BRA": {
+        "group": "大豆/BRA",
+        "target": "yield_t_ha",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 3,
+        "win_rate": 0.6,
+        "median_skill": 0.1809,
+        "mean_abs_err_model": 0.2352,
+        "mean_abs_err_persist": 0.308,
+        "skill_pooled": 0.2364,
+        "deliverable": true,
+        "gate_all_years": true,
+        "gate_selectable": true,
+        "verify_skill": 0.0441,
+        "gate_verified": true
+      },
+      "大豆/CHN": {
+        "group": "大豆/CHN",
+        "target": "yield_t_ha",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 0,
+        "win_rate": 0.0,
+        "median_skill": -1.7401,
+        "mean_abs_err_model": 0.0842,
+        "mean_abs_err_persist": 0.024,
+        "skill_pooled": -2.5083,
+        "deliverable": false,
+        "gate_all_years": false,
+        "gate_selectable": false,
+        "verify_skill": -8.043,
+        "gate_verified": false
+      },
+      "大豆/USA": {
+        "group": "大豆/USA",
+        "target": "yield_t_ha",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 4,
+        "win_rate": 0.8,
+        "median_skill": 0.3603,
+        "mean_abs_err_model": 0.0567,
+        "mean_abs_err_persist": 0.104,
+        "skill_pooled": 0.4548,
+        "deliverable": false,
+        "gate_all_years": true,
+        "gate_selectable": true,
+        "verify_skill": -0.2582,
+        "gate_verified": false
+      },
+      "棉花/CHN": {
+        "group": "棉花/CHN",
+        "target": "yield_t_ha",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 2,
+        "win_rate": 0.4,
+        "median_skill": -0.0129,
+        "mean_abs_err_model": 0.16783,
+        "mean_abs_err_persist": 0.1854,
+        "skill_pooled": 0.0948,
+        "deliverable": false,
+        "gate_all_years": false,
+        "gate_selectable": true,
+        "verify_skill": -0.0708,
+        "gate_verified": false
+      },
+      "棉花/USA": {
+        "group": "棉花/USA",
+        "target": "yield_t_ha",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 3,
+        "win_rate": 0.6,
+        "median_skill": 0.2674,
+        "mean_abs_err_model": 0.04071,
+        "mean_abs_err_persist": 0.056,
+        "skill_pooled": 0.273,
+        "deliverable": true,
+        "gate_all_years": true,
+        "gate_selectable": true,
+        "verify_skill": 0.5041,
+        "gate_verified": true
+      },
+      "玉米/CHN": {
+        "group": "玉米/CHN",
+        "target": "yield_t_ha",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 0,
+        "win_rate": 0.0,
+        "median_skill": -1.999,
+        "mean_abs_err_model": 0.21863,
+        "mean_abs_err_persist": 0.066,
+        "skill_pooled": -2.3126,
+        "deliverable": false,
+        "gate_all_years": false,
+        "gate_selectable": false,
+        "verify_skill": -2.1609,
+        "gate_verified": false
+      },
+      "玉米/USA": {
+        "group": "玉米/USA",
+        "target": "yield_t_ha",
+        "years": [
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "n": 5,
+        "wins": 4,
+        "win_rate": 0.8,
+        "median_skill": 0.6445,
+        "mean_abs_err_model": 0.12441,
+        "mean_abs_err_persist": 0.228,
+        "skill_pooled": 0.4543,
+        "deliverable": true,
+        "gate_all_years": true,
+        "gate_selectable": true,
+        "verify_skill": 0.0455,
+        "gate_verified": true
+      }
+    },
+    "deliverable": [
+      "大豆/BRA",
+      "棉花/USA",
+      "玉米/USA"
+    ],
+    "dropped": [
+      "咖啡/BRA",
+      "咖啡/CHN",
+      "大豆/CHN",
+      "大豆/USA",
+      "棉花/CHN",
+      "玉米/CHN"
+    ],
+    "selection_guard": {
+      "cutoff": 2022,
+      "protocol": "用 ≤2022 年的逐年成绩决定交付清单，再在 >2022 年上验证这份清单",
+      "picked_on_select": [
+        "咖啡/BRA",
+        "大豆/BRA",
+        "大豆/USA",
+        "棉花/CHN",
+        "棉花/USA",
+        "玉米/USA"
+      ],
+      "select_win_rate": 0.7778,
+      "verify_year_decisions": 12,
+      "verify_win_rate": 0.4167,
+      "verify_skill_pooled": -2.1269,
+      "holds_up": false,
+      "per_group": {
+        "咖啡/BRA": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 0.6667,
+          "select_skill": 0.4934,
+          "chosen_on_select": true,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.5,
+          "verify_skill": -2.1386
+        },
+        "咖啡/CHN": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 0.3333,
+          "select_skill": -0.4597,
+          "chosen_on_select": false,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.0,
+          "verify_skill": -0.2453
+        },
+        "大豆/BRA": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 0.6667,
+          "select_skill": 0.3493,
+          "chosen_on_select": true,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.5,
+          "verify_skill": 0.0441
+        },
+        "大豆/CHN": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 0.0,
+          "select_skill": -1.4017,
+          "chosen_on_select": false,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.0,
+          "verify_skill": -8.043
+        },
+        "大豆/USA": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 1.0,
+          "select_skill": 0.5845,
+          "chosen_on_select": true,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.5,
+          "verify_skill": -0.2582
+        },
+        "棉花/CHN": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 0.6667,
+          "select_skill": 0.2119,
+          "chosen_on_select": true,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.0,
+          "verify_skill": -0.0708
+        },
+        "棉花/USA": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 0.6667,
+          "select_skill": 0.1988,
+          "chosen_on_select": true,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.5,
+          "verify_skill": 0.5041
+        },
+        "玉米/CHN": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 0.0,
+          "select_skill": -2.439,
+          "chosen_on_select": false,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.0,
+          "verify_skill": -2.1609
+        },
+        "玉米/USA": {
+          "select_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "select_win_rate": 1.0,
+          "select_skill": 0.6508,
+          "chosen_on_select": true,
+          "verify_years": [
+            2023,
+            2024
+          ],
+          "verify_win_rate": 0.5,
+          "verify_skill": 0.0455
+        }
+      },
+      "reading": "验证段胜率仍不低于一半，说明「哪些组能交付」这件事是可以提前知道的，不是事后挑出来的。样本只有几年，这一条要按季度重跑。"
+    }
+  },
+  "risk_structure": {
+    "ok": true,
+    "naive_max_drawdown": -0.33076,
+    "managed_max_drawdown": -0.02307,
+    "tail_reduction_pp": 30.77,
+    "random_direction_drawdown_median": -0.02039,
+    "draws": 300,
+    "is_structural": true,
+    "reading": "随机方向也拿到同量级回撤，说明尾部收敛来自波动定仓与止损，不来自方向。对没有风控的人这仍是真实增量；对已有风控台的人是零。"
+  },
+  "attention_routing": {
+    "ok": true,
+    "threshold": 0.05,
+    "link_years": 36,
+    "base_rate_big_surprise": 0.6111,
+    "flagged_years": 21,
+    "flagged_big_rate": 0.619,
+    "quiet_big_rate": 0.6,
+    "lift": 1.013,
+    "deliverable": false,
+    "per_link": {
+      "cotton.xinjiang(棉花/CHN)": {
+        "flagged_years": 5,
+        "flagged_big": 4,
+        "quiet_years": 4,
+        "quiet_big": 2
+      },
+      "cotton.us.belt(棉花/USA)": {
+        "flagged_years": 7,
+        "flagged_big": 3,
+        "quiet_years": 2,
+        "quiet_big": 1
+      },
+      "soy.us.belt(大豆/USA)": {
+        "flagged_years": 4,
+        "flagged_big": 2,
+        "quiet_years": 5,
+        "quiet_big": 2
+      },
+      "coffee.br.arabica(咖啡/BRA)": {
+        "flagged_years": 5,
+        "flagged_big": 4,
+        "quiet_years": 4,
+        "quiet_big": 4
+      }
+    },
+    "reading": "提升度接近 1 就说明「我们标记的年份」和「随便挑一年」一样，注意力路由没有信息，不能作为卖点。"
+  },
+  "direction_edge": {
+    "ok": true,
+    "expectancy_r": -0.1274,
+    "percentile_vs_null": 0.3025,
+    "beats_null_95": false,
+    "deliverable": false,
+    "reading": "上尾不显著即没有边。方向不作为交付物，只作为解释材料。"
+  },
+  "expectations": {
+    "beginner": {
+      "objective": "不要被一次判断打穿账户",
+      "deliver": [
+        "交易台结构：波动定仓、ATR 止损、时间止损、单笔风险上限"
+      ],
+      "mechanism": "结构",
+      "expectation": "把同一批判断放进这套结构，最大回撤从 -33.08% 收敛到 -2.31%，改善约 30.77 个百分点。",
+      "honest_caveat": "这项改善与我们的方向无关：随机方向在同一套结构下的回撤中位是 -2.04%。我们卖的是纪律，不是预测。",
+      "falsifier": "如果使用者本来就有仓位管理，这项增量为零",
+      "positive": true
+    },
+    "familiar": {
+      "objective": "在已有的「照抄去年」基线上拿到更准的产量数字",
+      "deliver": [
+        "产量估计：大豆/BRA",
+        "产量估计：棉花/USA",
+        "产量估计：玉米/USA"
+      ],
+      "mechanism": "产量信息",
+      "expectation": "清单上最稳的是 棉花/USA：逐年前向合并技能分 0.273（5 年，胜率 0.6），验证段技能分 0.5041。预期：清单内组的年度误差约为照抄去年的 0.5 倍，即少错三成到五成。验证段每组只有 2 年，这个区间很宽。",
+      "honest_caveat": "不交付的组：['咖啡/BRA', '咖啡/CHN', '大豆/CHN', '大豆/USA', '棉花/CHN', '玉米/CHN']。中国口径的组全部落在这一侧。更重要的是：如果只用第一道门槛，会选出 6 组，但那份清单在 2022 年之后的胜率只有 0.4167（12 个年度判断），合并技能分 -2.1269。所以「挑组」本身必须前向验证。注意力路由不交付——标记年的大惊喜提升度只有 1.013。",
+      "falsifier": "任一组在新一年的前向测试里输给照抄去年两次，就从清单里摘掉",
+      "positive": true
+    },
+    "expert": {
+      "objective": "只要他还没定价的增量，不要重复他已有的信息",
+      "deliver": [
+        "季内展望相对开局的偏离序列（原始因子与物候权重，不带方向建议）"
+      ],
+      "mechanism": "产量信息（原始层）",
+      "expectation": "交付的是因子本身与它的构成，让对方接到自己的定价模型里。不交付方向：我们的多空期望 R 落在随机符号零分布第 0.3025 分位，没有边。",
+      "honest_caveat": "对已有绝对胁迫模型的人，增量只剩「相对开局」这一个视角",
+      "falsifier": "如果对方的模型已经含季内滚动修正，增量为零",
+      "positive": false
+    }
+  },
+  "scoreboard": {
+    "mechanisms_positive": 2,
+    "yield_groups_passing": 3,
+    "yield_groups_tested": 9
+  }
+}

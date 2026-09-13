@@ -211,6 +211,26 @@ def cmd_personas(args):
     _out(pe_mod.run(band=args.band))
 
 
+def cmd_audience(args):
+    from . import audience as au_mod
+
+    report = au_mod.run_with_table(band=args.band, draws=args.draws)
+    if args.table:
+        _text(au_mod.to_markdown(report))
+    else:
+        _out({k: v for k, v in report.items() if k != "yield_deliverables"})
+
+
+def cmd_trader(args):
+    from . import trader as tr_mod
+
+    report = tr_mod.run_with_table(band=args.band, draws=args.draws)
+    if args.table:
+        _text(tr_mod.to_markdown(report))
+    else:
+        _out({k: v for k, v in report.items() if k != "by_link"})
+
+
 def cmd_intervene(args):
     from . import intervene as iv_mod
 
@@ -377,6 +397,16 @@ def build_parser() -> argparse.ArgumentParser:
     pe = sub.add_parser("personas")
     pe.add_argument("--band", type=float, default=0.03)
     pe.set_defaults(func=cmd_personas)
+    au = sub.add_parser("audience")
+    au.add_argument("--band", type=float, default=0.03, help="干预带宽")
+    au.add_argument("--draws", type=int, default=300, help="结构归因对照组抽样次数")
+    au.add_argument("--table", action="store_true", help="打印 Markdown 产出表")
+    au.set_defaults(func=cmd_audience)
+    tr = sub.add_parser("trader")
+    tr.add_argument("--band", type=float, default=0.03, help="干预带宽")
+    tr.add_argument("--draws", type=int, default=2000, help="随机符号零分布抽样次数")
+    tr.add_argument("--table", action="store_true", help="打印 Markdown 产出表")
+    tr.set_defaults(func=cmd_trader)
     iv = sub.add_parser("intervene")
     iv.add_argument("--band", type=float, default=0.03, help="相对因子=1的干预带宽")
     iv.add_argument("--table", action="store_true")

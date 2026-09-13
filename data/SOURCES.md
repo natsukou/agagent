@@ -15,7 +15,7 @@
 | 期货 | 郑商所公开日报 txt | 2018 起真实合约结算价，含 WH/PM/RI/LR/JR | 交易所公开静态文件，无需登录 |
 | 国际期货 | Yahoo Finance chart API | CT=F（ICE 棉）、KC=F（ICE 咖啡）、ZS=F、ZC=F 等 10 年日线 | 公开行情接口，仅研究用，无持仓量 |
 | 对照测试集 | USDA FAS PSD grains_pulses | 中国小麦/稻米/玉米 面积·单产·产量（市场年） | 美国农业部公开下载 |
-| 魔搭检索记录 | ModelScope dolphin API | 关键词检索日志，当前 Search 被丢弃 | 检索记录，不是产量表 |
+| 魔搭检索记录 | ModelScope OpenAPI `/openapi/v1/datasets` | 关键词检索日志与农业候选集 | 检索记录，不是已验证的产量表 |
 
 不爬：大商所 `dayQuotesCh`（返回 412，不绕过）、国家统计局登录接口、DCEData 旧爬虫。
 

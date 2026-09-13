@@ -1,0 +1,934 @@
+{
+  "task": "交易专家结构：风险单位 + 止损 + 赔率 + 账户复利，再验有没有边",
+  "rules": {
+    "risk_per_trade": 0.0075,
+    "stop": "2.0×ATR(14)",
+    "target": "3.0×ATR，赔率 1.5R",
+    "breakeven": "浮盈 +1.0R 后止损移到成本价",
+    "time_stop": "最多 15 个交易日，状态结束即离场",
+    "sizing": "名义敞口 = 风险预算 ÷ 止损距离，单笔上限 1.0× 账户",
+    "conviction": "偏离 ≥ 2.0×带宽 给满档，否则 0.5 档",
+    "account": "所有链成交按时间排入同一账户复利，不是简单收益相加",
+    "conservative": "同一根K线两边触及按止损算；跳空穿越按开盘价成交"
+  },
+  "band": 0.03,
+  "accounts": {
+    "beginner_off": {
+      "ok": true,
+      "n_trades": 36,
+      "span": [
+        "2016-04-05",
+        "2024-09-30"
+      ],
+      "final_equity": 1.06501,
+      "cum_return": 0.06501,
+      "max_drawdown": -0.33076,
+      "hit_rate": null,
+      "avg_win_r": null,
+      "avg_loss_r": null,
+      "expectancy_r": null,
+      "payoff_ratio": null,
+      "profit_factor": null,
+      "sharpe": 0.1159,
+      "exit_mix": {
+        "季末离场（无止损）": 36
+      }
+    },
+    "beginner_on": {
+      "ok": true,
+      "n_trades": 25,
+      "span": [
+        "2017-07-17",
+        "2024-07-12"
+      ],
+      "final_equity": 0.98566,
+      "cum_return": -0.01434,
+      "max_drawdown": -0.02307,
+      "hit_rate": 0.36,
+      "avg_win_r": 0.8873,
+      "avg_loss_r": -0.6982,
+      "expectancy_r": -0.1274,
+      "payoff_ratio": 1.271,
+      "profit_factor": 0.715,
+      "sharpe": -0.2642,
+      "exit_mix": {
+        "状态结束/时间止损": 9,
+        "止损": 10,
+        "保本离场": 4,
+        "止盈": 2
+      }
+    },
+    "familiar_off": {
+      "ok": true,
+      "n_trades": 0,
+      "cum_return": 0.0,
+      "max_drawdown": 0.0
+    },
+    "familiar_on": {
+      "ok": true,
+      "n_trades": 25,
+      "span": [
+        "2017-07-17",
+        "2024-07-12"
+      ],
+      "final_equity": 0.98566,
+      "cum_return": -0.01434,
+      "max_drawdown": -0.02307,
+      "hit_rate": 0.36,
+      "avg_win_r": 0.8873,
+      "avg_loss_r": -0.6982,
+      "expectancy_r": -0.1274,
+      "payoff_ratio": 1.271,
+      "profit_factor": 0.715,
+      "sharpe": -0.2642,
+      "exit_mix": {
+        "状态结束/时间止损": 9,
+        "止损": 10,
+        "保本离场": 4,
+        "止盈": 2
+      }
+    },
+    "expert_off": {
+      "ok": true,
+      "n_trades": 37,
+      "span": [
+        "2016-04-05",
+        "2024-09-30"
+      ],
+      "final_equity": 0.96622,
+      "cum_return": -0.03378,
+      "max_drawdown": -0.03649,
+      "hit_rate": 0.3514,
+      "avg_win_r": 0.6875,
+      "avg_loss_r": -0.6965,
+      "expectancy_r": -0.2103,
+      "payoff_ratio": 0.987,
+      "profit_factor": 0.535,
+      "sharpe": -0.3756,
+      "exit_mix": {
+        "止损": 14,
+        "状态结束/时间止损": 15,
+        "保本离场": 5,
+        "止盈": 3
+      }
+    },
+    "expert_on": {
+      "ok": true,
+      "n_trades": 25,
+      "span": [
+        "2017-07-17",
+        "2024-07-12"
+      ],
+      "final_equity": 0.98566,
+      "cum_return": -0.01434,
+      "max_drawdown": -0.02307,
+      "hit_rate": 0.36,
+      "avg_win_r": 0.8873,
+      "avg_loss_r": -0.6982,
+      "expectancy_r": -0.1274,
+      "payoff_ratio": 1.271,
+      "profit_factor": 0.715,
+      "sharpe": -0.2642,
+      "exit_mix": {
+        "状态结束/时间止损": 9,
+        "止损": 10,
+        "保本离场": 4,
+        "止盈": 2
+      }
+    }
+  },
+  "personas": {
+    "beginner": {
+      "off_return": 0.06501,
+      "on_return": -0.01434,
+      "delta": -0.07935,
+      "off_max_drawdown": -0.33076,
+      "on_max_drawdown": -0.02307
+    },
+    "familiar": {
+      "off_return": 0.0,
+      "on_return": -0.01434,
+      "delta": -0.01434,
+      "off_max_drawdown": 0.0,
+      "on_max_drawdown": -0.02307
+    },
+    "expert": {
+      "off_return": -0.03378,
+      "on_return": -0.01434,
+      "delta": 0.01944,
+      "off_max_drawdown": -0.03649,
+      "on_max_drawdown": -0.02307
+    }
+  },
+  "by_link": {
+    "cotton.xinjiang→CF0": {
+      "overlay": {
+        "ok": true,
+        "n_trades": 8,
+        "span": [
+          "2017-07-17",
+          "2023-09-08"
+        ],
+        "final_equity": 0.99629,
+        "cum_return": -0.00371,
+        "max_drawdown": -0.00832,
+        "hit_rate": 0.25,
+        "avg_win_r": 1.1741,
+        "avg_loss_r": -0.5236,
+        "expectancy_r": -0.0992,
+        "payoff_ratio": 2.242,
+        "profit_factor": 0.747,
+        "sharpe": -0.1429,
+        "exit_mix": {
+          "状态结束/时间止损": 2,
+          "止损": 3,
+          "保本离场": 2,
+          "止盈": 1
+        }
+      },
+      "absolute": {
+        "ok": true,
+        "n_trades": 12,
+        "span": [
+          "2016-04-05",
+          "2024-07-24"
+        ],
+        "final_equity": 0.99288,
+        "cum_return": -0.00712,
+        "max_drawdown": -0.01197,
+        "hit_rate": 0.4167,
+        "avg_win_r": 0.6221,
+        "avg_loss_r": -0.5521,
+        "expectancy_r": -0.0628,
+        "payoff_ratio": 1.127,
+        "profit_factor": 0.805,
+        "sharpe": -0.1821,
+        "exit_mix": {
+          "止损": 3,
+          "状态结束/时间止损": 7,
+          "保本离场": 2
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "n_trades": 9,
+        "span": [
+          "2016-04-05",
+          "2024-11-01"
+        ],
+        "final_equity": 1.08385,
+        "cum_return": 0.08385,
+        "max_drawdown": -0.11778,
+        "hit_rate": null,
+        "avg_win_r": null,
+        "avg_loss_r": null,
+        "expectancy_r": null,
+        "payoff_ratio": null,
+        "profit_factor": null,
+        "sharpe": 0.1593,
+        "exit_mix": {
+          "季末离场（无止损）": 9
+        }
+      },
+      "fills": [
+        {
+          "link": "cotton.xinjiang→CF0",
+          "year": 2017,
+          "state": "short",
+          "entry_date": "2017-07-17",
+          "exit_date": "2017-07-24",
+          "direction": -1,
+          "entry": 15430.0,
+          "exit": 15015.0,
+          "stop": 15919.2857,
+          "target": 14696.0714,
+          "atr": 244.6429,
+          "risk_frac": 0.00375,
+          "notional": 0.1183,
+          "r_multiple": 0.8482,
+          "equity_return": 0.003086,
+          "exit_reason": "状态结束/时间止损"
+        },
+        {
+          "link": "cotton.xinjiang→CF0",
+          "year": 2017,
+          "state": "short",
+          "entry_date": "2017-08-15",
+          "exit_date": "2017-09-04",
+          "direction": -1,
+          "entry": 15255.0,
+          "exit": 15785.0,
+          "stop": 15785.0,
+          "target": 14460.0,
+          "atr": 265.0,
+          "risk_frac": 0.00375,
+          "notional": 0.1079,
+          "r_multiple": -1.0,
+          "equity_return": -0.003836,
+          "exit_reason": "止损"
+        },
+        {
+          "link": "cotton.xinjiang→CF0",
+          "year": 2020,
+          "state": "long",
+          "entry_date": "2020-06-01",
+          "exit_date": "2020-06-16",
+          "direction": 1,
+          "entry": 11695.0,
+          "exit": 11695.0,
+          "stop": 11695.0,
+          "target": 12303.5714,
+          "atr": 202.8571,
+          "risk_frac": 0.00375,
+          "notional": 0.1081,
+          "r_multiple": 0.0,
+          "equity_return": -8.6e-05,
+          "exit_reason": "保本离场"
+        },
+        {
+          "link": "cotton.xinjiang→CF0",
+          "year": 2021,
+          "state": "long",
+          "entry_date": "2021-07-01",
+          "exit_date": "2021-07-06",
+          "direction": 1,
+          "entry": 15885.0,
+          "exit": 16496.7857,
+          "stop": 15885.0,
+          "target": 16496.7857,
+          "atr": 203.9286,
+          "risk_frac": 0.00375,
+          "notional": 0.1461,
+          "r_multiple": 1.5,
+          "equity_return": 0.005508,
+          "exit_reason": "止盈"
+        },
+        {
+          "link": "cotton.xinjiang→CF0",
+          "year": 2022,
+          "state": "long",
+          "entry_date": "2022-06-28",
+          "exit_date": "2022-07-06",
+          "direction": 1,
+          "entry": 17615.0,
+          "exit": 16645.0,
+          "stop": 16645.0,
+          "target": 19070.0,
+          "atr": 485.0,
+          "risk_frac": 0.00375,
+          "notional": 0.0681,
+          "r_multiple": -1.0,
+          "equity_return": -0.003804,
+          "exit_reason": "止损"
+        },
+        {
+          "link": "cotton.xinjiang→CF0",
+          "year": 2022,
+          "state": "long",
+          "entry_date": "2022-09-02",
+          "exit_date": "2022-09-20",
+          "direction": 1,
+          "entry": 14210.0,
+          "exit": 14190.0,
+          "stop": 14210.0,
+          "target": 15338.2143,
+          "atr": 376.0714,
+          "risk_frac": 0.00375,
+          "notional": 0.0708,
+          "r_multiple": -0.0266,
+          "equity_return": -0.000156,
+          "exit_reason": "保本离场"
+        },
+        {
+          "link": "cotton.xinjiang→CF0",
+          "year": 2023,
+          "state": "long",
+          "entry_date": "2023-08-03",
+          "exit_date": "2023-08-14",
+          "direction": 1,
+          "entry": 17175.0,
+          "exit": 17115.0,
+          "stop": 16652.8571,
+          "target": 17958.2143,
+          "atr": 261.0714,
+          "risk_frac": 0.00375,
+          "notional": 0.1233,
+          "r_multiple": -0.1149,
+          "equity_return": -0.00053,
+          "exit_reason": "状态结束/时间止损"
+        },
+        {
+          "link": "cotton.xinjiang→CF0",
+          "year": 2023,
+          "state": "long",
+          "entry_date": "2023-08-28",
+          "exit_date": "2023-09-08",
+          "direction": 1,
+          "entry": 17545.0,
+          "exit": 17032.1429,
+          "stop": 17032.1429,
+          "target": 18314.2857,
+          "atr": 256.4286,
+          "risk_frac": 0.00375,
+          "notional": 0.1283,
+          "r_multiple": -1.0,
+          "equity_return": -0.003853,
+          "exit_reason": "止损"
+        }
+      ]
+    },
+    "cotton.us.belt→CT=F": {
+      "overlay": {
+        "ok": true,
+        "n_trades": 8,
+        "span": [
+          "2017-08-15",
+          "2023-09-05"
+        ],
+        "final_equity": 0.9959,
+        "cum_return": -0.0041,
+        "max_drawdown": -0.01136,
+        "hit_rate": 0.375,
+        "avg_win_r": 0.8352,
+        "avg_loss_r": -0.8581,
+        "expectancy_r": -0.2231,
+        "payoff_ratio": 0.973,
+        "profit_factor": 0.584,
+        "sharpe": -0.1233,
+        "exit_mix": {
+          "止损": 4,
+          "状态结束/时间止损": 2,
+          "止盈": 1,
+          "保本离场": 1
+        }
+      },
+      "absolute": {
+        "ok": true,
+        "n_trades": 8,
+        "span": [
+          "2017-05-05",
+          "2024-05-14"
+        ],
+        "final_equity": 1.00505,
+        "cum_return": 0.00505,
+        "max_drawdown": -0.01906,
+        "hit_rate": 0.375,
+        "avg_win_r": 1.5,
+        "avg_loss_r": -0.8402,
+        "expectancy_r": 0.0374,
+        "payoff_ratio": 1.785,
+        "profit_factor": 1.071,
+        "sharpe": 0.073,
+        "exit_mix": {
+          "止损": 4,
+          "止盈": 3,
+          "保本离场": 1
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "n_trades": 9,
+        "span": [
+          "2016-09-12",
+          "2024-11-01"
+        ],
+        "final_equity": 0.91512,
+        "cum_return": -0.08488,
+        "max_drawdown": -0.15222,
+        "hit_rate": null,
+        "avg_win_r": null,
+        "avg_loss_r": null,
+        "expectancy_r": null,
+        "payoff_ratio": null,
+        "profit_factor": null,
+        "sharpe": -0.1243,
+        "exit_mix": {
+          "季末离场（无止损）": 9
+        }
+      },
+      "fills": [
+        {
+          "link": "cotton.us.belt→CT=F",
+          "year": 2017,
+          "state": "short",
+          "entry_date": "2017-08-15",
+          "exit_date": "2017-08-23",
+          "direction": -1,
+          "entry": 67.68,
+          "exit": 70.2843,
+          "stop": 70.2843,
+          "target": 63.7736,
+          "atr": 1.3021,
+          "risk_frac": 0.00375,
+          "notional": 0.0975,
+          "r_multiple": -1.0,
+          "equity_return": -0.003799,
+          "exit_reason": "止损"
+        },
+        {
+          "link": "cotton.us.belt→CT=F",
+          "year": 2018,
+          "state": "long",
+          "entry_date": "2018-07-31",
+          "exit_date": "2018-08-03",
+          "direction": 1,
+          "entry": 90.28,
+          "exit": 87.58,
+          "stop": 87.58,
+          "target": 94.33,
+          "atr": 1.35,
+          "risk_frac": 0.00375,
+          "notional": 0.1254,
+          "r_multiple": -1.0,
+          "equity_return": -0.003813,
+          "exit_reason": "止损"
+        },
+        {
+          "link": "cotton.us.belt→CT=F",
+          "year": 2019,
+          "state": "long",
+          "entry_date": "2019-08-09",
+          "exit_date": "2019-08-26",
+          "direction": 1,
+          "entry": 59.05,
+          "exit": 56.5429,
+          "stop": 56.5429,
+          "target": 62.8107,
+          "atr": 1.2536,
+          "risk_frac": 0.00375,
+          "notional": 0.0883,
+          "r_multiple": -1.0,
+          "equity_return": -0.003794,
+          "exit_reason": "止损"
+        },
+        {
+          "link": "cotton.us.belt→CT=F",
+          "year": 2020,
+          "state": "long",
+          "entry_date": "2020-06-01",
+          "exit_date": "2020-06-22",
+          "direction": 1,
+          "entry": 60.06,
+          "exit": 62.52,
+          "stop": 57.07,
+          "target": 64.545,
+          "atr": 1.495,
+          "risk_frac": 0.0075,
+          "notional": 0.1507,
+          "r_multiple": 0.8227,
+          "equity_return": 0.006095,
+          "exit_reason": "状态结束/时间止损"
+        },
+        {
+          "link": "cotton.us.belt→CT=F",
+          "year": 2021,
+          "state": "short",
+          "entry_date": "2021-07-07",
+          "exit_date": "2021-07-14",
+          "direction": -1,
+          "entry": 86.63,
+          "exit": 89.5,
+          "stop": 88.8543,
+          "target": 83.2936,
+          "atr": 1.1121,
+          "risk_frac": 0.00375,
+          "notional": 0.1461,
+          "r_multiple": -1.2903,
+          "equity_return": -0.004912,
+          "exit_reason": "止损"
+        },
+        {
+          "link": "cotton.us.belt→CT=F",
+          "year": 2022,
+          "state": "long",
+          "entry_date": "2022-08-03",
+          "exit_date": "2022-08-08",
+          "direction": 1,
+          "entry": 100.36,
+          "exit": 101.58,
+          "stop": 93.6929,
+          "target": 110.3607,
+          "atr": 3.3336,
+          "risk_frac": 0.00375,
+          "notional": 0.0564,
+          "r_multiple": 0.183,
+          "equity_return": 0.000658,
+          "exit_reason": "状态结束/时间止损"
+        },
+        {
+          "link": "cotton.us.belt→CT=F",
+          "year": 2022,
+          "state": "long",
+          "entry_date": "2022-08-12",
+          "exit_date": "2022-08-16",
+          "direction": 1,
+          "entry": 114.44,
+          "exit": 122.5636,
+          "stop": 109.0243,
+          "target": 122.5636,
+          "atr": 2.7079,
+          "risk_frac": 0.00375,
+          "notional": 0.0792,
+          "r_multiple": 1.5,
+          "equity_return": 0.005585,
+          "exit_reason": "止盈"
+        },
+        {
+          "link": "cotton.us.belt→CT=F",
+          "year": 2023,
+          "state": "long",
+          "entry_date": "2023-08-28",
+          "exit_date": "2023-09-05",
+          "direction": 1,
+          "entry": 87.07,
+          "exit": 87.07,
+          "stop": 87.07,
+          "target": 91.1071,
+          "atr": 1.3457,
+          "risk_frac": 0.00375,
+          "notional": 0.1213,
+          "r_multiple": 0.0,
+          "equity_return": -6.1e-05,
+          "exit_reason": "保本离场"
+        }
+      ]
+    },
+    "soy.us.belt→ZS=F": {
+      "overlay": {
+        "ok": true,
+        "n_trades": 4,
+        "span": [
+          "2017-07-17",
+          "2023-08-07"
+        ],
+        "final_equity": 0.98985,
+        "cum_return": -0.01015,
+        "max_drawdown": -0.0115,
+        "hit_rate": 0.25,
+        "avg_win_r": 0.3786,
+        "avg_loss_r": -0.6667,
+        "expectancy_r": -0.4053,
+        "payoff_ratio": 0.568,
+        "profit_factor": 0.189,
+        "sharpe": -0.4725,
+        "exit_mix": {
+          "状态结束/时间止损": 1,
+          "保本离场": 1,
+          "止损": 2
+        }
+      },
+      "absolute": {
+        "ok": true,
+        "n_trades": 9,
+        "span": [
+          "2017-07-07",
+          "2024-09-30"
+        ],
+        "final_equity": 0.98026,
+        "cum_return": -0.01974,
+        "max_drawdown": -0.02148,
+        "hit_rate": 0.2222,
+        "avg_win_r": 0.3543,
+        "avg_loss_r": -0.692,
+        "expectancy_r": -0.4595,
+        "payoff_ratio": 0.512,
+        "profit_factor": 0.146,
+        "sharpe": -0.7797,
+        "exit_mix": {
+          "保本离场": 2,
+          "止损": 4,
+          "状态结束/时间止损": 3
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "n_trades": 9,
+        "span": [
+          "2016-09-12",
+          "2024-09-30"
+        ],
+        "final_equity": 0.87581,
+        "cum_return": -0.12419,
+        "max_drawdown": -0.14762,
+        "hit_rate": null,
+        "avg_win_r": null,
+        "avg_loss_r": null,
+        "expectancy_r": null,
+        "payoff_ratio": null,
+        "profit_factor": null,
+        "sharpe": -0.4297,
+        "exit_mix": {
+          "季末离场（无止损）": 9
+        }
+      },
+      "fills": [
+        {
+          "link": "soy.us.belt→ZS=F",
+          "year": 2017,
+          "state": "long",
+          "entry_date": "2017-07-17",
+          "exit_date": "2017-07-19",
+          "direction": 1,
+          "entry": 985.0,
+          "exit": 999.75,
+          "stop": 946.0357,
+          "target": 1043.4464,
+          "atr": 19.4821,
+          "risk_frac": 0.00375,
+          "notional": 0.0948,
+          "r_multiple": 0.3786,
+          "equity_return": 0.001372,
+          "exit_reason": "状态结束/时间止损"
+        },
+        {
+          "link": "soy.us.belt→ZS=F",
+          "year": 2018,
+          "state": "long",
+          "entry_date": "2018-07-30",
+          "exit_date": "2018-08-02",
+          "direction": 1,
+          "entry": 875.0,
+          "exit": 875.0,
+          "stop": 875.0,
+          "target": 920.8036,
+          "atr": 15.2679,
+          "risk_frac": 0.00375,
+          "notional": 0.1075,
+          "r_multiple": 0.0,
+          "equity_return": -5.4e-05,
+          "exit_reason": "保本离场"
+        },
+        {
+          "link": "soy.us.belt→ZS=F",
+          "year": 2020,
+          "state": "long",
+          "entry_date": "2020-07-27",
+          "exit_date": "2020-07-30",
+          "direction": 1,
+          "entry": 906.5,
+          "exit": 888.3214,
+          "stop": 888.3214,
+          "target": 933.7679,
+          "atr": 9.0893,
+          "risk_frac": 0.0075,
+          "notional": 0.374,
+          "r_multiple": -1.0,
+          "equity_return": -0.007687,
+          "exit_reason": "止损"
+        },
+        {
+          "link": "soy.us.belt→ZS=F",
+          "year": 2023,
+          "state": "long",
+          "entry_date": "2023-07-28",
+          "exit_date": "2023-08-07",
+          "direction": 1,
+          "entry": 1486.75,
+          "exit": 1419.5357,
+          "stop": 1419.5357,
+          "target": 1587.5714,
+          "atr": 33.6071,
+          "risk_frac": 0.00375,
+          "notional": 0.0829,
+          "r_multiple": -1.0,
+          "equity_return": -0.003791,
+          "exit_reason": "止损"
+        }
+      ]
+    },
+    "coffee.br.arabica→KC=F": {
+      "overlay": {
+        "ok": true,
+        "n_trades": 5,
+        "span": [
+          "2017-10-20",
+          "2024-07-12"
+        ],
+        "final_equity": 1.00358,
+        "cum_return": 0.00358,
+        "max_drawdown": -0.00659,
+        "hit_rate": 0.6,
+        "avg_win_r": 0.9176,
+        "avg_loss_r": -0.8694,
+        "expectancy_r": 0.2028,
+        "payoff_ratio": 1.056,
+        "profit_factor": 1.583,
+        "sharpe": 0.1478,
+        "exit_mix": {
+          "状态结束/时间止损": 4,
+          "止损": 1
+        }
+      },
+      "absolute": {
+        "ok": true,
+        "n_trades": 8,
+        "span": [
+          "2017-10-17",
+          "2024-06-25"
+        ],
+        "final_equity": 0.98776,
+        "cum_return": -0.01224,
+        "max_drawdown": -0.01371,
+        "hit_rate": 0.375,
+        "avg_win_r": 0.2059,
+        "avg_loss_r": -0.7615,
+        "expectancy_r": -0.3987,
+        "payoff_ratio": 0.27,
+        "profit_factor": 0.162,
+        "sharpe": -0.6959,
+        "exit_mix": {
+          "状态结束/时间止损": 5,
+          "止损": 3
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "n_trades": 9,
+        "span": [
+          "2016-09-12",
+          "2024-08-30"
+        ],
+        "final_equity": 1.22601,
+        "cum_return": 0.22601,
+        "max_drawdown": -0.11176,
+        "hit_rate": null,
+        "avg_win_r": null,
+        "avg_loss_r": null,
+        "expectancy_r": null,
+        "payoff_ratio": null,
+        "profit_factor": null,
+        "sharpe": 0.3034,
+        "exit_mix": {
+          "季末离场（无止损）": 9
+        }
+      },
+      "fills": [
+        {
+          "link": "coffee.br.arabica→KC=F",
+          "year": 2018,
+          "state": "long",
+          "entry_date": "2017-10-20",
+          "exit_date": "2017-11-10",
+          "direction": 1,
+          "entry": 125.25,
+          "exit": 127.55,
+          "stop": 119.8857,
+          "target": 133.2964,
+          "atr": 2.6821,
+          "risk_frac": 0.00375,
+          "notional": 0.0876,
+          "r_multiple": 0.4288,
+          "equity_return": 0.001555,
+          "exit_reason": "状态结束/时间止损"
+        },
+        {
+          "link": "coffee.br.arabica→KC=F",
+          "year": 2020,
+          "state": "long",
+          "entry_date": "2020-05-11",
+          "exit_date": "2020-05-13",
+          "direction": 1,
+          "entry": 108.95,
+          "exit": 103.7929,
+          "stop": 103.7929,
+          "target": 116.6857,
+          "atr": 2.5786,
+          "risk_frac": 0.00375,
+          "notional": 0.0792,
+          "r_multiple": -1.0,
+          "equity_return": -0.003798,
+          "exit_reason": "止损"
+        },
+        {
+          "link": "coffee.br.arabica→KC=F",
+          "year": 2021,
+          "state": "long",
+          "entry_date": "2020-10-08",
+          "exit_date": "2020-10-20",
+          "direction": 1,
+          "entry": 110.25,
+          "exit": 104.9,
+          "stop": 103.0071,
+          "target": 121.1143,
+          "atr": 3.6214,
+          "risk_frac": 0.00375,
+          "notional": 0.0571,
+          "r_multiple": -0.7387,
+          "equity_return": -0.002804,
+          "exit_reason": "状态结束/时间止损"
+        },
+        {
+          "link": "coffee.br.arabica→KC=F",
+          "year": 2021,
+          "state": "long",
+          "entry_date": "2021-08-19",
+          "exit_date": "2021-08-31",
+          "direction": 1,
+          "entry": 178.2,
+          "exit": 193.45,
+          "stop": 178.2,
+          "target": 198.4821,
+          "atr": 6.7607,
+          "risk_frac": 0.00375,
+          "notional": 0.0494,
+          "r_multiple": 1.1278,
+          "equity_return": 0.0042,
+          "exit_reason": "状态结束/时间止损"
+        },
+        {
+          "link": "coffee.br.arabica→KC=F",
+          "year": 2024,
+          "state": "long",
+          "entry_date": "2024-06-20",
+          "exit_date": "2024-07-12",
+          "direction": 1,
+          "entry": 230.25,
+          "exit": 250.45,
+          "stop": 230.25,
+          "target": 255.5786,
+          "atr": 8.4429,
+          "risk_frac": 0.00375,
+          "notional": 0.0511,
+          "r_multiple": 1.1963,
+          "equity_return": 0.004455,
+          "exit_reason": "状态结束/时间止损"
+        }
+      ]
+    }
+  },
+  "edge_test": {
+    "ok": true,
+    "draws": 2000,
+    "statistic": "全账户期望 R（每笔以初始止损距离为 1R）",
+    "expectancy_actual": -0.1274,
+    "expectancy_null_median": -0.0234,
+    "expectancy_null_p05": -0.3334,
+    "expectancy_null_p95": 0.2866,
+    "percentile_of_actual": 0.3025,
+    "beats_null_95": false,
+    "worse_than_null_05": false,
+    "return_actual": -0.01434,
+    "return_null_median": -0.00309,
+    "return_null_p95": 0.03021,
+    "return_percentile": 0.292,
+    "null_median_positive": false
+  },
+  "verdict": {
+    "bounded_loss": true,
+    "worst_case": -0.02307,
+    "overlay_return": -0.01434,
+    "expectancy_r": -0.1274,
+    "solves_unbounded_accounting": true,
+    "solves_no_edge": false,
+    "percentile_vs_null": 0.3025,
+    "positive_feedback": false,
+    "note": "口径问题（收益可以跌破 −100%、一条链主导合计）由账户复利与波动定仓解决；方向有没有边只由零分布分位决定。两件事不能互相替代。"
+  },
+  "caveats": [
+    "风控只改变收益形状，不创造方向信息；零分布跑同一套止损止盈就是为了验这一点",
+    "连续主力序列含换月跳空，ATR 与止损都会被跳空污染",
+    "未建模保证金追缴、涨跌停无法离场、以及止损单被穿的滑点",
+    "日内只有高低价，无法确定止损与止盈的先后，一律按止损优先",
+    "初学者基线没有止损，是刻意保留的原状，不是我们推荐的做法"
+  ]
+}

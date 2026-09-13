@@ -91,10 +91,11 @@ def build_table(
     test_years: tuple[int, ...] = TEST_YEARS,
     db_path: Path | None = None,
     holdout: dict[tuple[str, int], dict] | None = None,
+    force_download: bool = False,
 ) -> dict[str, object]:
     fetched = None
     if holdout is None:
-        fetched = load_or_fetch()
+        fetched = load_or_fetch(force=force_download)
         holdout = holdout_map(fetched["table"])
 
     conn = _connect(db_path or DB_PATH)
@@ -412,9 +413,7 @@ def to_markdown(report: dict[str, object]) -> str:
 
 
 def run(test_years: tuple[int, ...] = TEST_YEARS, force_download: bool = False) -> dict[str, object]:
-    if force_download:
-        load_or_fetch(force=True)
-    report = build_table(test_years=test_years)
+    report = build_table(test_years=test_years, force_download=force_download)
     TABLE_PATH.parent.mkdir(parents=True, exist_ok=True)
     TABLE_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     MD_PATH.write_text(to_markdown(report), encoding="utf-8")

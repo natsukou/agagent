@@ -266,6 +266,11 @@ def to_markdown(report: dict) -> str:
     lines.append(f"- 测试年：{report['test_years']}")
     lines.append(f"- 切分：{report['split_rule']}")
     lines.append(f"- 读法：{report['metric_note']}")
+    lines.append(
+        "- 范围：这张表是**固定两年留出**的横向体检，每组只有 2 个测试点，"
+        "不用来决定对外交付哪些组。交付资格由 `agro.cli audience` 的逐年前向"
+        "加选择偏差守卫决定，见 `docs/14-用户适配与交付门槛.md`。"
+    )
     lines.append("")
     lines.append("## 一、逐路径精度")
     lines.append("")

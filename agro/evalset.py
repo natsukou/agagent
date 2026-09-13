@@ -1,8 +1,8 @@
 """从魔搭检索、并下载独立产业对照测试集。
 
-魔搭 dolphin / openapi 的 Search 目前被忽略（任意关键词都返回同一批热门集），
-产量表下不下来。对照集改用 USDA PSD 中国主粮（与 OWID/FAO 不同机构），
-作为本阶段产业预测的新测试集。
+魔搭检索使用公开 OpenAPI；只有确认数据口径和文件结构后，候选数据集才可
+作为产量测试表。当前产业对照仍使用 USDA PSD 中国主粮（与 OWID/FAO
+不同机构），避免把仅名称相关的魔搭数据集误当成可比标签。
 """
 
 from __future__ import annotations
@@ -29,7 +29,12 @@ CROP_MATCH = {
     "玉米": ("corn", "maize"),
 }
 
-DOLPHIN = "https://www.modelscope.cn/api/v1/dolphin/datasets"
+MODELSCOPE_DATASETS = "https://www.modelscope.cn/openapi/v1/datasets"
+# 兼容外部代码可能导入的旧常量名；请求不再走已失效的 dolphin 接口。
+DOLPHIN = MODELSCOPE_DATASETS
+
+DEFAULT_MODELSCOPE_QUERIES = ("agriculture", "crop", "yield", "wheat", "rice", "maize")
+AGRICULTURE_TERMS = ("agri", "crop", "wheat", "rice", "maize", "corn", "grain", "cotton", "soy")
 
 
 def _request_json(url: str, timeout: int = 30) -> dict:
@@ -38,45 +43,83 @@ def _request_json(url: str, timeout: int = 30) -> dict:
         return json.loads(resp.read().decode("utf-8"))
 
 
-def search_modelscope(queries: tuple[str, ...] = ("agriculture", "作物产量", "crop yield", "粮食产量")) -> dict:
-    hits = []
-    totals = {}
-    first_page = []
+def _modelscope_page(payload: dict) -> tuple[list[dict], int]:
+    """兼容魔搭 OpenAPI 响应包络，并对异常成功响应给出明确错误。"""
+    if payload.get("success") is False:
+        raise ValueError(str(payload.get("message") or payload.get("error") or "魔搭请求失败"))
+    data = payload.get("data") or payload.get("Data") or {}
+    if isinstance(data, list):  # 旧接口仅用于兼容测试/历史缓存结构
+        return data, int(payload.get("TotalCount") or len(data))
+    if not isinstance(data, dict):
+        raise ValueError("魔搭返回了无法识别的数据结构")
+    items = data.get("datasets") or data.get("Datasets") or []
+    if not isinstance(items, list):
+        raise ValueError("魔搭 datasets 字段不是列表")
+    total = data.get("total_count", data.get("TotalCount", len(items)))
+    return items, int(total or 0)
+
+
+def _dataset_id(item: dict) -> str:
+    repo_id = item.get("id") or item.get("Path")
+    if repo_id:
+        return str(repo_id)
+    namespace = item.get("namespace") or item.get("Namespace") or ""
+    name = item.get("name") or item.get("Name") or ""
+    return f"{namespace}/{name}".strip("/")
+
+
+def _is_agriculture_candidate(item: dict) -> bool:
+    searchable = " ".join(
+        str(value)
+        for value in (
+            _dataset_id(item),
+            item.get("display_name", ""),
+            item.get("description", ""),
+            " ".join(item.get("tags") or []),
+        )
+    ).lower()
+    return any(term in searchable for term in AGRICULTURE_TERMS)
+
+
+def search_modelscope(queries: tuple[str, ...] = DEFAULT_MODELSCOPE_QUERIES) -> dict:
+    hits: list[str] = []
+    totals: dict[str, object] = {}
+    pages: dict[str, list[str]] = {}
     for q in queries:
-        url = DOLPHIN + "?" + urllib.parse.urlencode(
-            {"SearchValue": q, "PageSize": 10, "PageNumber": 1, "SortBy": "GmtModified"}
+        url = MODELSCOPE_DATASETS + "?" + urllib.parse.urlencode(
+            {"search": q, "sort": "downloads", "page_size": 10, "page_number": 1}
         )
         try:
             data = _request_json(url, timeout=25)
+            items, total = _modelscope_page(data)
         except Exception as exc:
             totals[q] = {"error": str(exc)}
             continue
-        items = data.get("Data") or []
-        totals[q] = data.get("TotalCount")
-        names = [f"{it.get('Namespace')}/{it.get('Name')}" for it in items]
-        if not first_page:
-            first_page = names
-        agri = [
-            n
-            for n in names
-            if any(k in n.lower() for k in ("agri", "crop", "yield", "wheat", "rice", "maize", "fao", "grain"))
-        ]
-        hits.extend(agri)
-        # 任意两次检索首页相同，说明 Search 被丢弃
-    collapsed = len({tuple(first_page)}) <= 1 and len(set(totals.values())) <= 1
+        totals[q] = total
+        pages[q] = [_dataset_id(item) for item in items if _dataset_id(item)]
+        hits.extend(_dataset_id(item) for item in items if _dataset_id(item) and _is_agriculture_candidate(item))
+
+    successful_pages = list(pages.values())
+    # 至少两个成功查询且首页完全相同，才说明服务端可能忽略了检索词。
+    collapsed = len(successful_pages) >= 2 and len({tuple(page) for page in successful_pages}) == 1
+    if not successful_pages:
+        note = "魔搭检索失败；请检查网络、代理或稍后重试。"
+    elif collapsed:
+        note = "魔搭返回了相同检索首页，检索词可能被服务端忽略。"
+    elif hits:
+        note = "魔搭检索已恢复；发现农业候选集，但尚未验证为可比的作物产量表。"
+    else:
+        note = "魔搭检索已恢复，但未找到可确认的农业产量表。"
     report = {
-        "source": DOLPHIN,
+        "source": MODELSCOPE_DATASETS,
         "queries": list(queries),
         "totals": totals,
-        "first_page": first_page,
+        "results_by_query": pages,
+        "first_page": next(iter(pages.values()), []),
         "search_collapsed": collapsed,
         "agriculture_named_hits": sorted(set(hits)),
         "usable_yield_table": False,
-        "note": (
-            "SearchValue 被忽略，首页与总量对所有关键词相同，无法从魔搭下载产量测试集。"
-            if collapsed
-            else "检索可用，但未找到产量表。"
-        ),
+        "note": note,
     }
     RAW.mkdir(parents=True, exist_ok=True)
     MS_SEARCH.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -203,7 +246,13 @@ def to_year_table(rows: list[dict[str, object]]) -> list[dict[str, object]]:
 
 def load_or_fetch(force: bool = False) -> dict[str, object]:
     RAW.mkdir(parents=True, exist_ok=True)
-    ms = search_modelscope()
+    if force or not MS_SEARCH.exists():
+        ms = search_modelscope()
+    else:
+        try:
+            ms = json.loads(MS_SEARCH.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            ms = search_modelscope()
     if force or not USDA_RAW.exists():
         rows = fetch_usda_psd()
     else:
