@@ -1,4 +1,17 @@
-export const state = { selectedMarket: 'all', showRoutes: true, motion: true, stressMode: false };
+export const state = {
+  view: 'market',
+  selectedMarket: 'all',
+  selectedCrop: 'all',
+  selectedPersona: 'beginner',
+  showRoutes: true,
+  motion: true,
+  stressMode: false,
+  kmlEnabled: false,
+  kmlStatus: 'idle',
+  kmlData: null,
+  mapMode: 'vector',
+  mapRegion: 'dongbei',
+};
 
 const listeners = new Set();
 

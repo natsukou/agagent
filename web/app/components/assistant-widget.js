@@ -1,4 +1,5 @@
 import { askAssistant } from '../services/assistant-api.js';
+import { renderMarkdown } from '../lib/markdown.js';
 
 const STARTERS = [
   '解释气候到产量再到期货的主链路',
@@ -18,11 +19,15 @@ function appendMessage(container, role, content, citations = []) {
 
   const body = document.createElement('div');
   body.className = 'assistant-message-body';
-  String(content).split(/\n{2,}/).filter(Boolean).forEach((paragraph) => {
+  if (role === 'assistant') {
+    renderMarkdown(body, content);
+  } else {
+    String(content).split(/\n{2,}/).filter(Boolean).forEach((paragraph) => {
     const line = document.createElement('p');
     line.textContent = paragraph;
     body.append(line);
-  });
+    });
+  }
 
   message.append(label, body);
   if (citations.length) {
@@ -51,7 +56,7 @@ export function mountAssistantWidget(getContext = () => ({})) {
       <header class="assistant-header">
         <div class="assistant-avatar" aria-hidden="true">✦</div>
         <div><b>绿星助手</b><small><i></i> 农业图谱解释在线</small></div>
-        <button class="assistant-close" type="button" aria-label="关闭助手">×</button>
+        <button class="assistant-close" type="button" aria-label="最小化助手" title="最小化">−</button>
       </header>
       <div class="assistant-scope"><span>受控 Harness</span> 只读解释，不执行交易，不替代农艺决策</div>
       <div class="assistant-messages" aria-live="polite"></div>
@@ -67,7 +72,7 @@ export function mountAssistantWidget(getContext = () => ({})) {
 
   const launcher = root.querySelector('.assistant-launcher');
   const panel = root.querySelector('.assistant-panel');
-  const close = root.querySelector('.assistant-close');
+  const minimize = root.querySelector('.assistant-close');
   const messages = root.querySelector('.assistant-messages');
   const starters = root.querySelector('.assistant-starters');
   const form = root.querySelector('.assistant-form');
@@ -119,7 +124,7 @@ export function mountAssistantWidget(getContext = () => ({})) {
   appendMessage(messages, 'assistant', '你好，我可以结合当前图谱解释气候证据、产量含义、数据覆盖、期货市场信号，以及干预与画像研究的验收结论。');
 
   launcher.addEventListener('click', () => setOpen(!root.classList.contains('open')));
-  close.addEventListener('click', () => setOpen(false));
+  minimize.addEventListener('click', () => setOpen(false));
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     send(input.value);

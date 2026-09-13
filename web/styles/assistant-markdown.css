@@ -1,0 +1,85 @@
+.assistant-message-body h3,
+.assistant-message-body h4,
+.assistant-message-body h5,
+.assistant-message-body h6 {
+  margin: 12px 0 5px;
+  color: #f1faf5;
+  font-weight: 780;
+  line-height: 1.35;
+}
+
+.assistant-message-body h3:first-child,
+.assistant-message-body h4:first-child,
+.assistant-message-body h5:first-child,
+.assistant-message-body h6:first-child { margin-top: 0; }
+.assistant-message-body h3 { font-size: 15px; }
+.assistant-message-body h4 { font-size: 14px; }
+.assistant-message-body h5,
+.assistant-message-body h6 { font-size: 13px; }
+.assistant-message-body strong { color: #96ecc0; font-weight: 780; }
+.assistant-message-body em { color: #bdd7ca; }
+.assistant-message-body del { color: #758f83; }
+.assistant-message-body ul,
+.assistant-message-body ol { margin: 7px 0; padding-left: 20px; }
+.assistant-message-body li+li { margin-top: 4px; }
+.assistant-message-body li::marker { color: #67d49d; }
+
+.assistant-message-body a {
+  color: #75dca9;
+  text-decoration-color: rgba(117, 220, 169, .5);
+  text-underline-offset: 2px;
+}
+
+.assistant-message-body a:hover { color: #b0f2d0; }
+
+.assistant-message-body code {
+  padding: 1px 4px;
+  border: 1px solid rgba(112, 177, 145, .25);
+  border-radius: 4px;
+  background: #081c13;
+  color: #c8f5df;
+  font: 10px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.assistant-message-body pre {
+  overflow: auto;
+  margin: 8px 0;
+  padding: 9px 10px;
+  border: 1px solid #2e5542;
+  border-radius: 7px;
+  background: #071a12;
+}
+
+.assistant-message-body pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #c9dfd4;
+  white-space: pre;
+}
+
+.assistant-message-body blockquote {
+  margin: 8px 0;
+  padding: 6px 9px;
+  border-left: 2px solid #65d39c;
+  background: rgba(75, 155, 116, .09);
+  color: #afcbbd;
+}
+
+.assistant-message-body hr {
+  height: 1px;
+  margin: 10px 0;
+  border: 0;
+  background: rgba(100, 157, 129, .3);
+}
+
+.markdown-table-wrap { overflow-x: auto; margin: 8px 0; }
+.assistant-message-body table { width: 100%; border-collapse: collapse; font-size: 10px; }
+.assistant-message-body th,
+.assistant-message-body td {
+  padding: 5px 7px;
+  border: 1px solid rgba(89, 142, 116, .36);
+  text-align: left;
+  white-space: nowrap;
+}
+.assistant-message-body th { background: rgba(55, 116, 86, .26); color: #97e7bd; }
