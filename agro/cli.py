@@ -204,6 +204,22 @@ def cmd_multicrop(args):
         _out({k: v for k, v in report.items() if k != "results"})
 
 
+def cmd_personas(args):
+    from . import personas as pe_mod
+
+    _out(pe_mod.run(band=args.band))
+
+
+def cmd_intervene(args):
+    from . import intervene as iv_mod
+
+    report = iv_mod.run_with_table(band=args.band)
+    if args.table:
+        _text(iv_mod.to_markdown(report))
+    else:
+        _out({k: v for k, v in report.items() if k != "results"})
+
+
 def cmd_strategy(args):
     from . import strategy as st_mod
 
@@ -345,6 +361,13 @@ def build_parser() -> argparse.ArgumentParser:
     mc.add_argument("--crops", default="大豆,玉米,棉花,咖啡")
     mc.add_argument("--table", action="store_true", help="打印 Markdown 产出表")
     mc.set_defaults(func=cmd_multicrop)
+    pe = sub.add_parser("personas")
+    pe.add_argument("--band", type=float, default=0.03)
+    pe.set_defaults(func=cmd_personas)
+    iv = sub.add_parser("intervene")
+    iv.add_argument("--band", type=float, default=0.03, help="相对因子=1的干预带宽")
+    iv.add_argument("--table", action="store_true")
+    iv.set_defaults(func=cmd_intervene)
     st = sub.add_parser("strategy")
     st.add_argument("--hold", type=int, default=3, help="持有交易日数")
     st.add_argument("--min-delta", type=float, default=0.002, help="修正量阈值")

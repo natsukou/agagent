@@ -23,3 +23,20 @@
 - `app/data/market-catalog.js`：交易所、合约与产区演示数据；
 - `app/components/`：侧栏、地图、市场抽屉、状态面板；
 - `styles/`：设计令牌和布局样式。
+
+## 悬浮 AI 助手
+
+前端助手由 `app/components/assistant-widget.js` 挂载在应用根节点之外，因此地图、策略页切换或重新渲染不会清空对话。浏览器只向同域 `/api/assistant` 发送问题、最近 8 条对话和当前页面筛选上下文；服务端实现位于 `api/assistant.js`。
+
+Serverless Harness 只开放四个只读解释工具，并限制问题长度、历史长度和最多 4 轮工具调用。GNN / GCN 不直接产出路由或交易决策，农业域也不调用 `mvp/kcg` 边界内核。
+
+在 Vercel 项目中配置以下服务端环境变量后再发布：
+
+```text
+DEEPSEEK_API_KEY=服务端密钥
+DEEPSEEK_BASE_URL=与密钥套餐及地域匹配的 OpenAI 兼容地址
+DEEPSEEK_MODEL=deepseek-v4-flash
+DEEPSEEK_TIMEOUT_MS=45000
+```
+
+密钥不得写入 `index.html`、浏览器 JavaScript 或 Git。`sk-sp-` 是阿里云百炼套餐专属密钥，必须使用订阅页给出的 Token Plan 或 Coding Plan 专属地址，不能与百炼通用地址或 DeepSeek 官方地址混用。

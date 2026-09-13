@@ -1,4 +1,4 @@
-export const state = { selectedMarket: 'all', showRoutes: true, motion: true, stressMode: false };
+export const state = { view: 'strategy', selectedMarket: 'all', selectedPersona: 'beginner', showRoutes: true, motion: true, stressMode: false };
 
 const listeners = new Set();
 

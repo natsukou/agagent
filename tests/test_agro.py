@@ -178,18 +178,30 @@ class TestGraphStore(unittest.TestCase):
 
         from agro import store
 
-        tmp = Path(tempfile.mkdtemp())
-        conn = store._connect(tmp / "t.db")
-        stats = store.build_graph(conn)
-        self.assertGreater(stats["nodes"], 10)
-        kinds = {r[0] for r in conn.execute("SELECT DISTINCT kind FROM nodes")}
-        self.assertIn("region", kinds)
-        self.assertIn("crop", kinds)
-        self.assertIn("sales", kinds)
-        self.assertIn("county", kinds)
-        self.assertIn("demand", kinds)
-        export = store.export_json(conn, tmp / "g.json")
-        self.assertTrue(export.exists())
+        # 某些 Windows 沙箱不允许 SQLite 在新建临时子目录写入；
+        # 先在授权的数据目录创建文件，再让 SQLite 接管该文件。
+        data_dir = Path(__file__).resolve().parents[1] / "data"
+        with tempfile.NamedTemporaryFile(dir=data_dir, suffix=".db", delete=False) as handle:
+            db_path = Path(handle.name)
+        export = db_path.with_suffix(".json")
+        conn = None
+        try:
+            conn = store._connect(db_path)
+            stats = store.build_graph(conn)
+            self.assertGreater(stats["nodes"], 10)
+            kinds = {r[0] for r in conn.execute("SELECT DISTINCT kind FROM nodes")}
+            self.assertIn("region", kinds)
+            self.assertIn("crop", kinds)
+            self.assertIn("sales", kinds)
+            self.assertIn("county", kinds)
+            self.assertIn("demand", kinds)
+            written = store.export_json(conn, export)
+            self.assertTrue(written.exists())
+        finally:
+            if conn is not None:
+                conn.close()
+            db_path.unlink(missing_ok=True)
+            export.unlink(missing_ok=True)
 
 
 class TestDemandGraph(unittest.TestCase):

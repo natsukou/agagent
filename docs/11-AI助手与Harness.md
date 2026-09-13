@@ -2,7 +2,7 @@
 
 ## 目标与边界
 
-助手是“解释与检索编排层”，不是产量模型、行情源或交易系统。它只读取本地已建图数据，通过受限工具解释：数据覆盖、图谱关系、历史单产和期货映射。它不得下单、写库、抓取任意网页、修改模型参数，或把市场相关性表述为因果和交易建议。
+助手是“解释与检索编排层”，不是产量模型、行情源或交易系统。其固定领域结构是 **气候证据 → 产量信息 → 期货信息**；它只读取本地已建图数据，解释数据覆盖、图谱关系、历史单产、产量模型输出和期货映射。它不得下单、写库、抓取任意网页、修改模型参数，或把市场相关性表述为因果和交易建议。
 
 ## 架构
 
@@ -11,7 +11,7 @@ Web Assistant Panel
   -> POST /api/assistant
   -> Harness: 输入校验 / 系统策略 / 最大工具轮次 / 审计轨迹
   -> DeepSeek Chat Completions
-  <-> 只读白名单工具: 图谱摘要 / 单产历史 / 市场覆盖
+  <-> 只读白名单工具: 气候证据 / 产量模型与历史 / 期货信息 / 图谱摘要
   -> 带 citations、tool_trace 的回答
 ```
 
@@ -19,7 +19,7 @@ Web Assistant Panel
 
 ## DeepSeek 接口
 
-默认使用 OpenAI 兼容的 `https://api.deepseek.com/chat/completions`，模型为 `deepseek-v4-flash`。密钥只能通过 `DEEPSEEK_API_KEY` 环境变量提供。工具调用结构兼容 DeepSeek 的 function tools；默认关闭思考模式，避免将内部推理作为业务证据。官方接口和工具调用规范见 [DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/) 与 [Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/)。
+默认使用 OpenAI 兼容的 `https://api.deepseek.com/chat/completions`，模型为 `deepseek-v4-flash`。密钥优先从系统环境变量 `DEEPSEEK_API_KEY` 读取；本地开发也可使用仓库根目录下、已被 `.gitignore` 排除的 `.env`，系统环境变量始终覆盖本地文件。工具调用结构兼容 DeepSeek 的 function tools；默认关闭思考模式，避免将内部推理作为业务证据。官方接口和工具调用规范见 [DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/) 与 [Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/)。
 
 ## API 合约
 
@@ -37,17 +37,27 @@ Web Assistant Panel
 
 `citations` 是实际调用工具返回的本地来源；`tool_trace` 便于审计，但不返回隐藏推理。
 
+## 三层领域 Harness
+
+| 层 | 助手可解释的内容 | 工具 | 明确不能做的事 |
+| --- | --- | --- | --- |
+| 气候证据 | 主产区月均温、极值温度、降水与数据覆盖 | `get_climate_evidence` | 把历史观测说成实时预报 |
+| 产量信息 | 历史单产、图谱物候胁迫、基线气候态下的产量区间 | `get_yield_history`、`get_yield_outlook` | 将基线情景当实测；替代农艺师决策 |
+| 期货信息 | 品种映射、角色、流动性、缓存可用性与覆盖缺口 | `get_futures_context`、`get_market_coverage` | 下单、交易建议、因果/收益承诺 |
+
+每次回答使用固定输出顺序：**气候证据 → 产量含义 → 农情与数据建议 → 期货信息 → 覆盖缺口**。其中“建议”只指田间巡查、灌溉/病虫害核验和数据补采优先级；它不形成具体农业作业指令，也绝不形成交易建议。
+
 ## Harness 运行策略
 
 | 控制项 | 当前规则 |
 | --- | --- |
-| 工具 | 仅 3 个只读本地工具，JSON Schema 限定参数 |
+| 工具 | 6 个只读本地工具，JSON Schema 与服务端字段白名单双重限定参数 |
 | 最大工具轮次 | 4，可用 `AGRI_AI_MAX_TOOL_ROUNDS` 调整 |
 | 历史 | 最多 8 条，每条最大 4000 字符 |
 | 用户问题 | 最大 4000 字符 |
 | 投资边界 | 禁止买卖、仓位、收益保证、个性化建议 |
 | 数据边界 | 观测、推断、演示数据必须区分；缺口必须说明 |
-| 密钥 | 仅环境变量；前端、日志、仓库均不出现密钥 |
+| 密钥 | 系统环境变量或被忽略的本地 `.env`；前端、日志、版本库均不出现密钥 |
 
 ## 上线前 Harness 计划
 

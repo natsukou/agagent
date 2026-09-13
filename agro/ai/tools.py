@@ -4,10 +4,15 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from pathlib import Path
 from typing import Any, Callable
 
+from ..adapter import to_plan
+from ..datasets import bundled
+from ..futures import CROP_SYMBOLS, FUT_RAW, SYMBOLS, FuturesBar, liquidity
+from ..graph import build_yield_graph
 from ..market import coverage_report
+from ..predict import forecast_yield
+from ..regions import REGIONS
 from ..store import DB_PATH, _connect, summary
 
 ToolHandler = Callable[[dict[str, Any]], dict[str, Any]]
@@ -15,6 +20,9 @@ TOOL_ARGUMENTS: dict[str, set[str]] = {
     "get_graph_summary": set(),
     "get_yield_history": {"crop"},
     "get_market_coverage": set(),
+    "get_climate_evidence": {"region_id", "year", "month"},
+    "get_yield_outlook": {"layout_id"},
+    "get_futures_context": {"crop"},
 }
 
 
@@ -49,6 +57,70 @@ def _market_coverage(_: dict[str, Any]) -> dict[str, Any]:
     return {"data": coverage_report(), "citations": ["agro/market.py"]}
 
 
+def _climate_evidence(arguments: dict[str, Any]) -> dict[str, Any]:
+    region_id = str(arguments["region_id"])
+    year, month = int(arguments["year"]), int(arguments["month"])
+    if region_id not in REGIONS:
+        return {"error": f"未知 region_id: {region_id}", "citations": []}
+    if not 2015 <= year <= 2030 or not 1 <= month <= 12:
+        return {"error": "year 仅允许 2015–2030，month 仅允许 1–12。", "citations": []}
+    if not DB_PATH.exists():
+        return {"available": False, "message": "尚未建图，无法读取月度天气。", "citations": []}
+    conn = _connect()
+    try:
+        row = conn.execute(
+            "SELECT region_id, year, month, tmean, tmax, tmin, precip_mm, source FROM weather_month WHERE region_id=? AND year=? AND month=?",
+            (region_id, year, month),
+        ).fetchone()
+        if row is None:
+            return {"available": False, "message": "该地区月份没有本地天气记录。", "citations": ["data/agri_graph.db:weather_month"]}
+        return {"available": True, "data": dict(row), "citations": ["data/agri_graph.db:weather_month"]}
+    finally:
+        conn.close()
+
+
+def _yield_outlook(arguments: dict[str, Any]) -> dict[str, Any]:
+    layout_id = str(arguments["layout_id"])
+    layouts = bundled.layout_map()
+    layout = layouts.get(layout_id)
+    if layout is None:
+        return {"error": f"未知 layout_id: {layout_id}", "citations": []}
+    # 这里刻意只用本地气候态种子：输出是“基线情景推断”，不是实时预报。
+    climate = [bundled.climatology().get(layout.region_id, month) for month in range(1, 13)]
+    forecast = forecast_yield(layout, climate, build_yield_graph(list(layouts.values())))
+    plan = to_plan(forecast).to_dict()
+    return {
+        "data": {"forecast": forecast.to_dict(), "guidance_path": plan["path"], "allowed_actions": plan["allowed_actions"]},
+        "interpretation": "基线气候态推断，只能解释图谱机制和数据需求，不能当作当季实测产量。",
+        "citations": ["agro/datasets/bundled.py", "agro/predict.py", "agro/graph.py"],
+    }
+
+
+def _futures_context(arguments: dict[str, Any]) -> dict[str, Any]:
+    crop = str(arguments["crop"])
+    codes = CROP_SYMBOLS.get(crop)
+    if not codes:
+        return {"error": f"当前没有 {crop} 的期货映射目录。", "citations": []}
+    rows = []
+    for code in codes:
+        meta = SYMBOLS[code]
+        path = FUT_RAW / f"{code}.json"
+        item: dict[str, Any] = {"symbol": code, "name": meta.name, "exchange": meta.exchange, "role": meta.role, "note": meta.note, "cached": path.exists()}
+        if path.exists():
+            try:
+                bars = [FuturesBar(**row) for row in json.loads(path.read_text(encoding="utf-8"))]
+                item["liquidity"] = liquidity(bars)
+                item["latest_date"] = bars[-1].date if bars else None
+            except (json.JSONDecodeError, TypeError, ValueError):
+                item["cache_error"] = "本地行情缓存格式异常。"
+        rows.append(item)
+    return {
+        "data": {"crop": crop, "instruments": rows},
+        "interpretation": "期货仅用于市场信息与流动性说明，不构成产量因果或交易建议。",
+        "citations": ["agro/futures.py", "data/raw/futures/*（若 cached=true）"],
+    }
+
+
 def tool_definitions() -> list[dict[str, Any]]:
     return [
         {
@@ -57,6 +129,49 @@ def tool_definitions() -> list[dict[str, Any]]:
                 "name": "get_graph_summary",
                 "description": "Read the local agricultural graph database coverage and current data span.",
                 "parameters": {"type": "object", "properties": {}, "additionalProperties": False},
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_climate_evidence",
+                "description": "Read one local monthly climate observation for an agricultural region. It is evidence, not a forecast.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "region_id": {"type": "string", "enum": sorted(REGIONS)},
+                        "year": {"type": "integer"},
+                        "month": {"type": "integer"},
+                    },
+                    "required": ["region_id", "year", "month"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_yield_outlook",
+                "description": "Run the local graph yield model for a layout using the bundled baseline climatology. It is not a real-time yield observation.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"layout_id": {"type": "string", "enum": sorted(bundled.layout_map())}},
+                    "required": ["layout_id"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_futures_context",
+                "description": "Read local futures instrument mapping and cached liquidity context for a crop. It never fetches the network or gives trading advice.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"crop": {"type": "string", "enum": sorted(CROP_SYMBOLS)}},
+                    "required": ["crop"],
+                    "additionalProperties": False,
+                },
             },
         },
         {
@@ -84,7 +199,14 @@ def tool_definitions() -> list[dict[str, Any]]:
 
 
 def tool_registry() -> dict[str, ToolHandler]:
-    return {"get_graph_summary": _graph_summary, "get_yield_history": _yield_history, "get_market_coverage": _market_coverage}
+    return {
+        "get_graph_summary": _graph_summary,
+        "get_yield_history": _yield_history,
+        "get_market_coverage": _market_coverage,
+        "get_climate_evidence": _climate_evidence,
+        "get_yield_outlook": _yield_outlook,
+        "get_futures_context": _futures_context,
+    }
 
 
 def invoke_tool(name: str, arguments_json: str) -> dict[str, Any]:
