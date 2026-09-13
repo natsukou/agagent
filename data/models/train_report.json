@@ -1,0 +1,339 @@
+{
+  "task": "产业图谱端到端：产量与销量估计",
+  "split": {
+    "test_years": [
+      2023,
+      2024
+    ],
+    "rule": "按年份切分，不用随机"
+  },
+  "yield": {
+    "ok": true,
+    "train_n": 21,
+    "test_n": 6,
+    "test_years": [
+      2023,
+      2024
+    ],
+    "model": {
+      "n": 6,
+      "mae": 0.1122,
+      "rmse": 0.1276,
+      "mape": 0.0175
+    },
+    "baseline_mean": {
+      "n": 6,
+      "mae": 0.5208,
+      "rmse": 0.5788,
+      "mape": 0.0784
+    },
+    "baseline_persist": {
+      "n": 6,
+      "mae": 0.0904,
+      "rmse": 0.0957,
+      "mape": 0.014
+    },
+    "beats_mean": true,
+    "beats_persist": false,
+    "predictions": [
+      {
+        "crop": "小麦",
+        "year": 2023,
+        "actual": 5.7811,
+        "pred": 5.7441,
+        "persist": 5.8554
+      },
+      {
+        "crop": "小麦",
+        "year": 2024,
+        "actual": 5.9396,
+        "pred": 5.7393,
+        "persist": 5.8554
+      },
+      {
+        "crop": "水稻",
+        "year": 2023,
+        "actual": 7.1368,
+        "pred": 7.0521,
+        "persist": 7.0796
+      },
+      {
+        "crop": "水稻",
+        "year": 2024,
+        "actual": 7.1545,
+        "pred": 7.1086,
+        "persist": 7.0796
+      },
+      {
+        "crop": "玉米",
+        "year": 2023,
+        "actual": 6.5321,
+        "pred": 6.393,
+        "persist": 6.4361
+      },
+      {
+        "crop": "玉米",
+        "year": 2024,
+        "actual": 6.5918,
+        "pred": 6.4256,
+        "persist": 6.4361
+      }
+    ],
+    "weights": {
+      "bias": 2.22184,
+      "crop:小麦": 0.04628,
+      "crop:水稻": 0.08729,
+      "crop:玉米": -0.13357,
+      "tmean": -0.01633,
+      "tmax": 0.06898,
+      "precip_m": 0.03452,
+      "graph_factor": 0.00184,
+      "lag_yield": 0.42597
+    }
+  },
+  "sales_cereal_1e8t": {
+    "ok": true,
+    "train_n": 7,
+    "test_n": 1,
+    "test_years": [
+      2023
+    ],
+    "model": {
+      "n": 1,
+      "mae": 0.2092,
+      "rmse": 0.2092,
+      "mape": 0.0326
+    },
+    "baseline_mean": {
+      "n": 1,
+      "mae": 0.2249,
+      "rmse": 0.2249,
+      "mape": 0.035
+    },
+    "baseline_persist": {
+      "n": 1,
+      "mae": 0.086,
+      "rmse": 0.086,
+      "mape": 0.0134
+    },
+    "beats_mean": true,
+    "beats_persist": false,
+    "predictions": [
+      {
+        "crop": "谷物",
+        "year": 2023,
+        "actual": 6.4173,
+        "pred": 6.2081,
+        "persist": 6.3313
+      }
+    ],
+    "weights": {
+      "bias": 5.96422,
+      "cereal_yield": 0.09293,
+      "area_mha": 0.00451,
+      "tmean": -0.04112,
+      "tmax": -0.00316,
+      "precip_m": 0.00271,
+      "lag_prod_mt": 0.04914
+    }
+  },
+  "structural_sales": [
+    {
+      "crop": "小麦",
+      "year": 2016,
+      "yield_t_ha": 5.3965,
+      "area_kha": 7200,
+      "struct_production_kt": 38854.8
+    },
+    {
+      "crop": "小麦",
+      "year": 2017,
+      "yield_t_ha": 5.4841,
+      "area_kha": 7200,
+      "struct_production_kt": 39485.5
+    },
+    {
+      "crop": "小麦",
+      "year": 2018,
+      "yield_t_ha": 5.4166,
+      "area_kha": 7200,
+      "struct_production_kt": 38999.5
+    },
+    {
+      "crop": "小麦",
+      "year": 2019,
+      "yield_t_ha": 5.6298,
+      "area_kha": 7200,
+      "struct_production_kt": 40534.6
+    },
+    {
+      "crop": "小麦",
+      "year": 2020,
+      "yield_t_ha": 5.7421,
+      "area_kha": 7200,
+      "struct_production_kt": 41343.1
+    },
+    {
+      "crop": "小麦",
+      "year": 2021,
+      "yield_t_ha": 5.8106,
+      "area_kha": 7200,
+      "struct_production_kt": 41836.3
+    },
+    {
+      "crop": "小麦",
+      "year": 2022,
+      "yield_t_ha": 5.8554,
+      "area_kha": 7200,
+      "struct_production_kt": 42158.9
+    },
+    {
+      "crop": "小麦",
+      "year": 2023,
+      "yield_t_ha": 5.7811,
+      "area_kha": 7200,
+      "struct_production_kt": 41623.9
+    },
+    {
+      "crop": "小麦",
+      "year": 2024,
+      "yield_t_ha": 5.9396,
+      "area_kha": 7200,
+      "struct_production_kt": 42765.1
+    },
+    {
+      "crop": "水稻",
+      "year": 2016,
+      "yield_t_ha": 6.8657,
+      "area_kha": 7500,
+      "struct_production_kt": 51492.8
+    },
+    {
+      "crop": "水稻",
+      "year": 2017,
+      "yield_t_ha": 6.9169,
+      "area_kha": 7500,
+      "struct_production_kt": 51876.8
+    },
+    {
+      "crop": "水稻",
+      "year": 2018,
+      "yield_t_ha": 7.0266,
+      "area_kha": 7500,
+      "struct_production_kt": 52699.5
+    },
+    {
+      "crop": "水稻",
+      "year": 2019,
+      "yield_t_ha": 7.0601,
+      "area_kha": 7500,
+      "struct_production_kt": 52950.8
+    },
+    {
+      "crop": "水稻",
+      "year": 2020,
+      "yield_t_ha": 7.0432,
+      "area_kha": 7500,
+      "struct_production_kt": 52824.0
+    },
+    {
+      "crop": "水稻",
+      "year": 2021,
+      "yield_t_ha": 7.1135,
+      "area_kha": 7500,
+      "struct_production_kt": 53351.2
+    },
+    {
+      "crop": "水稻",
+      "year": 2022,
+      "yield_t_ha": 7.0796,
+      "area_kha": 7500,
+      "struct_production_kt": 53097.0
+    },
+    {
+      "crop": "水稻",
+      "year": 2023,
+      "yield_t_ha": 7.1368,
+      "area_kha": 7500,
+      "struct_production_kt": 53526.0
+    },
+    {
+      "crop": "水稻",
+      "year": 2024,
+      "yield_t_ha": 7.1545,
+      "area_kha": 7500,
+      "struct_production_kt": 53658.8
+    },
+    {
+      "crop": "玉米",
+      "year": 2016,
+      "yield_t_ha": 5.9671,
+      "area_kha": 12300,
+      "struct_production_kt": 73395.3
+    },
+    {
+      "crop": "玉米",
+      "year": 2017,
+      "yield_t_ha": 6.1103,
+      "area_kha": 12300,
+      "struct_production_kt": 75156.7
+    },
+    {
+      "crop": "玉米",
+      "year": 2018,
+      "yield_t_ha": 6.1043,
+      "area_kha": 12300,
+      "struct_production_kt": 75082.9
+    },
+    {
+      "crop": "玉米",
+      "year": 2019,
+      "yield_t_ha": 6.3173,
+      "area_kha": 12300,
+      "struct_production_kt": 77702.8
+    },
+    {
+      "crop": "玉米",
+      "year": 2020,
+      "yield_t_ha": 6.3177,
+      "area_kha": 12300,
+      "struct_production_kt": 77707.7
+    },
+    {
+      "crop": "玉米",
+      "year": 2021,
+      "yield_t_ha": 6.291,
+      "area_kha": 12300,
+      "struct_production_kt": 77379.3
+    },
+    {
+      "crop": "玉米",
+      "year": 2022,
+      "yield_t_ha": 6.4361,
+      "area_kha": 12300,
+      "struct_production_kt": 79164.0
+    },
+    {
+      "crop": "玉米",
+      "year": 2023,
+      "yield_t_ha": 6.5321,
+      "area_kha": 12300,
+      "struct_production_kt": 80344.8
+    },
+    {
+      "crop": "玉米",
+      "year": 2024,
+      "yield_t_ha": 6.5918,
+      "area_kha": 12300,
+      "struct_production_kt": 81079.1
+    }
+  ],
+  "sample_counts": {
+    "yield_all": 27,
+    "yield_train": 21,
+    "yield_test": 6,
+    "sales_all": 8,
+    "sales_train": 7,
+    "sales_test": 1
+  }
+}

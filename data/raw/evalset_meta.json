@@ -1,0 +1,34 @@
+{
+  "modelscope": {
+    "search_collapsed": true,
+    "usable_yield_table": false,
+    "note": "SearchValue 被忽略，首页与总量对所有关键词相同，无法从魔搭下载产量测试集。",
+    "agriculture_named_hits": []
+  },
+  "holdout": {
+    "name": "USDA FAS PSD China grains",
+    "why": "魔搭无产量表；USDA 与已用的 OWID/FAO 不是同一套数，可作新对照",
+    "rows_raw": 540,
+    "rows_year": 36,
+    "years": [
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "crops": [
+      "小麦",
+      "水稻",
+      "玉米"
+    ],
+    "path": "D:\\brain\\agri\\data\\raw\\usda_psd_china.json"
+  }
+}

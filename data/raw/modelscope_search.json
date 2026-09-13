@@ -1,0 +1,31 @@
+{
+  "source": "https://www.modelscope.cn/api/v1/dolphin/datasets",
+  "queries": [
+    "agriculture",
+    "作物产量",
+    "crop yield",
+    "粮食产量"
+  ],
+  "totals": {
+    "agriculture": 42206,
+    "作物产量": 42206,
+    "crop yield": 42206,
+    "粮食产量": 42206
+  },
+  "first_page": [
+    "moonshotai/PerceptionBench",
+    "InternScience/ResearchClawBench",
+    "CMRobot/MotionDecode",
+    "HuggingFaceCode/stack-v3-train",
+    "nv-community/Privasis-USA",
+    "ibm-research/ScarfBench",
+    "SandFox/CoinVE-200K",
+    "nv-community/Nemotron-Personas-Belgium",
+    "Glint-Research/Fable-5-traces",
+    "Qwen/AgentWorldBench"
+  ],
+  "search_collapsed": true,
+  "agriculture_named_hits": [],
+  "usable_yield_table": false,
+  "note": "SearchValue 被忽略，首页与总量对所有关键词相同，无法从魔搭下载产量测试集。"
+}
