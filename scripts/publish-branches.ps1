@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param(
     [string]$Remote = "origin",
-    [int]$Retries = 3
+    [int]$Retries = 3,
+    [string]$Proxy
 )
 
 $ErrorActionPreference = "Stop"
@@ -17,15 +18,43 @@ if (-not $remoteUrl) {
 
 Write-Host "Remote: $Remote ($remoteUrl)"
 
-$repoHttpProxy = git config --local --get http.proxy
-$repoHttpsProxy = git config --local --get https.proxy
-if ($repoHttpProxy -or $repoHttpsProxy) {
-    Write-Warning "Repository-local Git proxy is configured. Verify that it is reachable before publishing."
+if (-not $Proxy -and $env:OS -eq "Windows_NT") {
+    $internetSettings = Get-ItemProperty `
+        "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" `
+        -ErrorAction SilentlyContinue
+
+    if ($internetSettings.ProxyEnable -eq 1 -and $internetSettings.ProxyServer) {
+        $proxyEntries = @{}
+        foreach ($entry in ($internetSettings.ProxyServer -split ";")) {
+            if ($entry -match "^(?<scheme>[^=]+)=(?<address>.+)$") {
+                $proxyEntries[$Matches.scheme] = $Matches.address
+            }
+        }
+
+        if ($proxyEntries.Count -gt 0) {
+            $Proxy = $proxyEntries.https
+            if (-not $Proxy) { $Proxy = $proxyEntries.http }
+        } else {
+            $Proxy = $internetSettings.ProxyServer
+        }
+    }
+}
+
+$gitNetworkArgs = @()
+if ($Proxy) {
+    if ($Proxy -notmatch "^[a-z]+://") {
+        $Proxy = "http://$Proxy"
+    }
+    Write-Host "Using proxy discovered from Windows settings: $Proxy"
+    $gitNetworkArgs = @(
+        "-c", "http.proxy=$Proxy",
+        "-c", "https.proxy=$Proxy"
+    )
 }
 
 for ($attempt = 1; $attempt -le $Retries; $attempt++) {
     Write-Host "Publishing all branches (attempt $attempt/$Retries)..."
-    git push --all $Remote
+    & git @gitNetworkArgs push --all $Remote
     if ($LASTEXITCODE -eq 0) {
         break
     }
@@ -38,7 +67,7 @@ for ($attempt = 1; $attempt -le $Retries; $attempt++) {
 }
 
 $localBranches = @(git for-each-ref --format="%(refname:short)" refs/heads/)
-$remoteBranches = @(git ls-remote --heads $Remote | ForEach-Object {
+$remoteBranches = @(& git @gitNetworkArgs ls-remote --heads $Remote | ForEach-Object {
     ($_ -split "\s+")[1] -replace "^refs/heads/", ""
 })
 
