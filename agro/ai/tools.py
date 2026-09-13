@@ -23,7 +23,11 @@ TOOL_ARGUMENTS: dict[str, set[str]] = {
     "get_climate_evidence": {"region_id", "year", "month"},
     "get_yield_outlook": {"layout_id"},
     "get_futures_context": {"crop"},
+    "get_intervention_research": {"layout_id"},
+    "get_persona_comparison": {"persona"},
 }
+
+MODEL_DIR = DB_PATH.parent / "models"
 
 
 def _graph_summary(_: dict[str, Any]) -> dict[str, Any]:
@@ -121,6 +125,86 @@ def _futures_context(arguments: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _load_model_report(filename: str) -> dict[str, Any] | None:
+    path = MODEL_DIR / filename
+    if not path.is_file():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return payload if isinstance(payload, dict) else None
+
+
+def _intervention_research(arguments: dict[str, Any]) -> dict[str, Any]:
+    report = _load_model_report("intervene_report.json")
+    if report is None:
+        return {
+            "available": False,
+            "message": "尚未生成信息干预研究报告；先运行 python -m agro.cli intervene --table。",
+            "citations": [],
+        }
+    results = report.get("results") if isinstance(report.get("results"), dict) else {}
+    layout_id = str(arguments.get("layout_id", "")).strip()
+    links: dict[str, Any] = {}
+    if layout_id:
+        links = {
+            key: {field: value for field, value in row.items() if field != "episodes"}
+            for key, row in results.items()
+            if key.startswith(f"{layout_id}→") and isinstance(row, dict)
+        }
+        if not links:
+            return {
+                "error": f"干预报告中没有布局 {layout_id}。",
+                "available_layouts": sorted({key.split("→", 1)[0] for key in results}),
+                "citations": ["data/models/intervene_report.json"],
+            }
+    return {
+        "available": True,
+        "data": {
+            "framework": report.get("framework", {}),
+            "scoreboard": report.get("scoreboard", {}),
+            "links": links,
+            "available_layouts": sorted({key.split("→", 1)[0] for key in results}),
+        },
+        "interpretation": "这是历史样本中的信息干预研究，只用于解释方向命中与失败证据，不构成当前买卖或仓位建议。",
+        "citations": ["data/models/intervene_report.json", "agro/intervene.py"],
+    }
+
+
+def _persona_comparison(arguments: dict[str, Any]) -> dict[str, Any]:
+    report = _load_model_report("persona_report.json")
+    if report is None:
+        return {
+            "available": False,
+            "message": "尚未生成用户画像比较报告；先运行 python -m agro.cli personas。",
+            "citations": [],
+        }
+    persona = str(arguments.get("persona", "")).strip()
+    allowed = {"beginner", "familiar", "expert"}
+    if persona and persona not in allowed:
+        return {"error": f"未知 persona: {persona}", "allowed": sorted(allowed), "citations": []}
+    summary = report.get("summary") if isinstance(report.get("summary"), dict) else {}
+    definitions = report.get("definitions") if isinstance(report.get("definitions"), dict) else {}
+    data: dict[str, Any] = {"summary": summary, "definitions": definitions}
+    if persona:
+        data["selected"] = {
+            "persona": persona,
+            "summary": summary.get(persona, {}),
+            "link_deltas": {
+                key: row.get(f"{persona}_delta")
+                for key, row in (report.get("by_link") or {}).items()
+                if isinstance(row, dict)
+            },
+        }
+    return {
+        "available": True,
+        "data": data,
+        "interpretation": "画像是固定研究场景，不代表提问者身份；模拟净收益用于比较信息增量，不能生成个性化投资建议。",
+        "citations": ["data/models/persona_report.json", "agro/personas.py"],
+    }
+
+
 def tool_definitions() -> list[dict[str, Any]]:
     return [
         {
@@ -195,6 +279,32 @@ def tool_definitions() -> list[dict[str, Any]]:
                 "parameters": {"type": "object", "properties": {}, "additionalProperties": False},
             },
         },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_intervention_research",
+                "description": "Read historical intervention-study evidence and its limitations. Never turns the study into a current trade recommendation.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"layout_id": {"type": "string"}},
+                    "additionalProperties": False,
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_persona_comparison",
+                "description": "Read fixed beginner, familiar and expert research scenarios without identifying or profiling the current user.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "persona": {"type": "string", "enum": ["beginner", "familiar", "expert"]}
+                    },
+                    "additionalProperties": False,
+                },
+            },
+        },
     ]
 
 
@@ -206,6 +316,8 @@ def tool_registry() -> dict[str, ToolHandler]:
         "get_climate_evidence": _climate_evidence,
         "get_yield_outlook": _yield_outlook,
         "get_futures_context": _futures_context,
+        "get_intervention_research": _intervention_research,
+        "get_persona_comparison": _persona_comparison,
     }
 
 

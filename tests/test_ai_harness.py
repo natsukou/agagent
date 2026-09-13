@@ -50,7 +50,16 @@ class TestAIHarness(unittest.TestCase):
     def test_only_whitelisted_tools_are_exposed(self):
         self.assertEqual(
             {item["function"]["name"] for item in tool_definitions()},
-            {"get_graph_summary", "get_yield_history", "get_market_coverage", "get_climate_evidence", "get_yield_outlook", "get_futures_context"},
+            {
+                "get_graph_summary",
+                "get_yield_history",
+                "get_market_coverage",
+                "get_climate_evidence",
+                "get_yield_outlook",
+                "get_futures_context",
+                "get_intervention_research",
+                "get_persona_comparison",
+            },
         )
         self.assertIn("禁止调用", invoke_tool("delete_database", "{}")["error"])
 
@@ -68,3 +77,20 @@ class TestAIHarness(unittest.TestCase):
         result = invoke_tool("get_yield_outlook", '{"layout_id": "maize.dongbei.spring"}')
         self.assertIn("基线气候态", result["interpretation"])
         self.assertIn("forecast", result["data"])
+
+    def test_intervention_research_is_read_only_evidence(self):
+        result = invoke_tool("get_intervention_research", "{}")
+        self.assertTrue(result["available"])
+        self.assertIn("不构成", result["interpretation"])
+        self.assertIn("scoreboard", result["data"])
+        self.assertNotIn("episodes", result["data"])
+
+    def test_persona_comparison_does_not_profile_current_user(self):
+        result = invoke_tool("get_persona_comparison", '{"persona": "beginner"}')
+        self.assertTrue(result["available"])
+        self.assertEqual(result["data"]["selected"]["persona"], "beginner")
+        self.assertIn("不代表提问者身份", result["interpretation"])
+
+    def test_persona_comparison_rejects_unknown_persona(self):
+        result = invoke_tool("get_persona_comparison", '{"persona": "vip"}')
+        self.assertIn("未知 persona", result["error"])
