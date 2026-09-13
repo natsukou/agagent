@@ -1,0 +1,196 @@
+{
+  "task": "三种交易者：无干预 vs 有干预模拟净收益",
+  "unit": "各主链净收益相加（不是组合复利），口径是合约价格涨跌 × 方向 − 换仓成本",
+  "band": 0.03,
+  "definitions": {
+    "beginner_off": "生长季全程做多，没有产量信息",
+    "beginner_on": "改走开局相对干预（hold/long/short）",
+    "familiar_off": "沿用去年，空仓，不拿天气单",
+    "familiar_on": "只在季内相对开局越界时介入",
+    "expert_off": "开季已按因子相对 1.0 进场（绝对胁迫）",
+    "expert_on": "改为只交易相对开局的增量（与我们框架相同）"
+  },
+  "summary": {
+    "beginner": {
+      "off": -1.98636,
+      "on": -1.71017,
+      "delta": 0.27619
+    },
+    "familiar": {
+      "off": 0.0,
+      "on": -1.71017,
+      "delta": -1.71017
+    },
+    "expert": {
+      "off": -1.64892,
+      "on": -1.71017,
+      "delta": -0.06125
+    }
+  },
+  "by_link": {
+    "cotton.xinjiang→CF0": {
+      "beginner_off": {
+        "gross": 0.41309,
+        "net": 0.41229,
+        "n_turns": 1,
+        "n_sections": 639
+      },
+      "beginner_on": {
+        "gross": 0.06217,
+        "net": 0.05337,
+        "n_turns": 11,
+        "n_sections": 639
+      },
+      "familiar_off": {
+        "gross": 0.0,
+        "net": 0.0,
+        "n_turns": 0,
+        "n_sections": 639
+      },
+      "familiar_on": {
+        "gross": 0.06217,
+        "net": 0.05337,
+        "n_turns": 11,
+        "n_sections": 639
+      },
+      "expert_off": {
+        "gross": 0.39277,
+        "net": 0.38077,
+        "n_turns": 15,
+        "n_sections": 639
+      },
+      "expert_on": {
+        "gross": 0.06217,
+        "net": 0.05337,
+        "n_turns": 11,
+        "n_sections": 639
+      },
+      "beginner_delta": -0.35892,
+      "familiar_delta": 0.05337,
+      "expert_delta": -0.3274
+    },
+    "cotton.us.belt→CT=F": {
+      "beginner_off": {
+        "gross": -0.17844,
+        "net": -0.17894,
+        "n_turns": 1,
+        "n_sections": 549
+      },
+      "beginner_on": {
+        "gross": -0.17961,
+        "net": -0.18561,
+        "n_turns": 12,
+        "n_sections": 549
+      },
+      "familiar_off": {
+        "gross": 0.0,
+        "net": 0.0,
+        "n_turns": 0,
+        "n_sections": 549
+      },
+      "familiar_on": {
+        "gross": -0.17961,
+        "net": -0.18561,
+        "n_turns": 12,
+        "n_sections": 549
+      },
+      "expert_off": {
+        "gross": -0.17844,
+        "net": -0.17894,
+        "n_turns": 1,
+        "n_sections": 549
+      },
+      "expert_on": {
+        "gross": -0.17961,
+        "net": -0.18561,
+        "n_turns": 12,
+        "n_sections": 549
+      },
+      "beginner_delta": -0.00667,
+      "familiar_delta": -0.18561,
+      "expert_delta": -0.00667
+    },
+    "soy.us.belt→ZS=F": {
+      "beginner_off": {
+        "gross": -1.19282,
+        "net": -1.19332,
+        "n_turns": 1,
+        "n_sections": 450
+      },
+      "beginner_on": {
+        "gross": 0.00796,
+        "net": 0.00496,
+        "n_turns": 6,
+        "n_sections": 450
+      },
+      "familiar_off": {
+        "gross": 0.0,
+        "net": 0.0,
+        "n_turns": 0,
+        "n_sections": 450
+      },
+      "familiar_on": {
+        "gross": 0.00796,
+        "net": 0.00496,
+        "n_turns": 6,
+        "n_sections": 450
+      },
+      "expert_off": {
+        "gross": -0.21252,
+        "net": -0.22002,
+        "n_turns": 15,
+        "n_sections": 450
+      },
+      "expert_on": {
+        "gross": 0.00796,
+        "net": 0.00496,
+        "n_turns": 6,
+        "n_sections": 450
+      },
+      "beginner_delta": 1.19828,
+      "familiar_delta": 0.00496,
+      "expert_delta": 0.22498
+    },
+    "coffee.br.arabica→KC=F": {
+      "beginner_off": {
+        "gross": -1.02579,
+        "net": -1.02639,
+        "n_turns": 1,
+        "n_sections": 1089
+      },
+      "beginner_on": {
+        "gross": -1.57869,
+        "net": -1.58289,
+        "n_turns": 7,
+        "n_sections": 1089
+      },
+      "familiar_off": {
+        "gross": 0.0,
+        "net": 0.0,
+        "n_turns": 0,
+        "n_sections": 1089
+      },
+      "familiar_on": {
+        "gross": -1.57869,
+        "net": -1.58289,
+        "n_turns": 7,
+        "n_sections": 1089
+      },
+      "expert_off": {
+        "gross": -1.62533,
+        "net": -1.63073,
+        "n_turns": 9,
+        "n_sections": 1089
+      },
+      "expert_on": {
+        "gross": -1.57869,
+        "net": -1.58289,
+        "n_turns": 7,
+        "n_sections": 1089
+      },
+      "beginner_delta": -0.5565,
+      "familiar_delta": -1.58289,
+      "expert_delta": 0.04784
+    }
+  }
+}

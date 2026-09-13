@@ -40,6 +40,9 @@ python -m agro.cli multicrop --table --test-years 2023,2024
 python -m agro.cli event-study --table
 python -m agro.cli accuracy --table
 python -m agro.cli strategy --table
+python -m agro.cli intervene --table
+python -m agro.cli personas
+python -m agro.cli ai-serve
 ```
 
 期货只用公开接口：新浪连续主力日线、郑商所公开日报 txt、Yahoo 国际基准。大商所 `dayQuotesCh` 返回 412，不绕过。
@@ -88,6 +91,10 @@ python -m agro.cli strategy --table
 结果：5 条链 0 条通过，唯一显著的是跨品种安慰剂，且显著在坏的一侧。
 
 两张表与解读见 `docs/10-两项验收测试.md`。
+
+## 绿星 Agent 助手
+
+悬浮助手使用受控 Harness 调用八个只读工具，覆盖气候、产量、期货、图谱摘要、历史干预研究和固定画像比较。干预结果只用于解释历史验收和失败证据，不生成当前交易建议；画像只代表固定实验条件，不用于识别或推断提问者。接口、密钥配置和安全边界见 `docs/11-AI助手与Harness.md`。
 
 气候预报基线是「月气候态 + 距平持续性衰减」。ERA5 / 气象站 / 统计年鉴只替换连接器，不改图。
 

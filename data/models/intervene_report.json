@@ -1,0 +1,885 @@
+{
+  "task": "信息干预框架：在平均基线上决定不干预 / 做多 / 做空",
+  "framework": {
+    "baseline": "当季第一条物候展望 = 开局基线。知情交易者开季已有产量预期，开局当天不干预",
+    "band": 0.03,
+    "long": "factor ≤ 开局 − 0.03 → 季内恶化 → 减产预期 → 模拟做多",
+    "short": "factor ≥ 开局 + 0.03 → 季内好转 → 增产预期 → 模拟做空",
+    "hold": "相对开局落在带宽内则不干预、不持仓",
+    "episode": "连续同一状态合并为一次干预，不是每个 3 日截面翻仓",
+    "not": "不是自动交易系统；模拟决策只用来核对方向"
+  },
+  "results": {
+    "cotton.xinjiang→CF0": {
+      "layout": "cotton.xinjiang",
+      "symbol": "CF0",
+      "role": "primary",
+      "band": 0.03,
+      "sections": 639,
+      "hold_share": 0.7543,
+      "long_share": 0.2034,
+      "short_share": 0.0423,
+      "n_episodes": 8,
+      "n_long_episodes": 6,
+      "n_short_episodes": 2,
+      "yield_scored": 8,
+      "yield_agree_n": 5,
+      "price_scored": 8,
+      "price_agree_n": 4,
+      "sim_cum_net": -0.03068,
+      "episodes": [
+        {
+          "episode": {
+            "year": 2017,
+            "state": "short",
+            "start": "2017-07-15",
+            "end": "2017-07-21",
+            "factor_start": 0.99839,
+            "factor_end": 0.995621,
+            "n_sections": 3
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2017-07-17",
+            "exit_date": "2017-07-24",
+            "direction": -1,
+            "price_move": -0.0269,
+            "signed_gross": 0.0269,
+            "signed_net": 0.0261,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/CHN",
+            "surprise": 0.0961,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2017,
+            "state": "short",
+            "start": "2017-08-14",
+            "end": "2017-10-22",
+            "factor_start": 1.0,
+            "factor_end": 0.996348,
+            "n_sections": 24
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2017-08-15",
+            "exit_date": "2017-10-23",
+            "direction": -1,
+            "price_move": -0.01934,
+            "signed_gross": 0.01934,
+            "signed_net": 0.01854,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/CHN",
+            "surprise": 0.0961,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2020,
+            "state": "long",
+            "start": "2020-05-31",
+            "end": "2020-10-31",
+            "factor_start": 0.93864,
+            "factor_end": 0.921957,
+            "n_sections": 52
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2020-06-01",
+            "exit_date": "2020-11-02",
+            "direction": 1,
+            "price_move": 0.22916,
+            "signed_gross": 0.22916,
+            "signed_net": 0.22836,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/CHN",
+            "surprise": 0.1253,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2021,
+            "state": "long",
+            "start": "2021-06-30",
+            "end": "2021-07-30",
+            "factor_start": 0.93792,
+            "factor_end": 0.931771,
+            "n_sections": 11
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2021-07-01",
+            "exit_date": "2021-08-02",
+            "direction": 1,
+            "price_move": 0.08939,
+            "signed_gross": 0.08939,
+            "signed_net": 0.08859,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/CHN",
+            "surprise": -0.0578,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2022,
+            "state": "long",
+            "start": "2022-06-27",
+            "end": "2022-08-11",
+            "factor_start": 0.937853,
+            "factor_end": 0.936285,
+            "n_sections": 16
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2022-06-28",
+            "exit_date": "2022-08-12",
+            "direction": 1,
+            "price_move": -0.16236,
+            "signed_gross": -0.16236,
+            "signed_net": -0.16316,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/CHN",
+            "surprise": 0.0959,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2022,
+            "state": "long",
+            "start": "2022-09-01",
+            "end": "2022-10-31",
+            "factor_start": 0.939139,
+            "factor_end": 0.939139,
+            "n_sections": 21
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2022-09-02",
+            "exit_date": "2022-11-01",
+            "direction": 1,
+            "price_move": -0.10837,
+            "signed_gross": -0.10837,
+            "signed_net": -0.10917,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/CHN",
+            "surprise": 0.0959,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2023,
+            "state": "long",
+            "start": "2023-08-02",
+            "end": "2023-08-11",
+            "factor_start": 0.939979,
+            "factor_end": 0.934862,
+            "n_sections": 4
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2023-08-03",
+            "exit_date": "2023-08-14",
+            "direction": 1,
+            "price_move": -0.00349,
+            "signed_gross": -0.00349,
+            "signed_net": -0.00429,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/CHN",
+            "surprise": -0.0329,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2023,
+            "state": "long",
+            "start": "2023-08-26",
+            "end": "2023-10-31",
+            "factor_start": 0.941937,
+            "factor_end": 0.939317,
+            "n_sections": 23
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2023-08-28",
+            "exit_date": "2023-11-01",
+            "direction": 1,
+            "price_move": -0.11485,
+            "signed_gross": -0.11485,
+            "signed_net": -0.11565,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/CHN",
+            "surprise": -0.0329,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        }
+      ]
+    },
+    "cotton.us.belt→CT=F": {
+      "layout": "cotton.us.belt",
+      "symbol": "CT=F",
+      "role": "primary",
+      "band": 0.03,
+      "sections": 549,
+      "hold_share": 0.6648,
+      "long_share": 0.2131,
+      "short_share": 0.122,
+      "n_episodes": 8,
+      "n_long_episodes": 6,
+      "n_short_episodes": 2,
+      "yield_scored": 8,
+      "yield_agree_n": 4,
+      "price_scored": 8,
+      "price_agree_n": 4,
+      "sim_cum_net": -0.24801,
+      "episodes": [
+        {
+          "episode": {
+            "year": 2017,
+            "state": "short",
+            "start": "2017-08-14",
+            "end": "2017-10-31",
+            "factor_start": 0.945997,
+            "factor_end": 0.940828,
+            "n_sections": 27
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2017-08-15",
+            "exit_date": "2017-11-01",
+            "direction": -1,
+            "price_move": 0.00724,
+            "signed_gross": -0.00724,
+            "signed_net": -0.00774,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/USA",
+            "surprise": 0.0432,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2018,
+            "state": "long",
+            "start": "2018-07-30",
+            "end": "2018-08-08",
+            "factor_start": 0.874717,
+            "factor_end": 0.864912,
+            "n_sections": 4
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2018-07-31",
+            "exit_date": "2018-08-09",
+            "direction": 1,
+            "price_move": -0.03345,
+            "signed_gross": -0.03345,
+            "signed_net": -0.03395,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/USA",
+            "surprise": -0.0237,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2019,
+            "state": "long",
+            "start": "2019-08-08",
+            "end": "2019-10-31",
+            "factor_start": 0.874283,
+            "factor_end": 0.850229,
+            "n_sections": 29
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2019-08-09",
+            "exit_date": "2019-11-01",
+            "direction": 1,
+            "price_move": 0.08772,
+            "signed_gross": 0.08772,
+            "signed_net": 0.08722,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/USA",
+            "surprise": -0.0586,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2020,
+            "state": "long",
+            "start": "2020-05-31",
+            "end": "2020-10-31",
+            "factor_start": 0.87933,
+            "factor_end": 0.786861,
+            "n_sections": 52
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2020-06-01",
+            "exit_date": "2020-11-02",
+            "direction": 1,
+            "price_move": 0.14436,
+            "signed_gross": 0.14436,
+            "signed_net": 0.14386,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/USA",
+            "surprise": 0.0268,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2021,
+            "state": "short",
+            "start": "2021-07-06",
+            "end": "2021-10-31",
+            "factor_start": 0.927802,
+            "factor_end": 0.936107,
+            "n_sections": 40
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2021-07-07",
+            "exit_date": "2021-11-01",
+            "direction": -1,
+            "price_move": 0.38335,
+            "signed_gross": -0.38335,
+            "signed_net": -0.38385,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/USA",
+            "surprise": -0.0397,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2022,
+            "state": "long",
+            "start": "2022-08-02",
+            "end": "2022-08-05",
+            "factor_start": 0.862887,
+            "factor_end": 0.861312,
+            "n_sections": 2
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2022-08-03",
+            "exit_date": "2022-08-08",
+            "direction": 1,
+            "price_move": 0.01216,
+            "signed_gross": 0.01216,
+            "signed_net": 0.01166,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/USA",
+            "surprise": 0.1621,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2022,
+            "state": "long",
+            "start": "2022-08-11",
+            "end": "2022-08-17",
+            "factor_start": 0.864098,
+            "factor_end": 0.857557,
+            "n_sections": 3
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2022-08-12",
+            "exit_date": "2022-08-18",
+            "direction": 1,
+            "price_move": 0.02342,
+            "signed_gross": 0.02342,
+            "signed_net": 0.02292,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/USA",
+            "surprise": 0.1621,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2023,
+            "state": "long",
+            "start": "2023-08-26",
+            "end": "2023-10-31",
+            "factor_start": 0.875015,
+            "factor_end": 0.869296,
+            "n_sections": 23
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2023-08-28",
+            "exit_date": "2023-11-01",
+            "direction": 1,
+            "price_move": -0.08763,
+            "signed_gross": -0.08763,
+            "signed_net": -0.08813,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "棉花/USA",
+            "surprise": -0.0562,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        }
+      ]
+    },
+    "soy.us.belt→ZS=F": {
+      "layout": "soy.us.belt",
+      "symbol": "ZS=F",
+      "role": "primary",
+      "band": 0.03,
+      "sections": 450,
+      "hold_share": 0.8422,
+      "long_share": 0.1578,
+      "short_share": 0.0,
+      "n_episodes": 4,
+      "n_long_episodes": 4,
+      "n_short_episodes": 0,
+      "yield_scored": 4,
+      "yield_agree_n": 1,
+      "price_scored": 4,
+      "price_agree_n": 2,
+      "sim_cum_net": -0.05374,
+      "episodes": [
+        {
+          "episode": {
+            "year": 2017,
+            "state": "long",
+            "start": "2017-07-15",
+            "end": "2017-07-18",
+            "factor_start": 0.944396,
+            "factor_end": 0.934934,
+            "n_sections": 2
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2017-07-17",
+            "exit_date": "2017-07-19",
+            "direction": 1,
+            "price_move": 0.01497,
+            "signed_gross": 0.01497,
+            "signed_net": 0.01447,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "大豆/USA",
+            "surprise": -0.0516,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2018,
+            "state": "long",
+            "start": "2018-07-27",
+            "end": "2018-09-28",
+            "factor_start": 0.95459,
+            "factor_end": 0.942935,
+            "n_sections": 22
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2018-07-30",
+            "exit_date": "2018-10-01",
+            "direction": 1,
+            "price_move": -0.01971,
+            "signed_gross": -0.01971,
+            "signed_net": -0.02021,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "大豆/USA",
+            "surprise": 0.0272,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2020,
+            "state": "long",
+            "start": "2020-07-24",
+            "end": "2020-09-28",
+            "factor_start": 0.948284,
+            "factor_end": 0.913183,
+            "n_sections": 23
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2020-07-27",
+            "exit_date": "2020-09-29",
+            "direction": 1,
+            "price_move": 0.09542,
+            "signed_gross": 0.09542,
+            "signed_net": 0.09492,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "大豆/USA",
+            "surprise": 0.0752,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2023,
+            "state": "long",
+            "start": "2023-07-27",
+            "end": "2023-09-28",
+            "factor_start": 0.947936,
+            "factor_end": 0.944628,
+            "n_sections": 22
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2023-07-28",
+            "exit_date": "2023-09-29",
+            "direction": 1,
+            "price_move": -0.14242,
+            "signed_gross": -0.14242,
+            "signed_net": -0.14292,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "大豆/USA",
+            "surprise": 0.021,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        }
+      ]
+    },
+    "coffee.br.arabica→KC=F": {
+      "layout": "coffee.br.arabica",
+      "symbol": "KC=F",
+      "role": "primary",
+      "band": 0.03,
+      "sections": 1089,
+      "hold_share": 0.7392,
+      "long_share": 0.2608,
+      "short_share": 0.0,
+      "n_episodes": 7,
+      "n_long_episodes": 7,
+      "n_short_episodes": 0,
+      "yield_scored": 6,
+      "yield_agree_n": 2,
+      "price_scored": 7,
+      "price_agree_n": 3,
+      "sim_cum_net": 0.05401,
+      "episodes": [
+        {
+          "episode": {
+            "year": 2016,
+            "state": "long",
+            "start": "2015-10-19",
+            "end": "2015-10-25",
+            "factor_start": 0.957145,
+            "factor_end": 0.946297,
+            "n_sections": 3
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2016-09-12",
+            "exit_date": "2016-09-13",
+            "direction": 1,
+            "price_move": -0.0157,
+            "signed_gross": -0.0157,
+            "signed_net": -0.0163,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "咖啡/BRA",
+            "surprise": 0.1356,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2016,
+            "state": "long",
+            "start": "2015-10-31",
+            "end": "2016-08-29",
+            "factor_start": 0.963901,
+            "factor_end": 0.949654,
+            "n_sections": 102
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2016-09-12",
+            "exit_date": "2016-09-13",
+            "direction": 1,
+            "price_move": -0.0157,
+            "signed_gross": -0.0157,
+            "signed_net": -0.0163,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "咖啡/BRA",
+            "surprise": 0.1356,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2018,
+            "state": "long",
+            "start": "2017-10-19",
+            "end": "2018-08-30",
+            "factor_start": 0.956614,
+            "factor_end": 0.955538,
+            "n_sections": 106
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2017-10-20",
+            "exit_date": "2018-08-31",
+            "direction": 1,
+            "price_move": -0.21677,
+            "signed_gross": -0.21677,
+            "signed_net": -0.21737,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "咖啡/BRA",
+            "surprise": 0.2764,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2020,
+            "state": "long",
+            "start": "2020-05-10",
+            "end": "2020-08-29",
+            "factor_start": 0.96298,
+            "factor_end": 0.949078,
+            "n_sections": 38
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2020-05-11",
+            "exit_date": "2020-08-31",
+            "direction": 1,
+            "price_move": 0.19137,
+            "signed_gross": 0.19137,
+            "signed_net": 0.19077,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "咖啡/BRA",
+            "surprise": 0.1554,
+            "material": true,
+            "yield_agree": false,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2021,
+            "state": "long",
+            "start": "2020-10-07",
+            "end": "2020-10-19",
+            "factor_start": 0.962383,
+            "factor_end": 0.947646,
+            "n_sections": 5
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2020-10-08",
+            "exit_date": "2020-10-20",
+            "direction": 1,
+            "price_move": -0.04853,
+            "signed_gross": -0.04853,
+            "signed_net": -0.04913,
+            "price_agree": false
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "咖啡/BRA",
+            "surprise": -0.1688,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2021,
+            "state": "long",
+            "start": "2021-08-18",
+            "end": "2021-08-30",
+            "factor_start": 0.963878,
+            "factor_end": 0.961528,
+            "n_sections": 5
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2021-08-19",
+            "exit_date": "2021-08-31",
+            "direction": 1,
+            "price_move": 0.08558,
+            "signed_gross": 0.08558,
+            "signed_net": 0.08498,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "咖啡/BRA",
+            "surprise": -0.1688,
+            "material": true,
+            "yield_agree": true,
+            "note": ""
+          }
+        },
+        {
+          "episode": {
+            "year": 2024,
+            "state": "long",
+            "start": "2024-06-18",
+            "end": "2024-08-29",
+            "factor_start": 0.966482,
+            "factor_end": 0.956228,
+            "n_sections": 25
+          },
+          "price": {
+            "ok": true,
+            "entry_date": "2024-06-20",
+            "exit_date": "2024-08-30",
+            "direction": 1,
+            "price_move": 0.07796,
+            "signed_gross": 0.07796,
+            "signed_net": 0.07736,
+            "price_agree": true
+          },
+          "yield": {
+            "ok": true,
+            "yield_key": "咖啡/BRA",
+            "surprise": -0.0121,
+            "material": false,
+            "yield_agree": null,
+            "note": "惊喜不显著时不评分，基线本就够用"
+          }
+        }
+      ]
+    }
+  },
+  "scoreboard": {
+    "primary_links": 4,
+    "episodes": 27,
+    "yield_direction_hit": "12/26",
+    "price_direction_hit": "13/27",
+    "yield_hit_rate": 0.4615,
+    "price_hit_rate": 0.4815
+  }
+}

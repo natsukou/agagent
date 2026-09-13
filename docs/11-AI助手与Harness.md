@@ -11,7 +11,7 @@ Web Assistant Panel
   -> POST /api/assistant
   -> Harness: 输入校验 / 系统策略 / 最大工具轮次 / 审计轨迹
   -> DeepSeek Chat Completions
-  <-> 只读白名单工具: 气候证据 / 产量模型与历史 / 期货信息 / 图谱摘要
+  <-> 只读白名单工具: 气候证据 / 产量模型与历史 / 期货信息 / 图谱摘要 / 研究验收
   -> 带 citations、tool_trace 的回答
 ```
 
@@ -44,6 +44,7 @@ Web Assistant Panel
 | 气候证据 | 主产区月均温、极值温度、降水与数据覆盖 | `get_climate_evidence` | 把历史观测说成实时预报 |
 | 产量信息 | 历史单产、图谱物候胁迫、基线气候态下的产量区间 | `get_yield_history`、`get_yield_outlook` | 将基线情景当实测；替代农艺师决策 |
 | 期货信息 | 品种映射、角色、流动性、缓存可用性与覆盖缺口 | `get_futures_context`、`get_market_coverage` | 下单、交易建议、因果/收益承诺 |
+| 研究验收 | 历史干预事件、方向命中、固定经验场景的模拟差异 | `get_intervention_research`、`get_persona_comparison` | 把历史 long/short 转成当前建议；推断提问者画像 |
 
 每次回答使用固定输出顺序：**气候证据 → 产量含义 → 农情与数据建议 → 期货信息 → 覆盖缺口**。其中“建议”只指田间巡查、灌溉/病虫害核验和数据补采优先级；它不形成具体农业作业指令，也绝不形成交易建议。
 
@@ -51,7 +52,7 @@ Web Assistant Panel
 
 | 控制项 | 当前规则 |
 | --- | --- |
-| 工具 | 6 个只读本地工具，JSON Schema 与服务端字段白名单双重限定参数 |
+| 工具 | 8 个只读本地工具，JSON Schema 与服务端字段白名单双重限定参数 |
 | 最大工具轮次 | 4，可用 `AGRI_AI_MAX_TOOL_ROUNDS` 调整 |
 | 历史 | 最多 8 条，每条最大 4000 字符 |
 | 用户问题 | 最大 4000 字符 |

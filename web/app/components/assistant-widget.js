@@ -3,6 +3,8 @@ import { askAssistant } from '../services/assistant-api.js';
 const STARTERS = [
   '解释气候到产量再到期货的主链路',
   '当前哪些作物和地区有数据？',
+  '历史干预研究得出了什么结论？',
+  '比较三种固定交易经验场景',
   'GNN 与 GCN 在平台中的边界是什么？',
 ];
 
@@ -43,7 +45,7 @@ export function mountAssistantWidget(getContext = () => ({})) {
   root.innerHTML = `
     <button class="assistant-launcher" type="button" aria-expanded="false" aria-controls="assistant-panel">
       <span class="assistant-launcher-mark" aria-hidden="true">✦</span>
-      <span class="assistant-launcher-copy"><b>问问绿星助手</b><small>气候 · 产量 · 期货解释</small></span>
+      <span class="assistant-launcher-copy"><b>问问绿星助手</b><small>气候 · 产量 · 研究验收</small></span>
     </button>
     <div id="assistant-panel" class="assistant-panel" role="dialog" aria-label="绿星农业智能助手" aria-hidden="true">
       <header class="assistant-header">
@@ -114,7 +116,7 @@ export function mountAssistantWidget(getContext = () => ({})) {
     button.addEventListener('click', () => send(question));
     starters.append(button);
   });
-  appendMessage(messages, 'assistant', '你好，我可以结合当前图谱解释气候证据、产量含义、数据覆盖与期货市场信号。');
+  appendMessage(messages, 'assistant', '你好，我可以结合当前图谱解释气候证据、产量含义、数据覆盖、期货市场信号，以及干预与画像研究的验收结论。');
 
   launcher.addEventListener('click', () => setOpen(!root.classList.contains('open')));
   close.addEventListener('click', () => setOpen(false));
