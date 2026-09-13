@@ -1,0 +1,634 @@
+{
+  "task": "期货策略预计测试：季内因子修正规则的带成本回测",
+  "rule": {
+    "direction": "-sign(delta)：因子下修做多，上修做空",
+    "threshold": "|delta| ≥ 0.002 才动手",
+    "hold_days": 3,
+    "overlap": "持仓期间不接新信号，成交不重叠",
+    "entry": "信息日之后第一个交易日收盘"
+  },
+  "cost_model": {
+    "unit": "双边基点",
+    "by_symbol": {
+      "CF0": 8.0,
+      "CT=F": 5.0,
+      "ZS=F": 5.0,
+      "KC=F": 6.0
+    },
+    "derivation": "见 strategy.py 中 COST_BPS 注释：手续费 + 半个最小变动价位滑点",
+    "reported_tiers": [
+      "0x（无成本）",
+      "1x（标称）",
+      "2x（悲观）"
+    ]
+  },
+  "decision_rule": "判定有没有边不看收益正负，看策略夏普是否落在随机符号零分布之外（分位 >0.95）。落在分布中间就说明方向选择没有贡献，盈亏来自标的自身波动。",
+  "results": {
+    "cotton.xinjiang→CF0": {
+      "layout": "cotton.xinjiang",
+      "symbol": "CF0",
+      "role": "primary",
+      "signal": {
+        "min_abs_delta": 0.002,
+        "sections": 639,
+        "sections_above_threshold": 137,
+        "trades_after_no_overlap": 87
+      },
+      "cost_sensitivity": {
+        "0x": {
+          "ok": true,
+          "n_trades": 87,
+          "hold_days": 3,
+          "cost_bps_round_trip": 0.0,
+          "span": [
+            "2016-05-05",
+            "2024-09-04"
+          ],
+          "trades_per_year": 9.67,
+          "hit_rate_net": 0.5517,
+          "mean_gross_bps": 15.84,
+          "mean_net_bps": 15.84,
+          "cum_net_return": 0.12838,
+          "sharpe_net": 0.2478,
+          "max_drawdown_net": -0.17568,
+          "long_share": 0.6437
+        },
+        "1x": {
+          "ok": true,
+          "n_trades": 87,
+          "hold_days": 3,
+          "cost_bps_round_trip": 8.0,
+          "span": [
+            "2016-05-05",
+            "2024-09-04"
+          ],
+          "trades_per_year": 9.67,
+          "hit_rate_net": 0.5057,
+          "mean_gross_bps": 15.84,
+          "mean_net_bps": 7.84,
+          "cum_net_return": 0.05258,
+          "sharpe_net": 0.1226,
+          "max_drawdown_net": -0.1902,
+          "long_share": 0.6437
+        },
+        "2x": {
+          "ok": true,
+          "n_trades": 87,
+          "hold_days": 3,
+          "cost_bps_round_trip": 16.0,
+          "span": [
+            "2016-05-05",
+            "2024-09-04"
+          ],
+          "trades_per_year": 9.67,
+          "hit_rate_net": 0.4713,
+          "mean_gross_bps": 15.84,
+          "mean_net_bps": -0.16,
+          "cum_net_return": -0.01819,
+          "sharpe_net": -0.0025,
+          "max_drawdown_net": -0.20447,
+          "long_share": 0.6437
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "span": [
+          "2016-05-05",
+          "2024-09-04"
+        ],
+        "bars": 2025,
+        "cum_return": 0.07959,
+        "note": "连续主力/近月拼接，含换月跳空，不是可持有的真实收益"
+      },
+      "random_sign_null": {
+        "ok": true,
+        "draws": 2000,
+        "sharpe_actual": 0.1226,
+        "sharpe_null_median": -0.1195,
+        "sharpe_null_p05": -0.659,
+        "sharpe_null_p95": 0.4319,
+        "percentile_of_actual": 0.767,
+        "above_null_95": false,
+        "below_null_05": false,
+        "outside_null_95": false
+      },
+      "reversed_strategy": {
+        "ok": true,
+        "n_trades": 87,
+        "hold_days": 3,
+        "cost_bps_round_trip": 8.0,
+        "span": [
+          "2016-05-05",
+          "2024-09-04"
+        ],
+        "trades_per_year": 9.67,
+        "hit_rate_net": 0.4138,
+        "mean_gross_bps": -15.84,
+        "mean_net_bps": -23.84,
+        "cum_net_return": -0.2013,
+        "sharpe_net": -0.3729,
+        "max_drawdown_net": -0.30523,
+        "long_share": 0.3563
+      }
+    },
+    "cotton.us.belt→CT=F": {
+      "layout": "cotton.us.belt",
+      "symbol": "CT=F",
+      "role": "primary",
+      "signal": {
+        "min_abs_delta": 0.002,
+        "sections": 549,
+        "sections_above_threshold": 231,
+        "trades_after_no_overlap": 120
+      },
+      "cost_sensitivity": {
+        "0x": {
+          "ok": true,
+          "n_trades": 120,
+          "hold_days": 3,
+          "cost_bps_round_trip": 0.0,
+          "span": [
+            "2016-09-12",
+            "2024-11-01"
+          ],
+          "trades_per_year": 13.33,
+          "hit_rate_net": 0.4917,
+          "mean_gross_bps": -21.6,
+          "mean_net_bps": -21.6,
+          "cum_net_return": -0.29729,
+          "sharpe_net": -0.2097,
+          "max_drawdown_net": -0.42876,
+          "long_share": 0.7583
+        },
+        "1x": {
+          "ok": true,
+          "n_trades": 120,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2016-09-12",
+            "2024-11-01"
+          ],
+          "trades_per_year": 13.33,
+          "hit_rate_net": 0.4667,
+          "mean_gross_bps": -21.6,
+          "mean_net_bps": -26.6,
+          "cum_net_return": -0.33837,
+          "sharpe_net": -0.2583,
+          "max_drawdown_net": -0.44444,
+          "long_share": 0.7583
+        },
+        "2x": {
+          "ok": true,
+          "n_trades": 120,
+          "hold_days": 3,
+          "cost_bps_round_trip": 10.0,
+          "span": [
+            "2016-09-12",
+            "2024-11-01"
+          ],
+          "trades_per_year": 13.33,
+          "hit_rate_net": 0.45,
+          "mean_gross_bps": -21.6,
+          "mean_net_bps": -31.6,
+          "cum_net_return": -0.37707,
+          "sharpe_net": -0.3068,
+          "max_drawdown_net": -0.45969,
+          "long_share": 0.7583
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "span": [
+          "2016-09-12",
+          "2024-11-01"
+        ],
+        "bars": 2049,
+        "cum_return": 0.04778,
+        "note": "连续主力/近月拼接，含换月跳空，不是可持有的真实收益"
+      },
+      "random_sign_null": {
+        "ok": true,
+        "draws": 2000,
+        "sharpe_actual": -0.2583,
+        "sharpe_null_median": -0.0448,
+        "sharpe_null_p05": -0.5872,
+        "sharpe_null_p95": 0.489,
+        "percentile_of_actual": 0.271,
+        "above_null_95": false,
+        "below_null_05": false,
+        "outside_null_95": false
+      },
+      "reversed_strategy": {
+        "ok": true,
+        "n_trades": 120,
+        "hold_days": 3,
+        "cost_bps_round_trip": 5.0,
+        "span": [
+          "2016-09-12",
+          "2024-11-01"
+        ],
+        "trades_per_year": 13.33,
+        "hit_rate_net": 0.5,
+        "mean_gross_bps": 21.6,
+        "mean_net_bps": 16.6,
+        "cum_net_return": 0.12828,
+        "sharpe_net": 0.1612,
+        "max_drawdown_net": -0.26024,
+        "long_share": 0.2417
+      }
+    },
+    "cotton.us.belt→ZS=F": {
+      "layout": "cotton.us.belt",
+      "symbol": "ZS=F",
+      "role": "cross_placebo",
+      "signal": {
+        "min_abs_delta": 0.002,
+        "sections": 549,
+        "sections_above_threshold": 231,
+        "trades_after_no_overlap": 120
+      },
+      "cost_sensitivity": {
+        "0x": {
+          "ok": true,
+          "n_trades": 120,
+          "hold_days": 3,
+          "cost_bps_round_trip": 0.0,
+          "span": [
+            "2016-09-12",
+            "2024-11-01"
+          ],
+          "trades_per_year": 13.33,
+          "hit_rate_net": 0.4417,
+          "mean_gross_bps": -54.1,
+          "mean_net_bps": -54.1,
+          "cum_net_return": -0.49738,
+          "sharpe_net": -0.7984,
+          "max_drawdown_net": -0.51998,
+          "long_share": 0.7583
+        },
+        "1x": {
+          "ok": true,
+          "n_trades": 120,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2016-09-12",
+            "2024-11-01"
+          ],
+          "trades_per_year": 13.33,
+          "hit_rate_net": 0.425,
+          "mean_gross_bps": -54.1,
+          "mean_net_bps": -59.1,
+          "cum_net_return": -0.52683,
+          "sharpe_net": -0.8721,
+          "max_drawdown_net": -0.54561,
+          "long_share": 0.7583
+        },
+        "2x": {
+          "ok": true,
+          "n_trades": 120,
+          "hold_days": 3,
+          "cost_bps_round_trip": 10.0,
+          "span": [
+            "2016-09-12",
+            "2024-11-01"
+          ],
+          "trades_per_year": 13.33,
+          "hit_rate_net": 0.4167,
+          "mean_gross_bps": -54.1,
+          "mean_net_bps": -64.1,
+          "cum_net_return": -0.55457,
+          "sharpe_net": -0.9459,
+          "max_drawdown_net": -0.57118,
+          "long_share": 0.7583
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "span": [
+          "2016-09-12",
+          "2024-11-01"
+        ],
+        "bars": 2048,
+        "cum_return": -0.00203,
+        "note": "连续主力/近月拼接，含换月跳空，不是可持有的真实收益"
+      },
+      "random_sign_null": {
+        "ok": true,
+        "draws": 2000,
+        "sharpe_actual": -0.8721,
+        "sharpe_null_median": -0.063,
+        "sharpe_null_p05": -0.6004,
+        "sharpe_null_p95": 0.4802,
+        "percentile_of_actual": 0.0085,
+        "above_null_95": false,
+        "below_null_05": true,
+        "outside_null_95": true
+      },
+      "reversed_strategy": {
+        "ok": true,
+        "n_trades": 120,
+        "hold_days": 3,
+        "cost_bps_round_trip": 5.0,
+        "span": [
+          "2016-09-12",
+          "2024-11-01"
+        ],
+        "trades_per_year": 13.33,
+        "hit_rate_net": 0.55,
+        "mean_gross_bps": 54.1,
+        "mean_net_bps": 49.1,
+        "cum_net_return": 0.73627,
+        "sharpe_net": 0.7246,
+        "max_drawdown_net": -0.13026,
+        "long_share": 0.2417
+      }
+    },
+    "soy.us.belt→ZS=F": {
+      "layout": "soy.us.belt",
+      "symbol": "ZS=F",
+      "role": "primary",
+      "signal": {
+        "min_abs_delta": 0.002,
+        "sections": 450,
+        "sections_above_threshold": 125,
+        "trades_after_no_overlap": 60
+      },
+      "cost_sensitivity": {
+        "0x": {
+          "ok": true,
+          "n_trades": 60,
+          "hold_days": 3,
+          "cost_bps_round_trip": 0.0,
+          "span": [
+            "2016-09-12",
+            "2024-10-01"
+          ],
+          "trades_per_year": 6.67,
+          "hit_rate_net": 0.5,
+          "mean_gross_bps": -16.51,
+          "mean_net_bps": -16.51,
+          "cum_net_return": -0.11306,
+          "sharpe_net": -0.1609,
+          "max_drawdown_net": -0.18655,
+          "long_share": 0.7833
+        },
+        "1x": {
+          "ok": true,
+          "n_trades": 60,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2016-09-12",
+            "2024-10-01"
+          ],
+          "trades_per_year": 6.67,
+          "hit_rate_net": 0.5,
+          "mean_gross_bps": -16.51,
+          "mean_net_bps": -21.51,
+          "cum_net_return": -0.13934,
+          "sharpe_net": -0.2096,
+          "max_drawdown_net": -0.20692,
+          "long_share": 0.7833
+        },
+        "2x": {
+          "ok": true,
+          "n_trades": 60,
+          "hold_days": 3,
+          "cost_bps_round_trip": 10.0,
+          "span": [
+            "2016-09-12",
+            "2024-10-01"
+          ],
+          "trades_per_year": 6.67,
+          "hit_rate_net": 0.4833,
+          "mean_gross_bps": -16.51,
+          "mean_net_bps": -26.51,
+          "cum_net_return": -0.16486,
+          "sharpe_net": -0.2584,
+          "max_drawdown_net": -0.22738,
+          "long_share": 0.7833
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "span": [
+          "2016-09-12",
+          "2024-10-01"
+        ],
+        "bars": 2025,
+        "cum_return": 0.0739,
+        "note": "连续主力/近月拼接，含换月跳空，不是可持有的真实收益"
+      },
+      "random_sign_null": {
+        "ok": true,
+        "draws": 2000,
+        "sharpe_actual": -0.2096,
+        "sharpe_null_median": -0.0489,
+        "sharpe_null_p05": -0.5968,
+        "sharpe_null_p95": 0.5137,
+        "percentile_of_actual": 0.3155,
+        "above_null_95": false,
+        "below_null_05": false,
+        "outside_null_95": false
+      },
+      "reversed_strategy": {
+        "ok": true,
+        "n_trades": 60,
+        "hold_days": 3,
+        "cost_bps_round_trip": 5.0,
+        "span": [
+          "2016-09-12",
+          "2024-10-01"
+        ],
+        "trades_per_year": 6.67,
+        "hit_rate_net": 0.4833,
+        "mean_gross_bps": 16.51,
+        "mean_net_bps": 11.51,
+        "cum_net_return": 0.04957,
+        "sharpe_net": 0.1122,
+        "max_drawdown_net": -0.12278,
+        "long_share": 0.2167
+      }
+    },
+    "coffee.br.arabica→KC=F": {
+      "layout": "coffee.br.arabica",
+      "symbol": "KC=F",
+      "role": "primary",
+      "signal": {
+        "min_abs_delta": 0.002,
+        "sections": 1089,
+        "sections_above_threshold": 121,
+        "trades_after_no_overlap": 60
+      },
+      "cost_sensitivity": {
+        "0x": {
+          "ok": true,
+          "n_trades": 60,
+          "hold_days": 3,
+          "cost_bps_round_trip": 0.0,
+          "span": [
+            "2016-09-12",
+            "2024-06-06"
+          ],
+          "trades_per_year": 6.67,
+          "hit_rate_net": 0.5167,
+          "mean_gross_bps": 39.68,
+          "mean_net_bps": 39.68,
+          "cum_net_return": 0.23917,
+          "sharpe_net": 0.363,
+          "max_drawdown_net": -0.15093,
+          "long_share": 0.7333
+        },
+        "1x": {
+          "ok": true,
+          "n_trades": 60,
+          "hold_days": 3,
+          "cost_bps_round_trip": 6.0,
+          "span": [
+            "2016-09-12",
+            "2024-06-06"
+          ],
+          "trades_per_year": 6.67,
+          "hit_rate_net": 0.5167,
+          "mean_gross_bps": 39.68,
+          "mean_net_bps": 33.68,
+          "cum_net_return": 0.19548,
+          "sharpe_net": 0.3081,
+          "max_drawdown_net": -0.15458,
+          "long_share": 0.7333
+        },
+        "2x": {
+          "ok": true,
+          "n_trades": 60,
+          "hold_days": 3,
+          "cost_bps_round_trip": 12.0,
+          "span": [
+            "2016-09-12",
+            "2024-06-06"
+          ],
+          "trades_per_year": 6.67,
+          "hit_rate_net": 0.5167,
+          "mean_gross_bps": 39.68,
+          "mean_net_bps": 27.68,
+          "cum_net_return": 0.1533,
+          "sharpe_net": 0.2532,
+          "max_drawdown_net": -0.15821,
+          "long_share": 0.7333
+        }
+      },
+      "buy_and_hold": {
+        "ok": true,
+        "span": [
+          "2016-09-12",
+          "2024-06-06"
+        ],
+        "bars": 1946,
+        "cum_return": 0.56446,
+        "note": "连续主力/近月拼接，含换月跳空，不是可持有的真实收益"
+      },
+      "random_sign_null": {
+        "ok": true,
+        "draws": 2000,
+        "sharpe_actual": 0.3081,
+        "sharpe_null_median": -0.0437,
+        "sharpe_null_p05": -0.5837,
+        "sharpe_null_p95": 0.5167,
+        "percentile_of_actual": 0.8565,
+        "above_null_95": false,
+        "below_null_05": false,
+        "outside_null_95": false
+      },
+      "reversed_strategy": {
+        "ok": true,
+        "n_trades": 60,
+        "hold_days": 3,
+        "cost_bps_round_trip": 6.0,
+        "span": [
+          "2016-09-12",
+          "2024-06-06"
+        ],
+        "trades_per_year": 6.67,
+        "hit_rate_net": 0.4667,
+        "mean_gross_bps": -39.68,
+        "mean_net_bps": -45.68,
+        "cum_net_return": -0.25817,
+        "sharpe_net": -0.4179,
+        "max_drawdown_net": -0.35222,
+        "long_share": 0.2667
+      }
+    }
+  },
+  "verdicts": [
+    {
+      "link": "cotton.xinjiang→CF0",
+      "role": "primary",
+      "n_trades": 87,
+      "cum_net_return": 0.05258,
+      "sharpe_net": 0.1226,
+      "percentile_vs_random": 0.767,
+      "beats_random_95": false,
+      "significantly_worse_than_random": false,
+      "net_positive": true
+    },
+    {
+      "link": "cotton.us.belt→CT=F",
+      "role": "primary",
+      "n_trades": 120,
+      "cum_net_return": -0.33837,
+      "sharpe_net": -0.2583,
+      "percentile_vs_random": 0.271,
+      "beats_random_95": false,
+      "significantly_worse_than_random": false,
+      "net_positive": false
+    },
+    {
+      "link": "cotton.us.belt→ZS=F",
+      "role": "cross_placebo",
+      "n_trades": 120,
+      "cum_net_return": -0.52683,
+      "sharpe_net": -0.8721,
+      "percentile_vs_random": 0.0085,
+      "beats_random_95": false,
+      "significantly_worse_than_random": true,
+      "net_positive": false
+    },
+    {
+      "link": "soy.us.belt→ZS=F",
+      "role": "primary",
+      "n_trades": 60,
+      "cum_net_return": -0.13934,
+      "sharpe_net": -0.2096,
+      "percentile_vs_random": 0.3155,
+      "beats_random_95": false,
+      "significantly_worse_than_random": false,
+      "net_positive": false
+    },
+    {
+      "link": "coffee.br.arabica→KC=F",
+      "role": "primary",
+      "n_trades": 60,
+      "cum_net_return": 0.19548,
+      "sharpe_net": 0.3081,
+      "percentile_vs_random": 0.8565,
+      "beats_random_95": false,
+      "significantly_worse_than_random": false,
+      "net_positive": true
+    }
+  ],
+  "scoreboard": {
+    "links_tested": 5,
+    "net_positive": 2,
+    "beats_random_95": 0,
+    "worse_than_random_05": 1,
+    "median_percentile_vs_random": 0.3155
+  },
+  "caveats": [
+    "连续主力序列含换月跳空，真实可交易收益会更差",
+    "未建模保证金、强平、涨跌停与流动性冲击",
+    "单点锚点代表整个产区",
+    "不重叠约束让成交数大幅下降，样本本身就不多",
+    "因子来自 ERA5 再分析，与市场实时看到的预报不是同一信息集"
+  ]
+}

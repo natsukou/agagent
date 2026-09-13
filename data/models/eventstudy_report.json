@@ -1,0 +1,546 @@
+{
+  "task": "季内胁迫因子修正 → 期货收益率事件研究",
+  "step_days": 3,
+  "horizons_trading_days": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "construction": {
+    "factor_at_t": "只用 t 及之前的日天气；未来月份用剔除当年的多年气候态补齐",
+    "partial_month": "当月按天数混合已观测与气候态，避免月初降水累计假尖峰",
+    "entry": "t 之后第一个交易日收盘",
+    "exit": "建仓后 h 个交易日收盘",
+    "expected_sign": "负：因子下修 → 供给预期下降 → 价格上行"
+  },
+  "caveats": [
+    "置换检验只否证「无关系」，不处理重叠持有期的序列相关，h>2 时高估显著性",
+    "每个布局用单点锚点代表整个产区",
+    "同时检验 5 组 × 4 个持有期，多重比较未做校正",
+    "相关性不等于可交易：未计手续费、滑点、主力换月跳空",
+    "胁迫函数是阈值铰链，阶段落在舒适区时因子恒为 1.0，修正量为 0；灌溉充分的布局（如东北春玉米）零占比可达 0.98，检验无意义"
+  ],
+  "results": {
+    "cotton.xinjiang→CF0": {
+      "layout": "cotton.xinjiang",
+      "crop": "棉花",
+      "symbol": "CF0",
+      "role": "primary",
+      "revisions": 639,
+      "nonzero_revisions": 381,
+      "zero_share": 0.4038,
+      "factor_range": [
+        0.9216,
+        1.0
+      ],
+      "ok": true,
+      "bars": 5279,
+      "bar_span": [
+        "2005-01-04",
+        "2026-09-11"
+      ],
+      "by_horizon": {
+        "1": {
+          "ok": true,
+          "n": 381,
+          "horizon_trading_days": 1,
+          "pearson_r": 0.061,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.2574,
+          "direction_hit_rate": 0.4803,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 127,
+            "mean_return_worst_revision": 0.00048,
+            "mean_return_best_revision": 0.00126,
+            "spread": -0.00079,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": false
+        },
+        "3": {
+          "ok": true,
+          "n": 381,
+          "horizon_trading_days": 3,
+          "pearson_r": 0.05,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.3283,
+          "direction_hit_rate": 0.5249,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 127,
+            "mean_return_worst_revision": 0.00162,
+            "mean_return_best_revision": 0.00081,
+            "spread": 0.00081,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": true
+        },
+        "5": {
+          "ok": true,
+          "n": 381,
+          "horizon_trading_days": 5,
+          "pearson_r": -0.0004,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.995,
+          "direction_hit_rate": 0.5171,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 127,
+            "mean_return_worst_revision": 0.00621,
+            "mean_return_best_revision": -0.00061,
+            "spread": 0.00682,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": true
+        },
+        "10": {
+          "ok": true,
+          "n": 381,
+          "horizon_trading_days": 10,
+          "pearson_r": 0.014,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.7921,
+          "direction_hit_rate": 0.5013,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 127,
+            "mean_return_worst_revision": 0.00226,
+            "mean_return_best_revision": 0.00149,
+            "spread": 0.00077,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": true
+        }
+      },
+      "placebo_next_year": {
+        "ok": true,
+        "n": 381,
+        "pearson_r": -0.0075,
+        "permutation_p": 0.8871,
+        "should_be_near_zero": true
+      }
+    },
+    "cotton.us.belt→CT=F": {
+      "layout": "cotton.us.belt",
+      "crop": "棉花",
+      "symbol": "CT=F",
+      "role": "primary",
+      "revisions": 549,
+      "nonzero_revisions": 296,
+      "zero_share": 0.4608,
+      "factor_range": [
+        0.7753,
+        0.9515
+      ],
+      "ok": true,
+      "bars": 2515,
+      "bar_span": [
+        "2016-09-12",
+        "2026-09-11"
+      ],
+      "by_horizon": {
+        "1": {
+          "ok": true,
+          "n": 296,
+          "horizon_trading_days": 1,
+          "pearson_r": -0.0795,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.1729,
+          "direction_hit_rate": 0.5608,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 98,
+            "mean_return_worst_revision": 0.00108,
+            "mean_return_best_revision": -0.00117,
+            "spread": 0.00225,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": false
+        },
+        "3": {
+          "ok": true,
+          "n": 296,
+          "horizon_trading_days": 3,
+          "pearson_r": 0.0221,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.7031,
+          "direction_hit_rate": 0.4966,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 98,
+            "mean_return_worst_revision": -0.00288,
+            "mean_return_best_revision": 0.00241,
+            "spread": -0.00529,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": true
+        },
+        "5": {
+          "ok": true,
+          "n": 296,
+          "horizon_trading_days": 5,
+          "pearson_r": 0.0525,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.3688,
+          "direction_hit_rate": 0.4932,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 98,
+            "mean_return_worst_revision": -0.00592,
+            "mean_return_best_revision": 0.00559,
+            "spread": -0.01152,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": true
+        },
+        "10": {
+          "ok": true,
+          "n": 296,
+          "horizon_trading_days": 10,
+          "pearson_r": -0.0053,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.9205,
+          "direction_hit_rate": 0.5304,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 98,
+            "mean_return_worst_revision": -0.01054,
+            "mean_return_best_revision": 0.00342,
+            "spread": -0.01396,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": true
+        }
+      },
+      "placebo_next_year": {
+        "ok": true,
+        "n": 296,
+        "pearson_r": 0.0788,
+        "permutation_p": 0.1799,
+        "should_be_near_zero": true
+      }
+    },
+    "cotton.us.belt→ZS=F": {
+      "layout": "cotton.us.belt",
+      "crop": "棉花",
+      "symbol": "ZS=F",
+      "role": "cross_placebo",
+      "revisions": 549,
+      "nonzero_revisions": 296,
+      "zero_share": 0.4608,
+      "factor_range": [
+        0.7753,
+        0.9515
+      ],
+      "ok": true,
+      "bars": 2513,
+      "bar_span": [
+        "2016-09-12",
+        "2026-09-11"
+      ],
+      "by_horizon": {
+        "1": {
+          "ok": true,
+          "n": 296,
+          "horizon_trading_days": 1,
+          "pearson_r": 0.0132,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.8066,
+          "direction_hit_rate": 0.4696,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 98,
+            "mean_return_worst_revision": -0.00265,
+            "mean_return_best_revision": -0.00314,
+            "spread": 0.0005,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": false
+        },
+        "3": {
+          "ok": true,
+          "n": 296,
+          "horizon_trading_days": 3,
+          "pearson_r": 0.035,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.5492,
+          "direction_hit_rate": 0.4527,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 98,
+            "mean_return_worst_revision": -0.00393,
+            "mean_return_best_revision": -0.00521,
+            "spread": 0.00128,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": true
+        },
+        "5": {
+          "ok": true,
+          "n": 296,
+          "horizon_trading_days": 5,
+          "pearson_r": -0.0376,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.5132,
+          "direction_hit_rate": 0.4628,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 98,
+            "mean_return_worst_revision": -0.00429,
+            "mean_return_best_revision": -0.0073,
+            "spread": 0.00301,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": true
+        },
+        "10": {
+          "ok": true,
+          "n": 296,
+          "horizon_trading_days": 10,
+          "pearson_r": -0.0466,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.4423,
+          "direction_hit_rate": 0.4459,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 98,
+            "mean_return_worst_revision": -0.00747,
+            "mean_return_best_revision": -0.01511,
+            "spread": 0.00764,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": true
+        }
+      },
+      "placebo_next_year": {
+        "ok": true,
+        "n": 296,
+        "pearson_r": 0.0541,
+        "permutation_p": 0.3443,
+        "should_be_near_zero": true
+      }
+    },
+    "soy.us.belt→ZS=F": {
+      "layout": "soy.us.belt",
+      "crop": "大豆",
+      "symbol": "ZS=F",
+      "role": "primary",
+      "revisions": 450,
+      "nonzero_revisions": 148,
+      "zero_share": 0.6711,
+      "factor_range": [
+        0.9132,
+        1.0
+      ],
+      "ok": true,
+      "bars": 2513,
+      "bar_span": [
+        "2016-09-12",
+        "2026-09-11"
+      ],
+      "by_horizon": {
+        "1": {
+          "ok": true,
+          "n": 148,
+          "horizon_trading_days": 1,
+          "pearson_r": 0.08,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.3543,
+          "direction_hit_rate": 0.5068,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 49,
+            "mean_return_worst_revision": -0.00279,
+            "mean_return_best_revision": 3e-05,
+            "spread": -0.00282,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": false
+        },
+        "3": {
+          "ok": true,
+          "n": 148,
+          "horizon_trading_days": 3,
+          "pearson_r": 0.0603,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.4653,
+          "direction_hit_rate": 0.4932,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 49,
+            "mean_return_worst_revision": -0.00489,
+            "mean_return_best_revision": -0.00054,
+            "spread": -0.00436,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": true
+        },
+        "5": {
+          "ok": true,
+          "n": 148,
+          "horizon_trading_days": 5,
+          "pearson_r": 0.0536,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.5362,
+          "direction_hit_rate": 0.5,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 49,
+            "mean_return_worst_revision": -0.00094,
+            "mean_return_best_revision": 0.00265,
+            "spread": -0.00358,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": true
+        },
+        "10": {
+          "ok": true,
+          "n": 148,
+          "horizon_trading_days": 10,
+          "pearson_r": -0.1153,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.1714,
+          "direction_hit_rate": 0.5135,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 49,
+            "mean_return_worst_revision": -0.00234,
+            "mean_return_best_revision": -0.01219,
+            "spread": 0.00985,
+            "spread_sign_as_expected": true
+          },
+          "overlap_warning": true
+        }
+      },
+      "placebo_next_year": {
+        "ok": true,
+        "n": 148,
+        "pearson_r": 0.05,
+        "permutation_p": 0.5807,
+        "should_be_near_zero": true
+      }
+    },
+    "coffee.br.arabica→KC=F": {
+      "layout": "coffee.br.arabica",
+      "crop": "咖啡",
+      "symbol": "KC=F",
+      "role": "primary",
+      "revisions": 1089,
+      "nonzero_revisions": 375,
+      "zero_share": 0.6556,
+      "factor_range": [
+        0.9403,
+        1.0
+      ],
+      "ok": true,
+      "bars": 2515,
+      "bar_span": [
+        "2016-09-12",
+        "2026-09-11"
+      ],
+      "by_horizon": {
+        "1": {
+          "ok": true,
+          "n": 375,
+          "horizon_trading_days": 1,
+          "pearson_r": 0.0388,
+          "expected_sign": "negative",
+          "sign_as_expected": false,
+          "permutation_p": 0.4283,
+          "direction_hit_rate": 0.424,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 125,
+            "mean_return_worst_revision": -0.00326,
+            "mean_return_best_revision": -0.00047,
+            "spread": -0.0028,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": false
+        },
+        "3": {
+          "ok": true,
+          "n": 375,
+          "horizon_trading_days": 3,
+          "pearson_r": -0.0395,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.4233,
+          "direction_hit_rate": 0.448,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 125,
+            "mean_return_worst_revision": -0.0007,
+            "mean_return_best_revision": -0.00043,
+            "spread": -0.00027,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": true
+        },
+        "5": {
+          "ok": true,
+          "n": 375,
+          "horizon_trading_days": 5,
+          "pearson_r": -0.0489,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.3323,
+          "direction_hit_rate": 0.536,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 125,
+            "mean_return_worst_revision": 0.00311,
+            "mean_return_best_revision": 0.00735,
+            "spread": -0.00424,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": true
+        },
+        "10": {
+          "ok": true,
+          "n": 375,
+          "horizon_trading_days": 10,
+          "pearson_r": -0.0167,
+          "expected_sign": "negative",
+          "sign_as_expected": true,
+          "permutation_p": 0.7501,
+          "direction_hit_rate": 0.5547,
+          "terciles": {
+            "ok": true,
+            "n_per_tercile": 125,
+            "mean_return_worst_revision": 0.0053,
+            "mean_return_best_revision": 0.01524,
+            "spread": -0.00994,
+            "spread_sign_as_expected": false
+          },
+          "overlap_warning": true
+        }
+      },
+      "placebo_next_year": {
+        "ok": true,
+        "n": 375,
+        "pearson_r": -0.0579,
+        "permutation_p": 0.2659,
+        "should_be_near_zero": true
+      }
+    }
+  }
+}
