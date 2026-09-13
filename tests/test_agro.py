@@ -10,19 +10,38 @@ from agro.adapter import to_plan
 from agro.climate import MonthClimate, forecast_horizon
 from agro.connectors import demo_warm_anomaly
 from agro.datasets import bundled, dce
-from agro.graph import AgriEdgeType, NodeKind, attach_dce_instruments, build_yield_graph
+from agro.graph import AgriEdgeType, NodeKind, attach_counties, attach_dce_instruments, build_yield_graph
 from agro.market import dominant_snapshots
 from agro.predict import forecast_yield
 
 
 class TestLayouts(unittest.TestCase):
-    def test_five_targeted_systems(self):
+    def test_targeted_systems(self):
         lays = bundled.layouts()
-        self.assertEqual(len(lays), 5)
         ids = {x.id for x in lays}
-        self.assertIn("rice.changjiang.single", ids)
-        self.assertIn("wheat.huabei.winter", ids)
-        self.assertIn("maize.dongbei.spring", ids)
+        # 中国三主粮的原始五套布局
+        for base in (
+            "rice.changjiang.single",
+            "rice.huanan.early",
+            "wheat.huabei.winter",
+            "maize.dongbei.spring",
+            "maize.huabei.summer",
+        ):
+            self.assertIn(base, ids)
+        # 新作物结构：大豆/棉花/咖啡各有自己的产区，不共用三主粮产区
+        for added in (
+            "soy.dongbei.spring",
+            "soy.us.belt",
+            "soy.br.matogrosso",
+            "maize.us.belt",
+            "cotton.xinjiang",
+            "cotton.us.belt",
+            "coffee.br.arabica",
+            "coffee.yunnan",
+        ):
+            self.assertIn(added, ids)
+        self.assertEqual(len(lays), 13)
+        self.assertEqual(len(ids), len(lays), "布局 id 必须唯一")
 
     def test_weights_sum_to_one(self):
         for lay in bundled.layouts():
@@ -167,8 +186,90 @@ class TestGraphStore(unittest.TestCase):
         self.assertIn("region", kinds)
         self.assertIn("crop", kinds)
         self.assertIn("sales", kinds)
+        self.assertIn("county", kinds)
+        self.assertIn("demand", kinds)
         export = store.export_json(conn, tmp / "g.json")
         self.assertTrue(export.exists())
+
+
+class TestDemandGraph(unittest.TestCase):
+    def test_counties_and_weather_needs(self):
+        from agro.county import COUNTIES
+        from agro.demand_graph import build_demand_graph
+
+        g = build_demand_graph()
+        self.assertGreaterEqual(len(g.of_kind(NodeKind.COUNTY)), len(COUNTIES))
+        self.assertTrue(g.of_kind(NodeKind.DEMAND))
+        self.assertTrue(any(e.type is AgriEdgeType.NEEDS for e in g.edges.values()))
+        self.assertTrue(any(e.type is AgriEdgeType.CONTAINS for e in g.edges.values()))
+        self.assertEqual(g.nodes["county:230184"].name, "五常")
+        self.assertIn("水稻", next(c.crops for c in COUNTIES if c.id == "230184"))
+
+    def test_attach_counties_idempotent(self):
+        g = build_yield_graph(bundled.layouts())
+        n1 = attach_counties(g)
+        n2 = attach_counties(g)
+        self.assertGreater(n1, 0)
+        self.assertEqual(n2, 0)
+
+
+class TestNowcastAndGcn(unittest.TestCase):
+    def test_wheat_season_crosses_year(self):
+        from datetime import date
+
+        from agro.nowcast import season_window, window_features, DailyWx
+
+        start, end = season_window("小麦", "huabei", 2024)
+        self.assertEqual(start, date(2023, 10, 1))
+        self.assertEqual(end, date(2024, 6, 15))
+        feats = window_features(
+            [DailyWx(date(2024, 5, 1), 20, 28, 12, 4)],
+            [DailyWx(date(2024, 5, 2), 22, 30, 14, 0)],
+            0.5,
+        )
+        self.assertEqual(len(feats), 9)
+
+    def test_gcn_forward_shape(self):
+        from agro.gcn import GCN, _norm_adj
+
+        gcn = GCN(in_dim=3, hid=4)
+        x = [[1.0, 0.0, 0.2], [0.0, 1.0, 0.3]]
+        adj = _norm_adj(2, [(0, 1)])
+        y = gcn.forward(x, adj)
+        self.assertEqual(len(y), 2)
+
+    def test_gcn_train_reduces_loss_on_toy(self):
+        from agro.gcn import GCN, Snapshot, _norm_adj
+
+        adj = _norm_adj(2, [(0, 1)])
+        snaps = [
+            Snapshot(2020, "2020-07-01", "玉米", ["a", "b"], [[1.0, 0.0], [1.0, 0.0]], 6.0, adj),
+            Snapshot(2021, "2021-07-01", "玉米", ["a", "b"], [[1.1, 0.1], [1.0, 0.0]], 6.2, adj),
+        ]
+        # 伪造县索引不会被 train 用到
+        model = GCN(in_dim=2, hid=3)
+        before = sum((p - snaps[0].y) ** 2 for p in model.forward(snaps[0].x, adj))
+        model.train(snaps, steps=30, lr=0.05)
+        after = sum((p - snaps[0].y) ** 2 for p in model.forward(snaps[0].x, adj))
+        self.assertLessEqual(after, before + 1e-6)
+
+
+class TestTrainSplit(unittest.TestCase):
+    def test_no_year_leak(self):
+        from agro.train import Sample, metrics, split_by_year
+
+        rows = [
+            Sample("玉米", 2020, 6.0, [1], ["x"]),
+            Sample("玉米", 2021, 6.1, [1], ["x"]),
+            Sample("玉米", 2023, 6.5, [1], ["x"]),
+            Sample("水稻", 2023, 7.1, [1], ["x"]),
+        ]
+        train, test = split_by_year(rows, (2023, 2024))
+        self.assertEqual({s.year for s in train}, {2020, 2021})
+        self.assertEqual({s.year for s in test}, {2023})
+        m = metrics([1.0, 3.0], [1.0, 5.0])
+        self.assertEqual(m["n"], 2)
+        self.assertGreater(m["mae"], 0)
 
 
 if __name__ == "__main__":

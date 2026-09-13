@@ -36,26 +36,39 @@ def _get(url: str, timeout: int = 45) -> bytes:
         return resp.read()
 
 
-def fetch_weather(start: str = "2022-01-01", end: str = "2024-12-31") -> dict[str, Path]:
+def fetch_weather(
+    start: str = "2015-01-01",
+    end: str = "2024-12-31",
+    only: tuple[str, ...] | None = None,
+    refresh: bool = False,
+) -> dict[str, Path]:
+    """按锚点坐标拉 ERA5 日要素。时区用 auto，否则美/巴区域的日界会被上海时区切错。"""
     RAW.joinpath("weather").mkdir(parents=True, exist_ok=True)
     written: dict[str, Path] = {}
     daily = "temperature_2m_mean,temperature_2m_max,temperature_2m_min,precipitation_sum"
     for rid, meta in REGIONS.items():
+        if only and rid not in only:
+            continue
+        path = RAW / "weather" / f"{rid}.json"
+        if path.exists() and not refresh:
+            written[rid] = path
+            continue
         url = (
             "https://archive-api.open-meteo.com/v1/archive"
             f"?latitude={meta['lat']}&longitude={meta['lon']}"
             f"&start_date={start}&end_date={end}"
-            f"&daily={daily}&timezone=Asia%2FShanghai"
+            f"&daily={daily}&timezone=auto"
         )
         payload = json.loads(_get(url).decode("utf-8"))
         payload["_meta"] = {
             "region_id": rid,
             "region_name": meta["name"],
             "anchor": meta["anchor"],
+            "country": meta["country"],
+            "hemisphere": meta["hemisphere"],
             "source": "Open-Meteo ERA5 archive, CC BY 4.0",
             "url": url,
         }
-        path = RAW / "weather" / f"{rid}.json"
         path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
         written[rid] = path
     return written
@@ -154,7 +167,7 @@ def weather_monthly(raw_path: Path) -> list[dict[str, object]]:
     return out
 
 
-def collect_all(start: str = "2022-01-01", end: str = "2024-12-31") -> dict[str, object]:
+def collect_all(start: str = "2015-01-01", end: str = "2024-12-31") -> dict[str, object]:
     weather = fetch_weather(start, end)
     yields = fetch_owid_yields()
     wb = fetch_worldbank()

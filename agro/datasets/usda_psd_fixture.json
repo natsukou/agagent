@@ -1,0 +1,23 @@
+[
+  {"crop": "小麦", "year": 2022, "attribute": "Yield", "value": 5.85, "unit": "MT / HA", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "小麦", "year": 2022, "attribute": "Production", "value": 137700.0, "unit": "1000 MT", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "小麦", "year": 2022, "attribute": "Area Harvested", "value": 23540.0, "unit": "1000 HA", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "小麦", "year": 2023, "attribute": "Yield", "value": 5.80, "unit": "MT / HA", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "小麦", "year": 2023, "attribute": "Production", "value": 136600.0, "unit": "1000 MT", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "小麦", "year": 2023, "attribute": "Area Harvested", "value": 23550.0, "unit": "1000 HA", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "小麦", "year": 2024, "attribute": "Yield", "value": 5.90, "unit": "MT / HA", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "小麦", "year": 2024, "attribute": "Production", "value": 140000.0, "unit": "1000 MT", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "小麦", "year": 2024, "attribute": "Area Harvested", "value": 23730.0, "unit": "1000 HA", "country": "China", "commodity": "Wheat", "source": "fixture"},
+  {"crop": "水稻", "year": 2023, "attribute": "Yield", "value": 7.10, "unit": "MT / HA", "country": "China", "commodity": "Rice, Milled", "source": "fixture"},
+  {"crop": "水稻", "year": 2023, "attribute": "Production", "value": 144600.0, "unit": "1000 MT", "country": "China", "commodity": "Rice, Milled", "source": "fixture"},
+  {"crop": "水稻", "year": 2023, "attribute": "Area Harvested", "value": 20370.0, "unit": "1000 HA", "country": "China", "commodity": "Rice, Milled", "source": "fixture"},
+  {"crop": "水稻", "year": 2024, "attribute": "Yield", "value": 7.12, "unit": "MT / HA", "country": "China", "commodity": "Rice, Milled", "source": "fixture"},
+  {"crop": "水稻", "year": 2024, "attribute": "Production", "value": 145000.0, "unit": "1000 MT", "country": "China", "commodity": "Rice, Milled", "source": "fixture"},
+  {"crop": "水稻", "year": 2024, "attribute": "Area Harvested", "value": 20370.0, "unit": "1000 HA", "country": "China", "commodity": "Rice, Milled", "source": "fixture"},
+  {"crop": "玉米", "year": 2023, "attribute": "Yield", "value": 6.50, "unit": "MT / HA", "country": "China", "commodity": "Corn", "source": "fixture"},
+  {"crop": "玉米", "year": 2023, "attribute": "Production", "value": 288800.0, "unit": "1000 MT", "country": "China", "commodity": "Corn", "source": "fixture"},
+  {"crop": "玉米", "year": 2023, "attribute": "Area Harvested", "value": 44430.0, "unit": "1000 HA", "country": "China", "commodity": "Corn", "source": "fixture"},
+  {"crop": "玉米", "year": 2024, "attribute": "Yield", "value": 6.55, "unit": "MT / HA", "country": "China", "commodity": "Corn", "source": "fixture"},
+  {"crop": "玉米", "year": 2024, "attribute": "Production", "value": 294900.0, "unit": "1000 MT", "country": "China", "commodity": "Corn", "source": "fixture"},
+  {"crop": "玉米", "year": 2024, "attribute": "Area Harvested", "value": 45020.0, "unit": "1000 HA", "country": "China", "commodity": "Corn", "source": "fixture"}
+]
