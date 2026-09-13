@@ -1,17 +1,16 @@
-"""期货策略预计测试：把季内因子修正做成可下单的规则，带成本回测。
+"""期货策略预计测试：把决策做成可下单规则，带成本回测。
 
-`eventstudy.py` 回答的是「修正量与收益率有没有相关性」，答案是没有。
-这里回答一个更硬的问题：**照这个规则真去下单，账户会变成什么样。**
+`eventstudy.py` 回答的是「修正量与收益率有没有相关性」。
+这里回答更硬的问题：**照这个决策真去下单，账户会变成什么样。**
 
-两者不能互相替代。相关性接近 0 仍然可能因为尾部分布而赚钱，
-反过来相关性显著也可能被成本吃干。所以要单独跑。
+现行决策不再只用 `-sign(delta)`，而是两段：
+1. 期货专家 MLP：信息日及之前的价格/量特征；
+2. 产业轻决策：产量展望相对开局基线的偏离，只做保留 / 补位 / 冲突改 hold。
 
-规则（`revision_signal`）：
-- 每个季内截面拿到修正量 delta；
-- |delta| 小于阈值的截面不动手，避免把数值噪声当信号；
-- 方向 = -sign(delta)：因子下修（作物变差）→ 供给预期下降 → 做多；
-- 持有固定 h 个交易日，**持仓期间不接新信号**（不重叠），
-  否则同一段行情会被重复计入，收益和夏普都会虚高；
+旧规则仍在同一测试窗上对照。判定「有没有边」看随机符号零分布上尾。
+
+成交约束：
+- 持有固定 h 个交易日，**持仓期间不接新信号**（不重叠）；
 - 建仓价取信息日之后第一个交易日收盘，平仓取其后 h 个交易日收盘。
 
 成本按双边基点计，默认值的来源写在 `COST_BPS` 注释里。
@@ -265,26 +264,71 @@ def study_symbol(
     return out
 
 
+def _full_study(trades: list[Trade], bars: list[FuturesBar], symbol: str, hold: int) -> dict[str, object]:
+    base_cost = COST_BPS.get(symbol, DEFAULT_COST_BPS)
+    out: dict[str, object] = {
+        "signal": {
+            "trades_after_no_overlap": len(trades),
+        },
+        "cost_sensitivity": {
+            "0x": evaluate(trades, 0.0, hold),
+            "1x": evaluate(trades, base_cost, hold),
+            "2x": evaluate(trades, base_cost * 2, hold),
+        },
+        "buy_and_hold": buy_and_hold(bars, trades),
+        "random_sign_null": random_sign_null(trades, base_cost),
+    }
+    flipped = [
+        Trade(t.entry_date, t.exit_date, -t.direction, t.delta, -t.gross_return)
+        for t in trades
+    ]
+    out["reversed_strategy"] = evaluate(flipped, base_cost, hold)
+    return out
+
+
 def run(
     hold: int = HOLD_DAYS,
     min_abs: float = MIN_ABS_DELTA,
     layout_ids: tuple[str, ...] | None = None,
+    test_years: tuple[int, ...] = (2023, 2024),
+    band: float = 0.03,
 ) -> dict[str, object]:
-    revisions = build_revisions(layout_ids)
+    from . import expert as ex_mod
+
+    packed = ex_mod.prepare(test_years, hold, band, layout_ids=layout_ids)
     results: dict[str, object] = {}
-    for lid, revs in revisions.items():
-        for symbol, kind, role in LAYOUT_SYMBOLS.get(lid, ()):
-            bars = load_bars(symbol, kind)
-            key = f"{lid}→{symbol}"
-            if not bars:
-                results[key] = {"ok": False, "reason": f"{symbol} 无行情"}
-                continue
-            results[key] = {
-                "layout": lid,
-                "symbol": symbol,
-                "role": role,
-                **study_symbol(revs, bars, symbol, hold, min_abs),
-            }
+    for key, link in packed.links.items():
+        bars = load_bars(link.symbol, link.kind)
+        if not bars:
+            results[key] = {"ok": False, "reason": f"{link.symbol} 无行情"}
+            continue
+        fused_trades = ex_mod.trades_from_dirs(link.samples, bars, hold, link.dirs_fused)
+        rule_trades = ex_mod.trades_from_dirs(link.samples, bars, hold, link.dirs_rule)
+        expert_trades = ex_mod.trades_from_dirs(link.samples, bars, hold, link.dirs_expert)
+        results[key] = {
+            "layout": link.layout_id,
+            "symbol": link.symbol,
+            "role": link.role,
+            "n_test": len(link.samples),
+            "decision": "expert_industry",
+            "adjust_reasons": {
+                "产业中性，保留专家": link.reasons.count("产业中性，保留专家"),
+                "专家空仓，产业补位": link.reasons.count("专家空仓，产业补位"),
+                "专家与产业同向，保留": link.reasons.count("专家与产业同向，保留"),
+                "专家与产业冲突，轻决策改为 hold": link.reasons.count("专家与产业冲突，轻决策改为 hold"),
+            },
+            **_full_study(fused_trades, bars, link.symbol, hold),
+            "signal": {
+                "min_abs_delta": min_abs,
+                "sections": len(link.samples),
+                "sections_above_threshold": sum(1 for d in link.dirs_fused if d != 0),
+                "trades_after_no_overlap": len(fused_trades),
+            },
+            "baselines": {
+                "rule": _full_study(rule_trades, bars, link.symbol, hold),
+                "expert": _full_study(expert_trades, bars, link.symbol, hold),
+            },
+        }
 
     verdicts = []
     for key, res in results.items():
@@ -307,13 +351,17 @@ def run(
         )
 
     report = {
-        "task": "期货策略预计测试：季内因子修正规则的带成本回测",
+        "task": "期货策略预计测试：专家 MLP + 产业轻决策的带成本回测",
+        "test_years": list(test_years),
+        "n_train_primary": packed.n_train_primary,
+        "n_test": packed.n_test,
         "rule": {
-            "direction": "-sign(delta)：因子下修做多，上修做空",
-            "threshold": f"|delta| ≥ {min_abs} 才动手",
+            "direction": "官方决策=期货专家 MLP + 产业轻决策；旧规则 -sign(delta) 仅作对照",
+            "threshold": f"专家 |score|≥{packed.tau}；产业带宽 {band}；旧规则 |delta|≥{min_abs}",
             "hold_days": hold,
             "overlap": "持仓期间不接新信号，成交不重叠",
             "entry": "信息日之后第一个交易日收盘",
+            "fuse": "同意保留；冲突改 hold；专家空仓才允许产业补位",
         },
         "cost_model": {
             "unit": "双边基点",
@@ -348,6 +396,8 @@ def run(
             "单点锚点代表整个产区",
             "不重叠约束让成交数大幅下降，样本本身就不多",
             "因子来自 ERA5 再分析，与市场实时看到的预报不是同一信息集",
+            "专家只学价格形态；产业层是轻规则，不是第二个深度模型",
+            "测试年截面不进训练；安慰剂链不参与训练",
         ],
     }
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
@@ -365,8 +415,10 @@ def to_markdown(report: dict) -> str:
     lines.append(f"- 建仓：{rule['entry']}")
     lines.append(f"- 成本：{report['cost_model']['derivation']}")
     lines.append(f"- 判定：{report['decision_rule']}")
+    if report.get("test_years"):
+        lines.append(f"- 测试年：{report['test_years']}；训练主链截面 {report.get('n_train_primary')}，测试截面 {report.get('n_test')}")
     lines.append("")
-    lines.append("## 一、信号与成交")
+    lines.append("## 一、信号与成交（官方决策：专家+产业）")
     lines.append("")
     lines.append("| 链 | 角色 | 截面数 | 过阈值 | 不重叠成交 |")
     lines.append("| --- | --- | --- | --- | --- |")
@@ -426,7 +478,21 @@ def to_markdown(report: dict) -> str:
         )
     sb = report["scoreboard"]
     lines.append("")
-    lines.append("## 五、计分板")
+    lines.append("## 五、对照：同一测试窗上的旧规则与专家单独")
+    lines.append("")
+    lines.append("| 链 | 旧规则成交 | 旧规则夏普 | 专家成交 | 专家夏普 | 官方融合成交 | 官方融合夏普 |")
+    lines.append("| --- | --- | --- | --- | --- | --- | --- |")
+    for key, res in report["results"].items():
+        def _row(block: dict) -> tuple[object, object]:
+            one = ((block.get("cost_sensitivity") or {}).get("1x")) or {}
+            return one.get("n_trades", "—"), one.get("sharpe_net", "—")
+
+        rn, rs = _row(res.get("baselines", {}).get("rule") or {})
+        en, es = _row(res.get("baselines", {}).get("expert") or {})
+        fn, fs = _row(res)
+        lines.append(f"| {key} | {rn} | {rs} | {en} | {es} | {fn} | {fs} |")
+    lines.append("")
+    lines.append("## 六、计分板")
     lines.append("")
     lines.append(f"- 检验链数：{sb['links_tested']}")
     lines.append(f"- 净收益为正的：{sb['net_positive']}")
@@ -434,7 +500,7 @@ def to_markdown(report: dict) -> str:
     lines.append(f"- 反而显著差于随机（下尾 5%）的：{sb['worse_than_random_05']}")
     lines.append(f"- 相对随机的分位中位数：{sb['median_percentile_vs_random']}")
     lines.append("")
-    lines.append("## 六、口径限制")
+    lines.append("## 七、口径限制")
     lines.append("")
     for c in report["caveats"]:
         lines.append(f"- {c}")

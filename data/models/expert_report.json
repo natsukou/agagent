@@ -1,0 +1,567 @@
+{
+  "task": "期货专家 MLP + 产业轻决策二次调整",
+  "test_years": [
+    2023,
+    2024
+  ],
+  "hold_days": 3,
+  "industry_band": 0.03,
+  "expert_tau": 0.08,
+  "features": [
+    "ret_1",
+    "ret_3",
+    "ret_5",
+    "ret_10",
+    "vol_10",
+    "mom_20",
+    "ma_gap",
+    "vol_ratio"
+  ],
+  "n_train_primary": 1883,
+  "n_test": 728,
+  "train_years": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022
+  ],
+  "rule": {
+    "expert": "两层 MLP，输入信息日及之前的价格/量特征，输出 tanh 分数；|score|≥tau 才出手",
+    "industry": "展望相对当季开局基线的偏离，与 intervene.py 同一带宽",
+    "fuse": "同意保留；冲突改 hold；专家空仓才允许产业补位。不翻转专家方向。"
+  },
+  "results": {
+    "coffee.br.arabica→KC=F": {
+      "layout": "coffee.br.arabica",
+      "symbol": "KC=F",
+      "role": "primary",
+      "n_test": 242,
+      "expert_nonzero": 49,
+      "industry_nonzero": 25,
+      "fused_nonzero": 60,
+      "agree_share": 0.0,
+      "adjust_reasons": {
+        "产业中性，保留专家": 217,
+        "专家空仓，产业补位": 18,
+        "专家与产业同向，保留": 0,
+        "专家与产业冲突，轻决策改为 hold": 7
+      },
+      "rule": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 13,
+          "hold_days": 3,
+          "cost_bps_round_trip": 6.0,
+          "span": [
+            "2022-09-23",
+            "2024-06-06"
+          ],
+          "trades_per_year": 4.33,
+          "hit_rate_net": 0.4615,
+          "mean_gross_bps": 10.79,
+          "mean_net_bps": 4.79,
+          "cum_net_return": -0.00198,
+          "sharpe_net": 0.0269,
+          "max_drawdown_net": -0.15458,
+          "long_share": 0.6923
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": 0.0269,
+          "sharpe_null_median": -0.0526,
+          "sharpe_null_p05": -1.0879,
+          "sharpe_null_p95": 1.0705,
+          "percentile_of_actual": 0.557,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      },
+      "expert": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 34,
+          "hold_days": 3,
+          "cost_bps_round_trip": 6.0,
+          "span": [
+            "2022-09-12",
+            "2024-09-05"
+          ],
+          "trades_per_year": 11.33,
+          "hit_rate_net": 0.5,
+          "mean_gross_bps": -25.29,
+          "mean_net_bps": -31.29,
+          "cum_net_return": -0.12085,
+          "sharpe_net": -0.2889,
+          "max_drawdown_net": -0.30955,
+          "long_share": 0.1471
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": -0.2889,
+          "sharpe_null_median": -0.0627,
+          "sharpe_null_p05": -1.0967,
+          "sharpe_null_p95": 0.9742,
+          "percentile_of_actual": 0.3445,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      },
+      "expert_industry": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 38,
+          "hold_days": 3,
+          "cost_bps_round_trip": 6.0,
+          "span": [
+            "2022-09-12",
+            "2024-08-22"
+          ],
+          "trades_per_year": 12.67,
+          "hit_rate_net": 0.3947,
+          "mean_gross_bps": -40.14,
+          "mean_net_bps": -46.14,
+          "cum_net_return": -0.18127,
+          "sharpe_net": -0.4556,
+          "max_drawdown_net": -0.30955,
+          "long_share": 0.3947
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": -0.4556,
+          "sharpe_null_median": -0.0417,
+          "sharpe_null_p05": -1.0263,
+          "sharpe_null_p95": 0.9698,
+          "percentile_of_actual": 0.24,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      }
+    },
+    "cotton.us.belt→CT=F": {
+      "layout": "cotton.us.belt",
+      "symbol": "CT=F",
+      "role": "primary",
+      "n_test": 122,
+      "expert_nonzero": 6,
+      "industry_nonzero": 25,
+      "fused_nonzero": 31,
+      "agree_share": 0.0,
+      "adjust_reasons": {
+        "产业中性，保留专家": 97,
+        "专家空仓，产业补位": 25,
+        "专家与产业同向，保留": 0,
+        "专家与产业冲突，轻决策改为 hold": 0
+      },
+      "rule": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 27,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2023-06-05",
+            "2024-11-01"
+          ],
+          "trades_per_year": 13.5,
+          "hit_rate_net": 0.4815,
+          "mean_gross_bps": 21.08,
+          "mean_net_bps": 16.08,
+          "cum_net_return": 0.03541,
+          "sharpe_net": 0.2291,
+          "max_drawdown_net": -0.12626,
+          "long_share": 0.7407
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": 0.2291,
+          "sharpe_null_median": -0.0455,
+          "sharpe_null_p05": -1.221,
+          "sharpe_null_p95": 1.1344,
+          "percentile_of_actual": 0.6545,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      },
+      "expert": {
+        "cost_1x": {
+          "ok": false,
+          "n": 5,
+          "reason": "成交不足 10 笔"
+        },
+        "random_sign_null": {
+          "ok": false,
+          "reason": "成交不足 10 笔"
+        }
+      },
+      "expert_industry": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 18,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2023-07-28",
+            "2024-11-06"
+          ],
+          "trades_per_year": 9.0,
+          "hit_rate_net": 0.4444,
+          "mean_gross_bps": -9.28,
+          "mean_net_bps": -14.28,
+          "cum_net_return": -0.0283,
+          "sharpe_net": -0.2298,
+          "max_drawdown_net": -0.07848,
+          "long_share": 0.7778
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": -0.2298,
+          "sharpe_null_median": -0.0772,
+          "sharpe_null_p05": -1.3247,
+          "sharpe_null_p95": 1.0406,
+          "percentile_of_actual": 0.4155,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      }
+    },
+    "cotton.us.belt→ZS=F": {
+      "layout": "cotton.us.belt",
+      "symbol": "ZS=F",
+      "role": "cross_placebo",
+      "n_test": 122,
+      "expert_nonzero": 7,
+      "industry_nonzero": 25,
+      "fused_nonzero": 32,
+      "agree_share": 0.0,
+      "adjust_reasons": {
+        "产业中性，保留专家": 97,
+        "专家空仓，产业补位": 25,
+        "专家与产业同向，保留": 0,
+        "专家与产业冲突，轻决策改为 hold": 0
+      },
+      "rule": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 27,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2023-06-05",
+            "2024-11-01"
+          ],
+          "trades_per_year": 13.5,
+          "hit_rate_net": 0.5556,
+          "mean_gross_bps": 6.07,
+          "mean_net_bps": 1.07,
+          "cum_net_return": -0.00442,
+          "sharpe_net": 0.0166,
+          "max_drawdown_net": -0.10843,
+          "long_share": 0.7407
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": 0.0166,
+          "sharpe_null_median": -0.0844,
+          "sharpe_null_p05": -1.3227,
+          "sharpe_null_p95": 1.1384,
+          "percentile_of_actual": 0.551,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      },
+      "expert": {
+        "cost_1x": {
+          "ok": false,
+          "n": 5,
+          "reason": "成交不足 10 笔"
+        },
+        "random_sign_null": {
+          "ok": false,
+          "reason": "成交不足 10 笔"
+        }
+      },
+      "expert_industry": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 18,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2023-06-16",
+            "2024-11-06"
+          ],
+          "trades_per_year": 9.0,
+          "hit_rate_net": 0.5,
+          "mean_gross_bps": 26.48,
+          "mean_net_bps": 21.48,
+          "cum_net_return": 0.03556,
+          "sharpe_net": 0.3083,
+          "max_drawdown_net": -0.05782,
+          "long_share": 0.7778
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": 0.3083,
+          "sharpe_null_median": -0.063,
+          "sharpe_null_p05": -1.2813,
+          "sharpe_null_p95": 1.1499,
+          "percentile_of_actual": 0.7,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      }
+    },
+    "cotton.xinjiang→CF0": {
+      "layout": "cotton.xinjiang",
+      "symbol": "CF0",
+      "role": "primary",
+      "n_test": 142,
+      "expert_nonzero": 14,
+      "industry_nonzero": 27,
+      "fused_nonzero": 41,
+      "agree_share": 0.0,
+      "adjust_reasons": {
+        "产业中性，保留专家": 115,
+        "专家空仓，产业补位": 27,
+        "专家与产业同向，保留": 0,
+        "专家与产业冲突，轻决策改为 hold": 0
+      },
+      "rule": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 21,
+          "hold_days": 3,
+          "cost_bps_round_trip": 8.0,
+          "span": [
+            "2023-04-10",
+            "2024-09-04"
+          ],
+          "trades_per_year": 10.5,
+          "hit_rate_net": 0.5714,
+          "mean_gross_bps": 18.31,
+          "mean_net_bps": 10.31,
+          "cum_net_return": 0.01909,
+          "sharpe_net": 0.2023,
+          "max_drawdown_net": -0.06139,
+          "long_share": 0.7143
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": 0.2023,
+          "sharpe_null_median": -0.1497,
+          "sharpe_null_p05": -1.3915,
+          "sharpe_null_p95": 1.0537,
+          "percentile_of_actual": 0.6815,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      },
+      "expert": {
+        "cost_1x": {
+          "ok": false,
+          "n": 7,
+          "reason": "成交不足 10 笔"
+        },
+        "random_sign_null": {
+          "ok": false,
+          "reason": "成交不足 10 笔"
+        }
+      },
+      "expert_industry": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 19,
+          "hold_days": 3,
+          "cost_bps_round_trip": 8.0,
+          "span": [
+            "2023-04-11",
+            "2024-10-24"
+          ],
+          "trades_per_year": 9.5,
+          "hit_rate_net": 0.4737,
+          "mean_gross_bps": -28.46,
+          "mean_net_bps": -36.46,
+          "cum_net_return": -0.06919,
+          "sharpe_net": -0.7065,
+          "max_drawdown_net": -0.06919,
+          "long_share": 0.7368
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": -0.7065,
+          "sharpe_null_median": -0.1679,
+          "sharpe_null_p05": -1.4293,
+          "sharpe_null_p95": 1.0611,
+          "percentile_of_actual": 0.245,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      }
+    },
+    "soy.us.belt→ZS=F": {
+      "layout": "soy.us.belt",
+      "symbol": "ZS=F",
+      "role": "primary",
+      "n_test": 100,
+      "expert_nonzero": 7,
+      "industry_nonzero": 23,
+      "fused_nonzero": 28,
+      "agree_share": 0.0,
+      "adjust_reasons": {
+        "产业中性，保留专家": 77,
+        "专家空仓，产业补位": 22,
+        "专家与产业同向，保留": 0,
+        "专家与产业冲突，轻决策改为 hold": 1
+      },
+      "rule": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 14,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2023-06-01",
+            "2024-10-01"
+          ],
+          "trades_per_year": 7.0,
+          "hit_rate_net": 0.5714,
+          "mean_gross_bps": -38.62,
+          "mean_net_bps": -43.62,
+          "cum_net_return": -0.06359,
+          "sharpe_net": -0.4421,
+          "max_drawdown_net": -0.11338,
+          "long_share": 0.7857
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": -0.4421,
+          "sharpe_null_median": -0.0463,
+          "sharpe_null_p05": -1.2848,
+          "sharpe_null_p95": 1.1945,
+          "percentile_of_actual": 0.285,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      },
+      "expert": {
+        "cost_1x": {
+          "ok": false,
+          "n": 5,
+          "reason": "成交不足 10 笔"
+        },
+        "random_sign_null": {
+          "ok": false,
+          "reason": "成交不足 10 笔"
+        }
+      },
+      "expert_industry": {
+        "cost_1x": {
+          "ok": true,
+          "n_trades": 15,
+          "hold_days": 3,
+          "cost_bps_round_trip": 5.0,
+          "span": [
+            "2023-06-16",
+            "2024-10-03"
+          ],
+          "trades_per_year": 7.5,
+          "hit_rate_net": 0.3333,
+          "mean_gross_bps": -76.1,
+          "mean_net_bps": -81.1,
+          "cum_net_return": -0.11745,
+          "sharpe_net": -1.1211,
+          "max_drawdown_net": -0.14276,
+          "long_share": 0.8
+        },
+        "random_sign_null": {
+          "ok": true,
+          "draws": 2000,
+          "sharpe_actual": -1.1211,
+          "sharpe_null_median": -0.0675,
+          "sharpe_null_p05": -1.2968,
+          "sharpe_null_p95": 1.1788,
+          "percentile_of_actual": 0.085,
+          "above_null_95": false,
+          "below_null_05": false,
+          "outside_null_95": false
+        }
+      }
+    }
+  },
+  "verdicts": [
+    {
+      "link": "coffee.br.arabica→KC=F",
+      "role": "primary",
+      "n_trades": 38,
+      "sharpe_net": -0.4556,
+      "percentile_vs_random": 0.24,
+      "beats_random_95": false
+    },
+    {
+      "link": "cotton.us.belt→CT=F",
+      "role": "primary",
+      "n_trades": 18,
+      "sharpe_net": -0.2298,
+      "percentile_vs_random": 0.4155,
+      "beats_random_95": false
+    },
+    {
+      "link": "cotton.us.belt→ZS=F",
+      "role": "cross_placebo",
+      "n_trades": 18,
+      "sharpe_net": 0.3083,
+      "percentile_vs_random": 0.7,
+      "beats_random_95": false
+    },
+    {
+      "link": "cotton.xinjiang→CF0",
+      "role": "primary",
+      "n_trades": 19,
+      "sharpe_net": -0.7065,
+      "percentile_vs_random": 0.245,
+      "beats_random_95": false
+    },
+    {
+      "link": "soy.us.belt→ZS=F",
+      "role": "primary",
+      "n_trades": 15,
+      "sharpe_net": -1.1211,
+      "percentile_vs_random": 0.085,
+      "beats_random_95": false
+    }
+  ],
+  "scoreboard": {
+    "links_tested": 5,
+    "beats_random_95": 0
+  },
+  "caveats": [
+    "专家层只学价格形态，不声称理解基本面",
+    "产业层是规则调整，不是第二个深度模型",
+    "测试年截面不得进入训练；安慰剂链不参与训练",
+    "判定仍看随机符号零分布上尾，不看收益正负",
+    "不生成当前交易建议"
+  ]
+}

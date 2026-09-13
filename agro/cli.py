@@ -11,6 +11,7 @@
     python -m agro.cli industry-eval --test-years 2023,2024
     python -m agro.cli multicrop --table
     python -m agro.cli event-study --table
+    python -m agro.cli expert --table --test-years 2023,2024
 """
 
 from __future__ import annotations
@@ -223,9 +224,21 @@ def cmd_intervene(args):
 def cmd_strategy(args):
     from . import strategy as st_mod
 
-    report = st_mod.run_with_table(hold=args.hold, min_abs=args.min_delta)
+    years = tuple(int(x) for x in args.test_years.split(",") if x.strip())
+    report = st_mod.run_with_table(hold=args.hold, min_abs=args.min_delta, test_years=years, band=args.band)
     if args.table:
         _text(st_mod.to_markdown(report))
+    else:
+        _out({k: v for k, v in report.items() if k != "results"})
+
+
+def cmd_expert(args):
+    from . import expert as ex_mod
+
+    years = tuple(int(x) for x in args.test_years.split(",") if x.strip())
+    report = ex_mod.run(test_years=years, hold=args.hold, band=args.band)
+    if args.table:
+        _text(ex_mod.to_markdown(report))
     else:
         _out({k: v for k, v in report.items() if k != "results"})
 
@@ -370,9 +383,17 @@ def build_parser() -> argparse.ArgumentParser:
     iv.set_defaults(func=cmd_intervene)
     st = sub.add_parser("strategy")
     st.add_argument("--hold", type=int, default=3, help="持有交易日数")
-    st.add_argument("--min-delta", type=float, default=0.002, help="修正量阈值")
+    st.add_argument("--min-delta", type=float, default=0.002, help="旧规则修正量阈值（对照）")
+    st.add_argument("--test-years", default="2023,2024")
+    st.add_argument("--band", type=float, default=0.03, help="产业轻决策带宽")
     st.add_argument("--table", action="store_true", help="打印 Markdown 产出表")
     st.set_defaults(func=cmd_strategy)
+    ex = sub.add_parser("expert")
+    ex.add_argument("--test-years", default="2023,2024")
+    ex.add_argument("--hold", type=int, default=3, help="持有交易日数")
+    ex.add_argument("--band", type=float, default=0.03, help="产业轻决策相对开局基线的带宽")
+    ex.add_argument("--table", action="store_true", help="打印 Markdown 产出表")
+    ex.set_defaults(func=cmd_expert)
     ac = sub.add_parser("accuracy")
     ac.add_argument("--test-years", default="2023,2024")
     ac.add_argument("--table", action="store_true", help="打印 Markdown 产出表")

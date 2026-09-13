@@ -39,7 +39,8 @@ python -m agro.cli psd --refresh
 python -m agro.cli multicrop --table --test-years 2023,2024
 python -m agro.cli event-study --table
 python -m agro.cli accuracy --table
-python -m agro.cli strategy --table
+python -m agro.cli strategy --table --test-years 2023,2024
+python -m agro.cli expert --table --test-years 2023,2024
 python -m agro.cli intervene --table
 python -m agro.cli personas
 python -m agro.cli ai-serve
@@ -89,6 +90,10 @@ python -m agro.cli ai-serve
 `strategy` 把因子修正做成可下单规则并带成本回测，
 判定「有没有边」看策略夏普是否超出随机符号零分布的上尾。
 结果：5 条链 0 条通过，唯一显著的是跨品种安慰剂，且显著在坏的一侧。
+
+`expert` 不再只用 `-sign(delta)`：先用信息日之前的价格/量特征训练两层期货专家 MLP，
+再用产量展望相对开局基线做一次轻决策调整（同意保留，冲突改 hold）。
+判定尺子与 `strategy` 相同。见 `docs/12-期货专家与产业轻决策.md`。
 
 两张表与解读见 `docs/10-两项验收测试.md`。
 

@@ -13,6 +13,7 @@ from agro.futures import FuturesBar
 from agro.strategy import (
     COST_BPS,
     Trade,
+    _full_study,
     _max_drawdown,
     _sharpe,
     build_trades,
@@ -179,6 +180,16 @@ class TestRandomSignNull(unittest.TestCase):
         got = random_sign_null(trades, 0.0, draws=400)
         # 策略全做多且标的全涨 → 必然站在零分布顶端
         self.assertGreater(got["sharpe_actual"], got["sharpe_null_p95"])
+
+
+class TestOfficialDecision(unittest.TestCase):
+    def test_full_study_keeps_cost_and_null(self):
+        trades = [trade(0.01 * (-1) ** i, 1) for i in range(20)]
+        bars = [bar(f"2024-01-{d:02d}", 100.0 + d) for d in range(1, 25)]
+        got = _full_study(trades, bars, "CF0", 3)
+        self.assertIn("1x", got["cost_sensitivity"])
+        self.assertIn("random_sign_null", got)
+        self.assertIn("reversed_strategy", got)
 
 
 class TestCostModel(unittest.TestCase):
