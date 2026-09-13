@@ -28,7 +28,12 @@ class YieldComponent:
 
 @dataclass
 class CropLayout:
-    """一个「作物 × 熟制 × 主产区」的完整布局，不是品种名本身。"""
+    """一个「作物 × 熟制 × 主产区」的完整布局，不是品种名本身。
+
+    `country` 决定产量标签按哪个国家对齐；`prev_year_months` 列出属于上一个
+    自然年的生长季月份（冬小麦、南半球大豆咖啡都会跨年）；`target` 区分能报
+    单产还是只能报产量——咖啡在 USDA PSD 里没有面积，只能报产量。
+    """
 
     id: str
     crop: str
@@ -42,6 +47,14 @@ class CropLayout:
     components: list[YieldComponent]
     notes: str = ""
     tags: dict[str, str] = field(default_factory=dict)
+    country: str = "CHN"
+    prev_year_months: tuple[int, ...] = ()
+    target: str = "yield_t_ha"  # yield_t_ha / production
+    unit: str = "t/ha"  # 咖啡没有面积统计，报产量，单位 kt
+
+    @property
+    def crosses_year(self) -> bool:
+        return bool(self.prev_year_months)
 
     @property
     def season_months(self) -> list[int]:

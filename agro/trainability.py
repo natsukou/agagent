@@ -11,7 +11,7 @@ import sqlite3
 from collections import defaultdict
 from pathlib import Path
 
-from .store import DB_PATH
+from .store import CHN_YIELD_FILTER, DB_PATH
 
 
 MIN_LINEAR = 20
@@ -34,7 +34,8 @@ def aligned_samples(path: Path | None = None) -> list[dict[str, object]]:
         path,
     )
     yields = _rows(
-        "SELECT crop, year, yield_t_ha, source FROM yield_year WHERE crop != '谷物'",
+        "SELECT crop, year, yield_t_ha, source FROM yield_year "
+        f"WHERE {CHN_YIELD_FILTER} AND crop != '谷物'",
         path,
     )
     region_crops = {

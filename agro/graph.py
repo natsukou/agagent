@@ -21,6 +21,8 @@ class NodeKind(str, Enum):
     COMPONENT = "component"
     YIELD = "yield"
     MARKET = "market"
+    COUNTY = "county"
+    DEMAND = "demand"
 
 
 class AgriEdgeType(str, Enum):
@@ -31,6 +33,9 @@ class AgriEdgeType(str, Enum):
     CONTRIBUTES = "contributes"  # 物候贡献产量构成
     AGGREGATES = "aggregates"  # 构成汇总为产量
     PRICES = "prices"  # 期货品种给作物布局定价信号
+    CONTAINS = "contains"  # 主产区包含区县
+    DEMANDS = "demands"  # 区县对作物场景的需求
+    NEEDS = "needs"  # 作物需求对物候天气窗口的需要
 
 
 @dataclass
@@ -232,4 +237,37 @@ def attach_dce_instruments(graph: YieldGraph) -> int:
             if key not in graph.edges:
                 conf = 0.85 if ins.role == "spot_proxy" else 0.45
                 graph.add_edge(AgriEdge(nid, crop_id, AgriEdgeType.PRICES, conf, 1.0, source="dce-map"))
+    return added
+
+
+def attach_counties(graph: YieldGraph) -> int:
+    """把种子区县和作物需求节点挂上。天气暂继承主产区，待换区县坐标拉取。"""
+    from .county import COUNTIES
+
+    added = 0
+    for c in COUNTIES:
+        nid = f"county:{c.id}"
+        if nid not in graph.nodes:
+            graph.add_node(
+                AgriNode(
+                    nid,
+                    c.name,
+                    NodeKind.COUNTY,
+                    payload={"region_id": c.region_id, "lat": c.lat, "lon": c.lon, "area_kha": c.area_kha},
+                )
+            )
+            added += 1
+        region_id = f"region:{c.region_id}"
+        if region_id in graph.nodes:
+            graph.add_edge(AgriEdge(region_id, nid, AgriEdgeType.CONTAINS, 1.0, 1.0, source="county-seed"))
+        for crop in c.crops:
+            did = f"demand:{c.id}:{crop}"
+            if did not in graph.nodes:
+                graph.add_node(AgriNode(did, f"{c.name}-{crop}需求", NodeKind.DEMAND, payload={"crop": crop}))
+                added += 1
+            graph.add_edge(AgriEdge(nid, did, AgriEdgeType.DEMANDS, 1.0, 1.0, source="county-seed"))
+            for n in graph.nodes.values():
+                if n.kind is NodeKind.CROP and n.name.startswith(crop + "/"):
+                    graph.add_edge(AgriEdge(did, n.id, AgriEdgeType.DEMANDS, 0.7, 1.0, source="county-seed"))
+                    break
     return added

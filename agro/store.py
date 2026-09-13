@@ -14,6 +14,18 @@ from .regions import REGIONS
 DB_PATH = ROOT / "agri_graph.db"
 EXPORT_PATH = ROOT / "graph_export.json"
 
+# yield_year 里同时存两套口径：OWID/FAO 与世界银行的中国序列（scope='CHN'），
+# 以及 USDA PSD 的多国序列（scope='PSD:<ISO3>'）。
+#
+# 凡是按 (crop, year) 建索引、不带 scope 的查询都是错的，有两种坏法：
+# 1. PSD 的咖啡没有单产，yield_t_ha 是 NULL，float() 直接抛异常；
+# 2. 同一 (crop, year) 会有 CHN/PSD:CHN/PSD:USA/PSD:BRA 多行，
+#    字典推导式里后来的行静默覆盖前面的——这种更危险，不报错但数就串了。
+#
+# 所以只认中国单一机构口径的查询统一用这个片段；要多国标签的走 PSD_SCOPE_FILTER。
+CHN_YIELD_FILTER = "scope = 'CHN' AND yield_t_ha IS NOT NULL"
+PSD_SCOPE_FILTER = "scope LIKE 'PSD:%'"
+
 
 def _connect(path: Path | None = None) -> sqlite3.Connection:
     path = path or DB_PATH
@@ -91,7 +103,9 @@ def _edge(conn: sqlite3.Connection, src: str, dst: str, etype: str, weight: floa
 
 def build_graph(conn: sqlite3.Connection) -> dict[str, int]:
     init_schema(conn)
-    _node(conn, "country:CHN", "country", "中国", iso3="CHN")
+    country_names = {"CHN": "中国", "USA": "美国", "BRA": "巴西"}
+    for iso3, cname in country_names.items():
+        _node(conn, f"country:{iso3}", "country", cname, iso3=iso3)
 
     for rid, meta in REGIONS.items():
         _node(
@@ -102,16 +116,30 @@ def build_graph(conn: sqlite3.Connection) -> dict[str, int]:
             lat=meta["lat"],
             lon=meta["lon"],
             anchor=meta["anchor"],
+            country=meta["country"],
+            hemisphere=meta["hemisphere"],
         )
-        _edge(conn, f"region:{rid}", "country:CHN", "in_country")
+        _edge(conn, f"region:{rid}", f"country:{meta['country']}", "in_country")
         for crop in meta["crops"]:
             _node(conn, f"crop:{crop}", "crop", crop)
             _edge(conn, f"crop:{crop}", f"region:{rid}", "grown_in")
 
     for lay in bundled.layouts():
-        _node(conn, f"layout:{lay.id}", "layout", f"{lay.crop}/{lay.system}", crop=lay.crop, area_kha=lay.area_kha)
+        _node(
+            conn,
+            f"layout:{lay.id}",
+            "layout",
+            f"{lay.crop}/{lay.system}",
+            crop=lay.crop,
+            area_kha=lay.area_kha,
+            country=lay.country,
+            target=lay.target,
+            unit=lay.unit,
+        )
+        _node(conn, f"crop:{lay.crop}", "crop", lay.crop)
         _edge(conn, f"layout:{lay.id}", f"region:{lay.region_id}", "located_in")
         _edge(conn, f"layout:{lay.id}", f"crop:{lay.crop}", "of_crop")
+        _edge(conn, f"layout:{lay.id}", f"country:{lay.country}", "in_country")
 
     weather_n = 0
     weather_dir = RAW / "weather"
@@ -150,6 +178,42 @@ def build_graph(conn: sqlite3.Connection) -> dict[str, int]:
                         wid = f"weather:{rid}:{row['year']}-{month:02d}"
                         if conn.execute("SELECT 1 FROM nodes WHERE id=?", (wid,)).fetchone():
                             _edge(conn, wid, nid, "affects", 0.4)
+            yield_n += 1
+
+    # USDA PSD 多国标签。scope 前缀 PSD: 与 OWID/FAO 的 CHN series 分开存，
+    # 两家机构同一作物同一年数不一样，不能互相覆盖。
+    psd_path = RAW / "psd_multi.json"
+    if psd_path.exists():
+        from .psd import to_year_table
+
+        for row in to_year_table(json.loads(psd_path.read_text(encoding="utf-8"))):
+            scope = f"PSD:{row['scope']}"
+            prod_t = None if row["production_kt"] is None else float(row["production_kt"]) * 1000.0
+            conn.execute(
+                """INSERT OR REPLACE INTO yield_year(scope, crop, year, yield_t_ha, production_t, source)
+                   VALUES (?,?,?,?,?,?)""",
+                (scope, row["crop"], row["year"], row["yield_t_ha"], prod_t, row["source"]),
+            )
+            nid = f"yield:{scope}:{row['crop']}:{row['year']}"
+            _node(
+                conn,
+                nid,
+                "yield",
+                f"{row['crop']} {row['scope']} {row['year']}",
+                scope=scope,
+                crop=row["crop"],
+                year=row["year"],
+                yield_t_ha=row["yield_t_ha"],
+                production_kt=row["production_kt"],
+                area_kha=row["area_kha"],
+                source=row["source"],
+            )
+            _node(conn, f"crop:{row['crop']}", "crop", str(row["crop"]))
+            _edge(conn, nid, f"crop:{row['crop']}", "of_crop")
+            _edge(conn, nid, f"country:{row['scope']}", "in_scope")
+            for lay in bundled.layouts():
+                if lay.crop == row["crop"] and lay.country == row["scope"]:
+                    _edge(conn, nid, f"layout:{lay.id}", "observed_for", 0.6, note="国别产量挂到该国布局")
             yield_n += 1
 
     wb_path = RAW / "worldbank_chn.json"
@@ -198,6 +262,31 @@ def build_graph(conn: sqlite3.Connection) -> dict[str, int]:
             _edge(conn, nid, f"layout:{layout_id}", "prices")
         sales_n += 1
 
+    from .county import COUNTIES
+
+    county_n = 0
+    for c in COUNTIES:
+        _node(
+            conn,
+            f"county:{c.id}",
+            "county",
+            c.name,
+            region_id=c.region_id,
+            lat=c.lat,
+            lon=c.lon,
+            area_kha=c.area_kha,
+        )
+        _edge(conn, f"region:{c.region_id}", f"county:{c.id}", "contains")
+        county_n += 1
+        for crop in c.crops:
+            did = f"demand:{c.id}:{crop}"
+            _node(conn, did, "demand", f"{c.name}-{crop}需求", crop=crop)
+            _edge(conn, f"county:{c.id}", did, "demands")
+            _edge(conn, did, f"crop:{crop}", "demands", 0.7)
+            yid = f"yield-target:{c.id}:{crop}"
+            _node(conn, yid, "yield_target", f"{c.name}-{crop}预期单产", crop=crop, area_kha=c.area_kha)
+            _edge(conn, did, yid, "aggregates")
+
     conn.commit()
     return {
         "nodes": conn.execute("SELECT COUNT(*) FROM nodes").fetchone()[0],
@@ -205,6 +294,7 @@ def build_graph(conn: sqlite3.Connection) -> dict[str, int]:
         "weather_months": weather_n,
         "yield_rows": yield_n,
         "sales_rows": sales_n,
+        "counties": county_n,
     }
 
 
@@ -227,7 +317,8 @@ def summary(conn: sqlite3.Connection) -> dict[str, object]:
     latest_yield = [
         dict(r)
         for r in conn.execute(
-            "SELECT crop, year, yield_t_ha, source FROM yield_year WHERE crop != '谷物' ORDER BY year DESC, crop LIMIT 12"
+            "SELECT crop, year, yield_t_ha, source FROM yield_year "
+            f"WHERE {CHN_YIELD_FILTER} AND crop != '谷物' ORDER BY year DESC, crop LIMIT 12"
         )
     ]
     weather_span = conn.execute("SELECT MIN(year||'-'||printf('%02d',month)), MAX(year||'-'||printf('%02d',month)), COUNT(*) FROM weather_month").fetchone()
