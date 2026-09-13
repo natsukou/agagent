@@ -1,0 +1,12 @@
+# Python build and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local credentials
+.env
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
